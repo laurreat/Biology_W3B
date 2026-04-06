@@ -72,23 +72,47 @@ function loadCountries() {
           borderLine.userData = region.properties;
           scene.add(borderLine);
         } else if (region.geometry.type === "Point") {
-          // Procesamos puntos
+          // Procesamos puntos con un estilo mejorado (Marcadores premium)
           const [lon, lat] = region.geometry.coordinates;
           const phi = (90 - lat) * (Math.PI / 180);
           const theta = (lon + 180) * (Math.PI / 180);
-          const x = -(R + 0.02) * Math.sin(phi) * Math.cos(theta);
-          const y = (R + 0.02) * Math.cos(phi);
-          const z = (R + 0.02) * Math.sin(phi) * Math.sin(theta);
-          // Creamos un marcador (por ejemplo, una esfera pequeña)
-          const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
-          const markerMaterial = new THREE.MeshBasicMaterial({
-            color: 0x00ff00,
+          const x = -(R + 0.15) * Math.sin(phi) * Math.cos(theta);
+          const y = (R + 0.15) * Math.cos(phi);
+          const z = (R + 0.15) * Math.sin(phi) * Math.sin(theta);
+          
+          // Grupo para el marcador (punto central + aura pulsante)
+          const markerGroup = new THREE.Group();
+          markerGroup.position.set(x, y, z);
+          
+          // Punto central (Brillante)
+          const coreGeo = new THREE.SphereGeometry(0.12, 24, 24);
+          const coreMat = new THREE.MeshBasicMaterial({ color: 0x10b981 }); // Verde Esmeralda
+          const core = new THREE.Mesh(coreGeo, coreMat);
+          markerGroup.add(core);
+
+          // Aura pulsante (Anillo o esfera traslúcida)
+          const auraGeo = new THREE.SphereGeometry(0.2, 24, 24);
+          const auraMat = new THREE.MeshBasicMaterial({ 
+              color: 0x10b981, 
+              transparent: true, 
+              opacity: 0.4 
           });
-          const marker = new THREE.Mesh(markerGeometry, markerMaterial);
-          marker.position.set(x, y, z);
-          // Asignamos las propiedades del GeoJSON al marcador
-          marker.userData = region.properties;
-          scene.add(marker);
+          const aura = new THREE.Mesh(auraGeo, auraMat);
+          markerGroup.add(aura);
+
+          // Animación de pulso personalizada
+          markerGroup.userData = { 
+              ...region.properties,
+              originalScale: 1,
+              pulseSpeed: 0.05 + Math.random() * 0.05
+          };
+          
+          // Agregamos el marcador a la escena
+          scene.add(markerGroup);
+          
+          // Guardamos referencia para animar en el loop
+          if (!window.globeMarkers) window.globeMarkers = [];
+          window.globeMarkers.push(markerGroup);
         }
       });
     })
@@ -149,9 +173,21 @@ function showCountryInfo(data) {
 
 // Función de animación
 function animate() {
-  requestAnimationFrame(animate);
-  controls.update();
-  renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+    
+    // Animar marcadores (Pulso)
+    if (window.globeMarkers) {
+        const time = Date.now() * 0.002;
+        window.globeMarkers.forEach(marker => {
+            const pulse = 1 + Math.sin(time + marker.userData.pulseSpeed * 100) * 0.15;
+            marker.scale.set(pulse, pulse, pulse);
+            // Rotación ligera para un efecto dinámico
+            marker.rotation.y += 0.01;
+        });
+    }
+
+    controls.update();
+    renderer.render(scene, camera);
 }
 
 // Actualización del renderizado al cambiar el tamaño de la ventana

@@ -75,21 +75,71 @@ const BIOLOGY_DATA = {
             `
         }
     ],
+    seresvivos: [
+        {
+            id: 'plantas',
+            title: 'Reino Plantae',
+            description: '¡Las constructoras del aire! Fabrican su propio alimento con ayuda del Sol.',
+            image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=600',
+            category: 'Seres Vivos',
+            details: `
+                <p>Las plantas son los únicos seres vivos que pueden fabricar su comida usando agua, aire y luz solar (un proceso llamado <strong>Fotosíntesis</strong>).</p>
+                <ul>
+                    <li>Nos dan el oxígeno que respiramos.</li>
+                    <li>Son la base de la alimentación de todos los animales.</li>
+                    <li>Absorben el exceso de calor del planeta.</li>
+                </ul>
+            `
+        },
+        {
+            id: 'hongos',
+            title: 'Reino Fungi',
+            description: 'Los recicladores de la naturaleza. Sin ellos, el bosque estaría lleno de basura!',
+            image: 'https://images.unsplash.com/photo-1504221507732-5246c045949b?q=80&w=600',
+            category: 'Seres Vivos',
+            details: `
+                <p>Los hongos parecen plantas pero no lo son, porque no hacen fotosíntesis. Ellos se alimentan descomponiendo hojas muertas, troncos y restos de animales.</p>
+                <div class="info-stat"><strong>Importante:</strong> ¡Gracias a ellos, el suelo siempre tiene nutrientes para que crezcan nuevas plantas!</div>
+            `
+        },
+        {
+            id: 'bacterias',
+            title: 'Mundo Microscópico',
+            description: 'Seres tan pequeños que no los ves, ¡pero están en todas partes!',
+            image: 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?q=80&w=600',
+            category: 'Microbiología',
+            details: `
+                <p>Existen bacterias buenas (como las que ayudan a hacer yogurt o las que viven en tu panza para ayudarte a digerir) y algunas que causan enfermedades.</p>
+            `
+        }
+    ],
     ecologia: [
         {
             id: 'cadena',
-            title: 'La Red de la Vida',
-            description: 'En la naturaleza, todos necesitamos de otros para sobrevivir.',
-            image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600',
-            category: 'Ecosistemas',
+            title: 'Cadena Alimenticia',
+            description: '¿Quién se come a quién? El viaje de la energía en la naturaleza.',
+            image: 'https://images.unsplash.com/photo-1547363404-58a43586cd17?q=80&w=800',
+            category: 'Ecología',
             details: `
-                <p>Se llama Cadena Alimenticia al paso de energía de un ser a otro:</p>
-                <ul>
-                    <li><strong>Productores (Plantas):</strong> Producen comida con el sol.</li>
-                    <li><strong>Consumidores Primarios:</strong> Comen plantas (grillos, vacas).</li>
-                    <li><strong>Consumidores Secundarios:</strong> Comen a los primarios (pájaros, ranas).</li>
-                    <li><strong>Descomponedores (Hongos):</strong> Limpian la naturaleza devolviendo nutrientes al suelo.</li>
-                </ul>
+                <p>Imagina una fila donde cada uno depende del anterior:</p>
+                <ol>
+                    <li><strong>Productores:</strong> Pasto (Sol + Agua).</li>
+                    <li><strong>Consumidores 1:</strong> Grillo (Come pasto).</li>
+                    <li><strong>Consumidores 2:</strong> Rana (Come grillo).</li>
+                    <li><strong>Consumidores 3:</strong> Serpiente (Come rana).</li>
+                    <li><strong>Descomponedores:</strong> Gusanos y Hongos (Reciclan lo que queda).</li>
+                </ol>
+            `
+        },
+        {
+            id: 'ciclos',
+            title: 'Ciclos de la Vida',
+            description: 'Cómo el agua y los químicos viajan por todo el planeta.',
+            image: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=600',
+            category: 'Biogeoquímicos',
+            details: `
+                <p>Todo en la Tierra se recicla. El agua que bebes hoy pudo haber sido la misma que bebió un dinosaurio hace millones de años!</p>
+                <p>Estudiamos los ciclos del <strong>Agua, Carbono y Nitrógeno</strong> para entender cómo la Tierra se mantiene saludable.</p>
             `
         }
     ]

@@ -1,202 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ciclos Biogeoquímicos</title>
-    <style>
-      :root {
-        --primary-color: #1e1e2f;
-        --secondary-color: #283044;
-        --accent-color: #e94560;
-        --text-light: #f5f5f5;
-        --background-color: #f4f4f4;
-        --font-family: "Poppins", sans-serif;
-        --transition-speed: 0.3s;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: var(--font-family);
-        background: var(--background-color);
-        color: #333;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-      header {
-        background: var(--primary-color);
-        color: var(--text-light);
-        padding: 1.5rem;
-        text-align: center;
-      }
-      header h1 {
-        margin-bottom: 0.5rem;
-      }
-      .main-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        z-index: 1000;
-      }
-      .nav-btn {
-        padding: 0.8rem 1.5rem;
-        background: var(--secondary-color);
-        border: none;
-        border-radius: 2rem;
-        cursor: pointer;
-        color: var(--text-light);
-        font-weight: 600;
-        transition: all var(--transition-speed) ease;
-      }
-      .nav-btn:hover {
-        background: var(--accent-color);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-      .container {
-        max-width: 800px;
-        margin: 6rem auto 2rem;
-        padding: 0 1rem;
-      }
-      h2 {
-        text-align: center;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-      }
-      .cycle {
-        border: 2px solid var(--secondary-color);
-        border-radius: 5px;
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-      }
-      .cycle h3 {
-        text-align: center;
-        color: var(--secondary-color);
-      }
-      .cycle p {
-        text-align: justify;
-      }
-      .toggle-btn {
-        display: block;
-        margin: 0.5rem auto;
-        padding: 0.5rem 1rem;
-        background: var(--secondary-color);
-        color: var(--text-light);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all var(--transition-speed) ease;
-      }
-      .toggle-btn:hover {
-        background: var(--accent-color);
-        transform: translateY(-2px);
-      }
-      .details {
-        display: none;
-        padding-top: 0.5rem;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <br>
-      <br>
-      <br>
-      <h1>Ciclos Biogeoquímicos</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biogeoquímicos | Biology Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+</head>
+<body>
+
+    <nav id="global-nav"></nav>
+
+    <header class="hero" style="height: 40vh; min-height: 300px;">
+        <div class="hero-content">
+            <h1>Ciclos Químicos</h1>
+            <p>Aprende cómo el agua, el carbono y el nitrógeno viajan por nuestro planeta.</p>
+        </div>
     </header>
-    <nav class="main-nav">
-      <button class="nav-btn" onclick="window.location.href='index.html'">
-        🌍 Planeta Tierra
-      </button>
-      <button class="nav-btn" onclick="window.location.href='humano.html'">
-        👤 Cuerpo Humano
-      </button>
-      <button class="nav-btn" onclick="window.location.href='animals.html'">
-        🐾Animales
-      </button>
-      <button class="nav-btn" onclick="window.location.href='document.html'">
-        📂Documentación
-      </button>
-      <button
-        class="nav-btn"
-        onclick="window.location.href='cadenaAlimenticia.html'"
-      >
-        ♻️Cadena Alimenticia
-      </button>
-      <button
-        class="nav-btn"
-        onclick="window.location.href='Biogeoquimicos.html'"
-      >
-        ☢️Biogeoquímicos
-      </button>
-      <button class="nav-btn" onclick="window.location.href='seresvivos.html'">
-        🐾Seres Vivos
-      </button>
-    </nav>
-    <div class="container">
-      <h2>Explora los Ciclos Biogeoquímicos</h2>
-      <!-- Ciclo del Agua -->
-      <div class="cycle">
-        <h3>Ciclo del Agua</h3>
-        <button class="toggle-btn" onclick="toggleDetails('agua')">
-          Ver detalles
-        </button>
-        <div class="details" id="agua">
-          <p>
-            El ciclo del agua describe el movimiento continuo del agua en la
-            Tierra a través de la evaporación, condensación, precipitación y
-            escorrentía. Este proceso es esencial para la vida.
-          </p>
+
+    <main class="content-grid" id="bio-container"></main>
+
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('detail-modal')">&times;</span>
+            <h2 id="modal-title" style="color: var(--primary); margin-bottom: 20px;"></h2>
+            <div id="modal-body"></div>
         </div>
-      </div>
-      <!-- Ciclo del Carbono -->
-      <div class="cycle">
-        <h3>Ciclo del Carbono</h3>
-        <button class="toggle-btn" onclick="toggleDetails('carbono')">
-          Ver detalles
-        </button>
-        <div class="details" id="carbono">
-          <p>
-            El ciclo del carbono explica cómo el carbono se mueve entre la
-            atmósfera, los océanos, la tierra y los seres vivos. Es fundamental
-            para regular el clima y la vida en el planeta.
-          </p>
-        </div>
-      </div>
-      <!-- Ciclo del Nitrógeno -->
-      <div class="cycle">
-        <h3>Ciclo del Nitrógeno</h3>
-        <button class="toggle-btn" onclick="toggleDetails('nitrogeno')">
-          Ver detalles
-        </button>
-        <div class="details" id="nitrogeno">
-          <p>
-            El ciclo del nitrógeno describe la transformación del nitrógeno a
-            través de la atmósfera, el suelo y los organismos. Es vital para la
-            formación de proteínas y ácidos nucleicos.
-          </p>
-        </div>
-      </div>
     </div>
-    <script>
-      function toggleDetails(id) {
-        const details = document.getElementById(id);
-        if (details.style.display === "block") {
-          details.style.display = "none";
-        } else {
-          details.style.display = "block";
-        }
-      }
-    </script>
-  </body>
+
+    <script src="data.js"></script>
+    <script src="components.js"></script>
+    <script src="master.js"></script>
+</body>
 </html>
