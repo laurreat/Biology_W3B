@@ -3,33 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodiversidad | Biology Explorer</title>
+    <title>La Célula | Biology Explorer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-
-    <nav id="global-nav">
-        <!-- Injected via components.js -->
-    </nav>
-
+    <nav id="global-nav"></nav>
     <header class="hero" style="height: 40vh; min-height: 300px;">
         <div class="hero-content">
-            <h1>Mundo Animal</h1>
-            <p>Desde las profundidades del océano hasta las cimas de las montañas.</p>
-            <div style="margin-top: 20px; pointer-events: auto;">
-                <input type="text" id="search-input" placeholder="Buscar animal o grupo..." 
-                       style="padding: 12px 25px; border-radius: 50px; border: 1px solid var(--glass-border); 
-                              background: rgba(255,255,255,0.05); color: #fff; width: 300px; outline: none; transition: 0.3s;">
-            </div>
+            <h1>La Célula</h1>
+            <p>La unidad básica de toda la vida en el universo conocido.</p>
         </div>
     </header>
-
-    <main class="content-grid" id="bio-container">
-        <!-- Bio cards injected via master.js -->
-    </main>
-
-    <!-- Detail Modal -->
+    <main class="content-grid" id="bio-container"></main>
     <div id="detail-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('detail-modal')">&times;</span>
@@ -37,9 +23,21 @@
             <div id="modal-body"></div>
         </div>
     </div>
-
     <script src="data.js"></script>
     <script src="components.js"></script>
     <script src="master.js"></script>
+    <script>
+        // Forzamos la visualización solo de citología en esta página
+        window.addEventListener('load', () => {
+            const container = document.getElementById('bio-container');
+            container.innerHTML = '';
+            // Filtramos solo categorías de Citología
+            const cellItems = BIOLOGY_DATA.humano.filter(item => item.category === 'Citología');
+            cellItems.forEach(item => {
+                const card = createCard(item, 'humano');
+                container.appendChild(card);
+            });
+        });
+    </script>
 </body>
 </html>

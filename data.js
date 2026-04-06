@@ -4,13 +4,13 @@ const BIOLOGY_DATA = {
             id: 'celula',
             title: 'La Célula: Unidad de Vida',
             description: '¡Todo lo vivo empieza aquí! Descubre la ciudad microscópica que eres tú.',
-            image: 'cell_diagram_art_1775510649430.png',
+            image: './assets/cell_diagram_art_1775510649430.png',
             category: 'Citología',
             details: `
                 <p>La célula es la unidad más pequeña de vida. Imagínala como una <strong>ciudad minúscula</strong> con fábricas, muros y centros de control.</p>
                 
                 <div class="bio-image-container">
-                    <img src="cell_diagram_art_1775510649430.png" alt="Célula Eucariota" class="bio-image-placeholder">
+                    <img src="./assets/cell_diagram_art_1775510649430.png" alt="Célula Eucariota" class="bio-image-placeholder">
                     <p class="image-caption">Partes clave: El núcleo (centros de control), mitocondrias (centrales eléctricas) y ribosomas (fábricas de proteínas).</p>
                 </div>
 
@@ -25,13 +25,13 @@ const BIOLOGY_DATA = {
             id: 'corazon',
             title: 'Sistema Circulatorio',
             description: '¡El motor de vida! Transporta oxígeno y nutrientes a todo el cuerpo.',
-            image: 'human_systems_blueprint_1775510695717.png',
+            image: './assets/human_systems_blueprint_1775510695717.png',
             category: 'Anatomía',
             details: `
                 <p>Tu corazón bombea sangre sin parar. Esta sangre lleva "comida" (nutrientes) y "aire" (oxígeno) a cada parte de ti.</p>
                 
                 <div class="bio-image-container">
-                    <img src="human_systems_blueprint_1775510695717.png" alt="Sistema Circulatorio" class="bio-image-placeholder">
+                    <img src="./assets/human_systems_blueprint_1775510695717.png" alt="Sistema Circulatorio" class="bio-image-placeholder">
                     <p class="image-caption">Las arterias (rojas) llevan oxígeno, las venas (azules) traen dióxido de carbono de vuelta.</p>
                 </div>
 
@@ -77,13 +77,13 @@ const BIOLOGY_DATA = {
             id: 'red',
             title: 'Redes Tróficas',
             description: 'Nadie sobrevive solo. Descubre cómo fluye la energía en el bosque.',
-            image: 'food_web_ecosystem_1775510710541.png',
+            image: './assets/food_web_ecosystem_1775510710541.png',
             category: 'Ecología',
             details: `
                 <p>En el ecosistema, cada animal y planta está conectado por hilos invisibles de energía. Si falta uno, todo el sistema puede cambiar.</p>
                 
                 <div class="bio-image-container">
-                    <img src="food_web_ecosystem_1775510710541.png" alt="Red Alimenticia" class="bio-image-placeholder">
+                    <img src="./assets/food_web_ecosystem_1775510710541.png" alt="Red Alimenticia" class="bio-image-placeholder">
                     <p class="image-caption">Energía que nace del Sol -> Productores -> Consumidores -> Descomponedores.</p>
                 </div>
             `
@@ -97,6 +97,32 @@ const BIOLOGY_DATA = {
             image: 'https://images.unsplash.com/photo-1474511320723-9a56873867b5?q=80&w=800',
             category: 'Zoología',
             details: `<p>Se dividen en 5 grupos: Mamíferos, Aves, Reptiles, Anfibios y Peces.</p>`
+        }
+    ],
+    genetica: [
+        {
+            id: 'adn',
+            title: '¿Qué es el ADN?',
+            description: '¡Tus planos de construcción! El libro secreto que dice cómo eres.',
+            image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=600',
+            category: 'Genética',
+            details: `
+                <p>El ADN es el código que heredas de tus padres. Es como un manual de instrucciones gigante que dice de qué color son tus ojos y qué tan alto serás.</p>
+                <div class="bio-image-container">
+                    <img src="#" alt="Estructura del ADN" class="bio-image-placeholder">
+                    <p class="image-caption">Sugerencia: Una doble hélice brillante con nucleótidos de colores.</p>
+                </div>
+            `
+        },
+        {
+            id: 'mendel',
+            title: 'Leyes de la Herencia',
+            description: '¿Por qué te pareces a tus abuelos?',
+            image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=600',
+            category: 'Herencia',
+            details: `
+                <p>Gregor Mendel, el padre de la genética, descubrió cómo se pasan las características de una generación a otra usando plantas de guisante.</p>
+            `
         }
     ]
 };
