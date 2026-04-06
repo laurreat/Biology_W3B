@@ -57,6 +57,10 @@ const BIOLOGY_DATA = {
                     <li><strong>Anfibios:</strong> Viven en agua y tierra (como ranas).</li>
                     <li><strong>Peces:</strong> Respiran bajo el agua por branquias.</li>
                 </ol>
+                <div class="bio-image-container">
+                    <img src="#" alt="Grupos de Vertebrados" class="bio-image-placeholder">
+                    <p class="image-caption">Imagen sugerida: Collage mostrando un mamífero, ave, reptil, anfibio y pez.</p>
+                </div>
             `
         },
         {
@@ -72,6 +76,10 @@ const BIOLOGY_DATA = {
                     <li><strong>Arácnidos:</strong> Tienen 8 patas (arañas).</li>
                     <li><strong>Moluscos:</strong> Tienen cuerpo blando (caracoles, pulpos).</li>
                 </ul>
+                <div class="bio-image-container">
+                    <img src="#" alt="Diversidad de Invertebrados" class="bio-image-placeholder">
+                    <p class="image-caption">Imagen sugerida: Ilustración de insectos, arácnidos y moluscos.</p>
+                </div>
             `
         }
     ],
@@ -83,23 +91,40 @@ const BIOLOGY_DATA = {
             image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=600',
             category: 'Seres Vivos',
             details: `
-                <p>Las plantas son los únicos seres vivos que pueden fabricar su comida usando agua, aire y luz solar (un proceso llamado <strong>Fotosíntesis</strong>).</p>
+                <p>Las plantas son los seres más importantes de la biosfera. Sin ellas, no tendríamos comida ni oxígeno para respirar. Utilizan un proceso increíble llamado <strong>Fotosíntesis</strong> para convertir la luz del sol en energía química.</p>
+                
+                <div class="bio-image-container">
+                    <img src="#" alt="Dibujo de la Fotosíntesis" class="bio-image-placeholder">
+                    <p class="image-caption">Imagen sugerida: Una planta recibiendo luz solar, capturando CO2 y soltando O2.</p>
+                </div>
+
+                <h3>¿Cómo se alimentan?</h3>
+                <p>A diferencia de nosotros, ellas no tienen que "ir a la tienda". Usan sus raíces para absorber agua y minerales del suelo, y sus hojas para atrapar luz del sol y aire (CO2). ¡Al final producen azúcar (glucosa) que es su comida!</p>
+                
+                <h3>Tipos de Plantas:</h3>
                 <ul>
-                    <li>Nos dan el oxígeno que respiramos.</li>
-                    <li>Son la base de la alimentación de todos los animales.</li>
-                    <li>Absorben el exceso de calor del planeta.</li>
+                    <li>Con flores (Angiospermas).</li>
+                    <li>Sin flores (Gimnospermas).</li>
+                    <li>Cactus para el desierto y musgos para lugares húmedos.</li>
                 </ul>
             `
         },
         {
             id: 'hongos',
             title: 'Reino Fungi',
-            description: 'Los recicladores de la naturaleza. Sin ellos, el bosque estaría lleno de basura!',
+            description: 'Los recicladores de la naturaleza. ¡Viven en los troncos, el suelo y hasta en el pan!',
             image: 'https://images.unsplash.com/photo-1504221507732-5246c045949b?q=80&w=600',
             category: 'Seres Vivos',
             details: `
-                <p>Los hongos parecen plantas pero no lo son, porque no hacen fotosíntesis. Ellos se alimentan descomponiendo hojas muertas, troncos y restos de animales.</p>
-                <div class="info-stat"><strong>Importante:</strong> ¡Gracias a ellos, el suelo siempre tiene nutrientes para que crezcan nuevas plantas!</div>
+                <p>Los hongos son seres fascinantes que no son ni animales ni plantas. Son los grandes recicladores encargados de descomponer la materia orgánica muerta para devolver los nutrientes a la madre tierra.</p>
+                
+                <div class="bio-image-container">
+                    <img src="#" alt="Hongos Descomponedores" class="bio-image-placeholder">
+                    <p class="image-caption">Imagen sugerida: Diferentes tipos de hongos (champiñones, líquenes, mohos).</p>
+                </div>
+
+                <h3>¿Por qué son importantes?</h3>
+                <p>Sin ellos, los bosques estarían llenos de árboles caídos y hojas que nunca desaparecen. También los usamos para hacer medicinas como la <strong>Penicilina</strong> que salva muchas vidas.</p>
             `
         },
         {
@@ -110,6 +135,10 @@ const BIOLOGY_DATA = {
             category: 'Microbiología',
             details: `
                 <p>Existen bacterias buenas (como las que ayudan a hacer yogurt o las que viven en tu panza para ayudarte a digerir) y algunas que causan enfermedades.</p>
+                <div class="bio-image-container">
+                    <img src="#" alt="Bacterias bajo microscopio" class="bio-image-placeholder">
+                    <p class="image-caption">Imagen sugerida: Micrografía de bacterias de diferentes formas (cocos, bacilos).</p>
+                </div>
             `
         }
     ],
@@ -121,14 +150,18 @@ const BIOLOGY_DATA = {
             image: 'https://images.unsplash.com/photo-1547363404-58a43586cd17?q=80&w=800',
             category: 'Ecología',
             details: `
-                <p>Imagina una fila donde cada uno depende del anterior:</p>
-                <ol>
-                    <li><strong>Productores:</strong> Pasto (Sol + Agua).</li>
-                    <li><strong>Consumidores 1:</strong> Grillo (Come pasto).</li>
-                    <li><strong>Consumidores 2:</strong> Rana (Come grillo).</li>
-                    <li><strong>Consumidores 3:</strong> Serpiente (Come rana).</li>
-                    <li><strong>Descomponedores:</strong> Gusanos y Hongos (Reciclan lo que queda).</li>
-                </ol>
+                <p>En la naturaleza existe un equilibrio perfecto donde cada ser vivo juega un rol crucial. La cadena alimenticia (o trófica) es el proceso de transferencia de energía alimenticia a través de una serie de organismos.</p>
+                
+                <div class="bio-image-container">
+                    <img src="#" alt="Pirámide Alimenticia" class="bio-image-placeholder">
+                    <p class="image-caption">Imagen sugerida: Pirámide con plantas abajo, grillos en medio y águilas arriba.</p>
+                </div>
+
+                <h3>Los 4 Niveles Principales:</h3>
+                <p>1. <strong>Productores:</strong> Plantas que usan luz solar.</p>
+                <p>2. <strong>Consumidores Primarios:</strong> Animales herbívoros que comen plantas (vacas, conejos).</p>
+                <p>3. <strong>Consumidores Secundarios:</strong> Animales carnívoros que comen herbívoros (lobos, leones).</p>
+                <p>4. <strong>Descomponedores:</strong> Hongos y bacterias que cierran el ciclo.</p>
             `
         },
         {

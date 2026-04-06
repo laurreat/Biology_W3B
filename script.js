@@ -126,20 +126,26 @@ const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
 function onDocumentMouseClick(event) {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-  raycaster.setFromCamera(mouse, camera);
-  const intersects = raycaster.intersectObjects(scene.children, true);
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(scene.children, true);
 
-  // Se recorre la lista de intersecciones y se muestra la información del primer objeto que tenga datos (userData)
-  for (let i = 0; i < intersects.length; i++) {
-    const obj = intersects[i].object;
-    if (obj.userData && obj.userData.nombre) {
-      showCountryInfo(obj.userData);
-      break;
+    // Buscamos el primer objeto que sea un marcador o hijo de un marcador
+    for (let i = 0; i < intersects.length; i++) {
+        let obj = intersects[i].object;
+        
+        // Navegamos hacia arriba en la jerarquía para encontrar el grupo con los datos
+        while (obj && !obj.userData.nombre && obj.parent) {
+            obj = obj.parent;
+        }
+
+        if (obj && obj.userData.nombre) {
+            showCountryInfo(obj.userData);
+            break;
+        }
     }
-  }
 }
 
 // Muestra la información del objeto (región) en el panel lateral y agrega el botón "Ver más" para redirigir
