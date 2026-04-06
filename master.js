@@ -66,5 +66,7 @@ function getPageType() {
     if (path.includes('animals')) return 'animals';
     if (path.includes('seresvivos')) return 'seresvivos';
     if (path.includes('ecologia') || path.includes('cadena')) return 'ecologia';
+    if (path.includes('cell')) return 'humano';
+    if (path.includes('genetica')) return 'genetica';
     return null;
 }

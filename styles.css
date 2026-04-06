@@ -90,25 +90,78 @@ h1, h2, h3 {
     padding: 0 5%;
 }
 
-.hero-content {
-    z-index: 10;
-    pointer-events: none;
+/* Intro Overlay (Index) */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1000;
+    background: radial-gradient(circle at center, rgba(10, 11, 16, 0.4) 0%, rgba(10, 11, 16, 0.8) 100%);
+    backdrop-filter: blur(8px);
+    pointer-events: auto; /* IMPORTANT: Block interaction with globe */
+    transition: opacity 1s, transform 1s, visibility 1s;
 }
 
-.hero h1 {
+.intro-content {
+    max-width: 800px;
+    padding: 20px;
+    z-index: 1001;
+}
+
+.intro-content .badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.intro-content h1 {
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
     background: linear-gradient(to right, #fff, var(--primary));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 15px;
 }
 
-.hero p {
+.intro-content p {
     color: var(--text-dim);
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.btn-start {
+    background: var(--primary);
+    color: #000;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s var(--transition);
+}
+
+.btn-start:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: var(--primary-light);
+    box-shadow: 0 15px 50px rgba(16, 185, 129, 0.5);
 }
 
 /* Three.js Container */
@@ -311,4 +364,10 @@ h1, h2, h3 {
     100% { transform: scale(1); }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .pulse { animation: pulse 2s infinite; }
+.fade-in { animation: fadeIn 0.8s forwards; }

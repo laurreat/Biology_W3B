@@ -126,6 +126,10 @@ const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
 function onDocumentMouseClick(event) {
+    // Prevent interaction if intro overlay is still active
+    const overlay = document.getElementById('intro-overlay');
+    if (overlay && overlay.style.pointerEvents !== 'none' && overlay.style.opacity !== '0') return;
+
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 

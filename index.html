@@ -18,11 +18,18 @@
     <main class="hero">
         <div id="earth-container"></div>
         
-        <div class="hero-content">
-            <div style="margin-top: 30px; pointer-events: auto;">
-                <button class="btn btn-primary" onclick="scrollToGlobe()">
-                    <i class="fas fa-play"></i> Empezar Exploración
-                </button>
+        <!-- Intro Overlay: Blocks interaction with the globe until exploration starts -->
+        <div id="intro-overlay" class="intro-overlay">
+            <div class="intro-content">
+                <div class="badge">BIOLOGÍA 3D</div>
+                <h1>Explora la Vida en la Tierra</h1>
+                <p>Descubre la biodiversidad, la anatomía y los ecosistemas de nuestro planeta a través de una experiencia interactiva inmersiva.</p>
+                
+                <div class="overlay-actions">
+                    <button class="btn-start pulse" onclick="startExploration()">
+                        <i class="fas fa-play"></i> Empezar Exploración
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -61,16 +68,22 @@
     <script src="components.js"></script>
     <script src="script.js"></script>
     <script>
-        function scrollToGlobe() {
-            // Hide the hero text to focus on globe
-            document.querySelector('.hero-content').style.opacity = '0';
-            document.querySelector('.hero-content').style.pointerEvents = 'none';
-            document.querySelector('.hero-content').style.transition = 'opacity 0.8s ease';
-            
-            // Highlight interaction
+        function startExploration() {
+            const overlay = document.getElementById('intro-overlay');
             const panel = document.getElementById('country-info-panel');
+            
+            // Fade out overlay
+            overlay.style.opacity = '0';
+            overlay.style.pointerEvents = 'none'; // Re-enable interaction with globe below
+            overlay.style.transform = 'scale(1.1)';
+            overlay.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
+            
+            // Show help/info panel
             panel.style.display = 'block';
-            panel.style.animation = 'fadeIn 1s forwards';
+            panel.style.animation = 'fadeIn 1.2s forwards 0.5s'; // Delays a bit
+            
+            // Optional: You could call a function in script.js to zoom in the globe
+            // if (typeof zoomToColombia === 'function') zoomToColombia();
         }
     </script>
 </body>

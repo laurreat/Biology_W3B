@@ -31,7 +31,7 @@
             const container = document.getElementById('bio-container');
             container.innerHTML = '';
             BIOLOGY_DATA.genetica.forEach(item => {
-                const card = createCard(item, 'genetica');
+                const card = createBioCard({ ...item, onClick: () => showDetails(item) });
                 container.appendChild(card);
             });
         });

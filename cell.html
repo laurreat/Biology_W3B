@@ -34,7 +34,7 @@
             // Filtramos solo categorías de Citología
             const cellItems = BIOLOGY_DATA.humano.filter(item => item.category === 'Citología');
             cellItems.forEach(item => {
-                const card = createCard(item, 'humano');
+                const card = createBioCard({ ...item, onClick: () => showDetails(item) });
                 container.appendChild(card);
             });
         });
