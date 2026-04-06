@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclos de la Materia | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-recycle"></i> Ecología</span>
+            <h1>Ciclos de la Materia</h1>
+            <p class="topic-subtitle">El agua, el carbono y el nitrógeno nunca se pierden, siempre se reciclan.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Ciclos de la Materia</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Por qué se llaman "ciclos"?</h2>
+            <p>En la naturaleza, la materia <strong>no se crea ni se destruye, se transforma</strong>. Los elementos químicos viajan constantemente entre los seres vivos y el ambiente, formando un ciclo infinito.</p>
+            <h2>El Ciclo del Agua</h2>
+            <ol>
+                <li><strong>Evaporación:</strong> El sol calienta el agua de ríos, lagos y mares, y se convierte en vapor que sube al cielo.</li>
+                <li><strong>Condensación:</strong> El vapor se enfría y forma las nubes.</li>
+                <li><strong>Precipitación:</strong> Cuando las nubes están llenas, cae el agua como lluvia.</li>
+                <li><strong>Infiltración:</strong> El agua se filtra en el suelo y alimenta los ríos subterráneos.</li>
+                <li><strong>Transpiración:</strong> Las plantas también liberan vapor de agua por sus hojas.</li>
+            </ol>
+            <h2>El Ciclo del Carbono</h2>
+            <p>El carbono está en todos los seres vivos y en el aire (como CO₂).</p>
+            <ul>
+                <li>Las plantas toman CO₂ del aire para hacer fotosíntesis.</li>
+                <li>Los animales comen plantas y obtienen carbono.</li>
+                <li>Plantas y animales liberan CO₂ al respirar.</li>
+                <li>Los descomponedores liberan carbono cuando descomponen seres muertos.</li>
+            </ul>
+            <h2>El Ciclo del Nitrógeno</h2>
+            <p>El nitrógeno es esencial para formar proteínas y ADN.</p>
+            <ul>
+                <li>Las bacterias del suelo "fijan" el nitrógeno del aire y lo convierten en una forma que las plantas pueden usar.</li>
+                <li>Las plantas absorben nitrógeno del suelo.</li>
+                <li>Los animales obtienen nitrógeno al comer plantas u otros animales.</li>
+                <li>Cuando los seres vivos mueren, los descomponedores devuelven el nitrógeno al suelo.</li>
+            </ul>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡El agua que bebes hoy es la misma que bebieron los dinosaurios! El agua de la Tierra se recicla una y otra vez a través del ciclo del agua.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-ciclos">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Cómo se llama cuando el agua se convierte en vapor?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> Condensación</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> Evaporación</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> Precipitación</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> Infiltración</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>2. ¿Qué gas toman las plantas del aire para la fotosíntesis?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> Oxígeno</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> Nitrógeno</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> Dióxido de carbono (CO₂)</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> Hidrógeno</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Quiénes fijan el nitrógeno del aire?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Bacterias del suelo</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Plantas</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Animales</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> El sol</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-ciclos')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-recycle"></i> Ecología</h3>
+                <div class="sidebar-nav">
+                    <a href="cadena-alimenticia.html"><span class="nav-icon">🔗</span> Cadena Alimenticia</a>
+                    <a href="ecosistemas.html"><span class="nav-icon">🌿</span> Ecosistemas</a>
+                    <a href="ciclos-materia.html" class="active"><span class="nav-icon">🔄</span> Ciclos de la Materia</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="ecosistemas.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Ecosistemas</span></div></a>
+        <a href="vertebrados.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente tema →</span><span class="nav-title">Vertebrados</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas.`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

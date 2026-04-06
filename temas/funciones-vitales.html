@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones Vitales | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-seedling"></i> Seres Vivos</span>
+            <h1>Funciones Vitales</h1>
+            <p class="topic-subtitle">Todo ser vivo nace, se alimenta, se relaciona y se reproduce.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Funciones Vitales</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué son las funciones vitales?</h2>
+            <p>Son las actividades que realizan todos los seres vivos y que los distinguen de los objetos no vivos. Hay <strong>3 funciones vitales</strong>:</p>
+            <h2>1. Nutrición</h2>
+            <p>Todos necesitan alimentarse para obtener energía y materiales para crecer.</p>
+            <ul>
+                <li><strong>Autótrofos:</strong> Fabrican su propio alimento con la luz del sol (fotosíntesis). Ejemplo: plantas, algas.</li>
+                <li><strong>Heterótrofos:</strong> Comen otros seres vivos. Ejemplo: animales, hongos.</li>
+            </ul>
+            <h2>2. Relación</h2>
+            <p>Los seres vivos detectan cambios en su entorno y responden a ellos.</p>
+            <ul>
+                <li>Las plantas giran hacia la luz (fototropismo).</li>
+                <li>Los animales huyen del peligro o buscan comida.</li>
+                <li>Las bacterias se mueven hacia donde hay alimento.</li>
+            </ul>
+            <h2>3. Reproducción</h2>
+            <p>Producen nuevos individuos para que la especie continúe.</p>
+            <ul>
+                <li><strong>Asexual:</strong> Un solo individuo produce hijos idénticos. Ejemplo: bacterias.</li>
+                <li><strong>Sexual:</strong> Se necesitan dos individuos (macho y hembra). Los hijos son parecidos pero no idénticos. Ejemplo: humanos, perros, aves.</li>
+            </ul>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>Los seres vivos también crecen, se desarrollan y eventualmente mueren. Este ciclo se llama <strong>ciclo de vida</strong>. Todos los seres vivos, desde una bacteria hasta una ballena, pasan por él.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-funciones">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Cuántas funciones vitales tienen los seres vivos?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> 2</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> 3</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> 5</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> 4</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>2. ¿Qué tipo de ser vivo fabrica su propio alimento?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> Autótrofo</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> Heterótrofo</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> Descomponedor</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> Consumidor</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>3. ¿Cómo se llama cuando las plantas giran hacia la luz?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Gravitropismo</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Hidrotropismo</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Fototropismo</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Termotropismo</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-funciones')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-seedling"></i> Seres Vivos</h3>
+                <div class="sidebar-nav">
+                    <a href="reinos.html"><span class="nav-icon">👑</span> Los 5 Reinos</a>
+                    <a href="invertebrados-tema.html"><span class="nav-icon">🐛</span> Invertebrados</a>
+                    <a href="funciones-vitales.html" class="active"><span class="nav-icon">💚</span> Funciones Vitales</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="invertebrados-tema.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Invertebrados</span></div></a>
+        <a href="cadena-alimenticia.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente tema →</span><span class="nav-title">Cadena Alimenticia</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas.`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

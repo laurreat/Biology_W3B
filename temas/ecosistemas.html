@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosistemas de Colombia | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-recycle"></i> Ecología</span>
+            <h1>Ecosistemas de Colombia</h1>
+            <p class="topic-subtitle">Desde los páramos hasta la Amazonía: conoce nuestros ecosistemas.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Ecosistemas</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué es un ecosistema?</h2>
+            <p>Es el conjunto de seres vivos (factores bióticos) y el ambiente donde viven (factores abióticos como agua, suelo, clima y luz), que interactúan entre sí.</p>
+            <h2>Principales ecosistemas de Colombia</h2>
+            <h3>Bosque Tropical Amazónico</h3>
+            <p>Cubierto de árboles gigantes, con una biodiversidad increíble. Aquí viven jaguares, delfines rosados, guacamayas y miles de insectos.</p>
+            <h3>Páramo</h3>
+            <p>Ecosistema de alta montaña, frío y húmedo. Los <strong>frailejones</strong> son sus plantas más representativas. Son las "fábricas de agua" de Colombia: de aquí nacen muchos ríos.</p>
+            <h3>Bosque Seco Tropical</h3>
+            <p>Tiene una época seca muy marcada. Los árboles pierden sus hojas en verano. Se encuentra en zonas como el Valle del Cauca y la costa Caribe.</p>
+            <h3>Manglar</h3>
+            <p>Bosques que crecen en la costa donde el agua dulce se mezcla con el agua salada. Hogar de cangrejos, peces y aves. Se encuentran en el Pacífico y el Caribe colombiano.</p>
+            <h3>Sabana (Llanos Orientales)</h3>
+            <p>Grandes extensiones de pastos con algunos árboles. Aquí viven chigüiros, venados, garzas y el oso hormiguero.</p>
+            <h3>Arrecifes de coral</h3>
+            <p>En las islas del Caribe (San Andrés, Rosario). Son estructuras formadas por pequeños animales llamados pólipos. Albergan miles de especies de peces.</p>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡Colombia tiene más de 1.900 especies de aves! Es el país número 1 del mundo en variedad de aves. También es primero en anfibios y segundo en plantas.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-ecosistemas">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Qué planta es representativa del páramo?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> Palma de cera</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> Frailejón</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> Ceibo</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> Manglar</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>2. ¿En qué posición está Colombia en especies de aves?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> Segundo</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> Tercero</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> Primero</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> Quinto</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Dónde se encuentran los arrecifes de coral en Colombia?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Islas del Caribe</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Páramo de Sumapaz</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Llanos Orientales</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Amazonía</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-ecosistemas')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-recycle"></i> Ecología</h3>
+                <div class="sidebar-nav">
+                    <a href="cadena-alimenticia.html"><span class="nav-icon">🔗</span> Cadena Alimenticia</a>
+                    <a href="ecosistemas.html" class="active"><span class="nav-icon">🌿</span> Ecosistemas</a>
+                    <a href="ciclos-materia.html"><span class="nav-icon">🔄</span> Ciclos de la Materia</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="cadena-alimenticia.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Cadena Alimenticia</span></div></a>
+        <a href="ciclos-materia.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Ciclos de la Materia</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas.`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

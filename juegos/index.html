@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos de Biología | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .games-page { min-height: 100vh; background: var(--bg); color: var(--text); }
+        .games-hero { text-align: center; padding: 100px 24px 40px; }
+        .games-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; background: linear-gradient(135deg, #fff 30%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
+        .games-hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .games-container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 80px; }
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-bottom: 50px; }
+        .game-card { padding: 30px 24px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: all 0.25s; }
+        .game-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.15); }
+        .game-card .game-icon { font-size: 3rem; margin-bottom: 16px; }
+        .game-card h3 { font-size: 1.2rem; color: #fff; margin: 0 0 8px; }
+        .game-card p { font-size: 0.9rem; color: var(--text-dim); margin: 0; line-height: 1.5; }
+        .game-card .game-badge { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-top: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-easy { background: rgba(34,197,94,0.15); color: #4ade80; }
+        .badge-medium { background: rgba(251,191,36,0.15); color: #fbbf24; }
+        .badge-hard { background: rgba(239,68,68,0.15); color: #f87171; }
+        /* Game Area */
+        .game-area { display: none; padding: 30px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); margin-bottom: 30px; }
+        .game-area.active { display: block; }
+        .game-area-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+        .game-area-header h2 { font-size: 1.4rem; color: #fff; margin: 0; }
+        .game-close-btn { padding: 8px 20px; border-radius: 50px; border: 1px solid var(--glass-border); background: transparent; color: var(--text-dim); cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+        .game-close-btn:hover { border-color: #ef4444; color: #ef4444; }
+        .game-score { font-size: 1.1rem; color: var(--primary); font-weight: 700; }
+        /* Fill Blanks */
+        .fill-sentence { font-size: 1.1rem; line-height: 2; color: var(--text-dim); margin-bottom: 20px; padding: 16px; border-radius: 10px; background: rgba(255,255,255,0.02); }
+        .fill-blank { display: inline-block; min-width: 120px; border-bottom: 2px dashed var(--primary); padding: 2px 8px; margin: 0 4px; text-align: center; color: #fff; font-weight: 600; }
+        .fill-blank input { background: transparent; border: none; border-bottom: 2px solid var(--primary); color: #fff; font-size: 1rem; text-align: center; width: 120px; outline: none; padding: 4px 8px; }
+        .fill-blank input.correct { border-color: #22c55e; color: #4ade80; }
+        .fill-blank input.incorrect { border-color: #ef4444; color: #f87171; }
+        .fill-options { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+        .fill-option { padding: 8px 18px; border-radius: 8px; border: 1px solid var(--glass-border); background: transparent; color: var(--text-dim); cursor: pointer; font-size: 0.95rem; transition: all 0.2s; }
+        .fill-option:hover { border-color: var(--primary); color: var(--primary); }
+        .fill-option.used { opacity: 0.3; pointer-events: none; }
+        /* Match Game */
+        .match-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 600px) { .match-container { grid-template-columns: 1fr; } }
+        .match-column h3 { font-size: 1rem; color: var(--primary); margin: 0 0 12px; text-align: center; }
+        .match-item { padding: 12px 16px; border-radius: 10px; border: 2px solid var(--glass-border); margin-bottom: 10px; cursor: pointer; transition: all 0.2s; text-align: center; font-size: 0.95rem; color: var(--text-dim); user-select: none; }
+        .match-item:hover { border-color: var(--primary); }
+        .match-item.selected { border-color: #818cf8; background: rgba(99,102,241,0.1); color: #a5b4fc; }
+        .match-item.matched { border-color: #22c55e; background: rgba(34,197,94,0.1); color: #86efac; pointer-events: none; }
+        .match-item.wrong { border-color: #ef4444; background: rgba(239,68,68,0.1); color: #fca5a5; animation: shake 0.4s; }
+        @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+        /* Word Scramble */
+        .scramble-hint { font-size: 1rem; color: var(--text-dim); margin-bottom: 16px; font-style: italic; }
+        .scramble-letters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+        .scramble-letter { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: #fff; background: rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s; user-select: none; }
+        .scramble-letter:hover { border-color: var(--primary); }
+        .scramble-letter.used { opacity: 0.2; pointer-events: none; }
+        .scramble-answer { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 50px; padding: 12px; border-radius: 10px; border: 2px dashed var(--glass-border); margin-bottom: 16px; }
+        .scramble-answer-letter { width: 40px; height: 40px; border-radius: 6px; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 700; color: var(--primary); cursor: pointer; }
+        /* Quiz Game */
+        .quiz-game-question { font-size: 1.15rem; color: #e2e8f0; font-weight: 600; margin-bottom: 16px; }
+        .quiz-game-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .quiz-game-options { grid-template-columns: 1fr; } }
+        .quiz-game-opt { padding: 14px 18px; border-radius: 10px; border: 2px solid var(--glass-border); background: transparent; color: var(--text-dim); cursor: pointer; font-size: 1rem; text-align: left; transition: all 0.2s; }
+        .quiz-game-opt:hover { border-color: var(--primary); color: var(--text); }
+        .quiz-game-opt.correct { border-color: #22c55e; background: rgba(34,197,94,0.12); color: #86efac; }
+        .quiz-game-opt.incorrect { border-color: #ef4444; background: rgba(239,68,68,0.12); color: #fca5a5; }
+        .game-nav-btn { padding: 12px 30px; border-radius: 50px; border: none; background: var(--primary); color: #fff; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 20px; transition: all 0.2s; }
+        .game-nav-btn:hover { background: #059669; }
+        .game-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .game-result { text-align: center; padding: 30px; }
+        .game-result .result-score { font-size: 3rem; font-weight: 800; color: var(--primary); }
+        .game-result .result-text { font-size: 1.2rem; color: var(--text-dim); margin-top: 8px; }
+    </style>
+</head>
+<body class="games-page">
+    <nav id="global-nav"></nav>
+    <div class="games-hero">
+        <h1>🎮 Juegos de Biología</h1>
+        <p>Aprende jugando. Completa espacios, conecta conceptos, descubre palabras ocultas y responde quizzes.</p>
+    </div>
+    <div class="games-container">
+        <!-- Game Selection -->
+        <div id="game-selection">
+            <h2 style="color:#fff; margin-bottom:20px; font-size:1.3rem;">Elige un juego:</h2>
+            <div class="game-grid">
+                <div class="game-card" onclick="startGame('fillblanks')">
+                    <div class="game-icon">✏️</div>
+                    <h3>Completa el Espacio</h3>
+                    <p>Llena los espacios en blanco con la palabra correcta sobre biología.</p>
+                    <span class="game-badge badge-easy">Fácil</span>
+                </div>
+                <div class="game-card" onclick="startGame('match')">
+                    <div class="game-icon">🔗</div>
+                    <h3>Conecta Conceptos</h3>
+                    <p>Une cada concepto con su definición correcta.</p>
+                    <span class="game-badge badge-medium">Medio</span>
+                </div>
+                <div class="game-card" onclick="startGame('scramble')">
+                    <div class="game-icon">🔤</div>
+                    <h3>Descubre la Palabra</h3>
+                    <p>Ordena las letras para formar palabras de biología.</p>
+                    <span class="game-badge badge-medium">Medio</span>
+                </div>
+                <div class="game-card" onclick="startGame('quizgame')">
+                    <div class="game-icon">❓</div>
+                    <h3>Quiz Rápido</h3>
+                    <p>Responde preguntas de todos los temas lo más rápido posible.</p>
+                    <span class="game-badge badge-hard">Desafiante</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fill in the Blanks -->
+        <div class="game-area" id="game-fillblanks">
+            <div class="game-area-header">
+                <h2>✏️ Completa el Espacio</h2>
+                <div style="display:flex; gap:12px; align-items:center;">
+                    <span class="game-score" id="fill-score">0/0</span>
+                    <button class="game-close-btn" onclick="closeGame()">✕ Salir</button>
+                </div>
+            </div>
+            <div id="fill-content"></div>
+            <div style="text-align:center;">
+                <button class="game-nav-btn" id="fill-check-btn" onclick="checkFillBlanks()">Verificar</button>
+                <button class="game-nav-btn" id="fill-next-btn" onclick="nextFill()" style="display:none;">Siguiente →</button>
+            </div>
+            <div class="game-result" id="fill-result" style="display:none;">
+                <div class="result-score" id="fill-final-score"></div>
+                <p class="result-text" id="fill-final-text"></p>
+                <button class="game-nav-btn" onclick="restartFill()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- Match Game -->
+        <div class="game-area" id="game-match">
+            <div class="game-area-header">
+                <h2>🔗 Conecta Conceptos</h2>
+                <div style="display:flex; gap:12px; align-items:center;">
+                    <span class="game-score" id="match-score">0/0</span>
+                    <button class="game-close-btn" onclick="closeGame()">✕ Salir</button>
+                </div>
+            </div>
+            <div class="match-container">
+                <div class="match-column" id="match-left"><h3>Concepto</h3></div>
+                <div class="match-column" id="match-right"><h3>Definición</h3></div>
+            </div>
+            <div class="game-result" id="match-result" style="display:none;">
+                <div class="result-score" id="match-final-score"></div>
+                <p class="result-text" id="match-final-text"></p>
+                <button class="game-nav-btn" onclick="restartMatch()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- Word Scramble -->
+        <div class="game-area" id="game-scramble">
+            <div class="game-area-header">
+                <h2>🔤 Descubre la Palabra</h2>
+                <div style="display:flex; gap:12px; align-items:center;">
+                    <span class="game-score" id="scramble-score">0/0</span>
+                    <button class="game-close-btn" onclick="closeGame()">✕ Salir</button>
+                </div>
+            </div>
+            <div id="scramble-content"></div>
+            <div class="game-result" id="scramble-result" style="display:none;">
+                <div class="result-score" id="scramble-final-score"></div>
+                <p class="result-text" id="scramble-final-text"></p>
+                <button class="game-nav-btn" onclick="restartScramble()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- Quiz Game -->
+        <div class="game-area" id="game-quizgame">
+            <div class="game-area-header">
+                <h2>❓ Quiz Rápido</h2>
+                <div style="display:flex; gap:12px; align-items:center;">
+                    <span class="game-score" id="quizgame-score">0/0</span>
+                    <button class="game-close-btn" onclick="closeGame()">✕ Salir</button>
+                </div>
+            </div>
+            <div id="quizgame-content"></div>
+            <div class="game-result" id="quizgame-result" style="display:none;">
+                <div class="result-score" id="quizgame-final-score"></div>
+                <p class="result-text" id="quizgame-final-text"></p>
+                <button class="game-nav-btn" onclick="restartQuizGame()">Jugar de Nuevo</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../components.js"></script>
+    <script>
+    // ============================================================
+    // GAME DATA
+    // ============================================================
+    const FILL_DATA = [
+        { sentence: "La ___ es la unidad más pequeña de vida.", answer: "célula", hint: "Todos los seres vivos están hechos de estas." },
+        { sentence: "Las ___ producen energía para la célula mediante la respiración celular.", answer: "mitocondrias", hint: "Son las centrales eléctricas de la célula." },
+        { sentence: "El ___ es el órgano que bombea sangre por todo el cuerpo.", answer: "corazón", hint: "Late unas 100.000 veces al día." },
+        { sentence: "El ADN tiene forma de doble ___.", answer: "hélice", hint: "Como una escalera de caracol." },
+        { sentence: "Los ___ son animales sin columna vertebral.", answer: "invertebrados", hint: "Son el 95% de las especies animales." },
+        { sentence: "La ___ es el proceso por el cual las plantas fabrican su alimento usando la luz del sol.", answer: "fotosíntesis", hint: "Las plantas son verdes gracias a la clorofila que participa en este proceso." },
+        { sentence: "Los ___ son estructuras en forma de X que contienen el ADN enrollado.", answer: "cromosomas", hint: "Los humanos tenemos 46." },
+        { sentence: "El ___ es el ecosistema de alta montaña donde viven los frailejones.", answer: "páramo", hint: "Es la fábrica de agua de Colombia." }
+    ];
+
+    const MATCH_DATA = [
+        { concept: "Mitocondria", definition: "Produce energía para la célula" },
+        { concept: "Cloroplasto", definition: "Realiza la fotosíntesis" },
+        { concept: "Núcleo", definition: "Contiene el ADN de la célula" },
+        { concept: "Ribosoma", definition: "Fabrica proteínas" },
+        { concept: "Lisosoma", definition: "Digiere materiales de desecho" },
+        { concept: "Aparato de Golgi", definition: "Empaqueta y envía proteínas" }
+    ];
+
+    const SCRAMBLE_DATA = [
+        { word: "CELULA", hint: "Unidad básica de toda la vida" },
+        { word: "ADN", hint: "Molécula que contiene la información genética" },
+        { word: "MITOCONDRIA", hint: "Central de energía de la célula" },
+        { word: "CROMOSOMA", hint: "Paquete de ADN enrollado" },
+        { word: "FOTOSINTESIS", hint: "Proceso de las plantas para hacer alimento" },
+        { word: "GEN", hint: "Pedacito de ADN con instrucciones" },
+        { word: "PARAMO", hint: "Ecosistema colombiano de alta montaña" },
+        { word: "JAGUAR", hint: "Gran felino colombiano en peligro de extinción" }
+    ];
+
+    const QUIZ_GAME_DATA = [
+        { q: "¿Cuántos cromosomas tiene un ser humano?", options: ["23", "46", "44", "48"], correct: 1 },
+        { q: "¿Qué orgánulo hace la fotosíntesis?", options: ["Mitocondria", "Ribosoma", "Cloroplasto", "Núcleo"], correct: 2 },
+        { q: "¿Cuál es el animal más grande de Colombia?", options: ["Jaguar", "Anaconda", "Ballena jorobada", "Delfín rosado"], correct: 2 },
+        { q: "¿Qué tipo de célula NO tiene núcleo?", options: ["Eucariota", "Animal", "Procariota", "Vegetal"], correct: 2 },
+        { q: "¿Cuántos pares de cromosomas tenemos?", options: ["22", "24", "21", "23"], correct: 3 },
+        { q: "¿Qué sistema transporta oxígeno por el cuerpo?", options: ["Digestivo", "Nervioso", "Circulatorio", "Respiratorio"], correct: 2 },
+        { q: "¿Qué animal colombiano es el más biodiverso en aves?", options: ["Brasil", "Colombia", "Perú", "México"], correct: 1 },
+        { q: "¿Cómo se llama la papilla que se forma en el estómago?", options: ["Bolo", "Quimo", "Bilis", "Plasma"], correct: 1 },
+        { q: "¿Qué parte de la neurona recibe mensajes?", options: ["Axón", "Cuerpo celular", "Dendritas", "Núcleo"], correct: 2 },
+        { q: "¿Qué gas liberan las plantas en la fotosíntesis?", options: ["CO₂", "Nitrógeno", "Oxígeno", "Hidrógeno"], correct: 2 },
+        { q: "¿Quién es el padre de la genética?", options: ["Darwin", "Mendel", "Pasteur", "Linneo"], correct: 1 },
+        { q: "¿Qué ecosistema tiene frailejones?", options: ["Selva", "Sabana", "Páramo", "Manglar"], correct: 2 }
+    ];
+
+    // ============================================================
+    // GAME STATE
+    // ============================================================
+    let currentFill = 0, fillCorrect = 0, fillAnswered = false;
+    let matchSelected = null, matchSide = null, matchCorrect = 0;
+    let currentScramble = 0, scrambleCorrect = 0, scrambleCurrent = [];
+    let currentQuizQ = 0, quizCorrect = 0, quizAnswered = false;
+
+    // ============================================================
+    // NAVIGATION
+    // ============================================================
+    function startGame(type) {
+        document.getElementById('game-selection').style.display = 'none';
+        document.querySelectorAll('.game-area').forEach(g => g.classList.remove('active'));
+        document.getElementById('game-' + type).classList.add('active');
+        if (type === 'fillblanks') initFill();
+        if (type === 'match') initMatch();
+        if (type === 'scramble') initScramble();
+        if (type === 'quizgame') initQuizGame();
+    }
+
+    function closeGame() {
+        document.getElementById('game-selection').style.display = 'block';
+        document.querySelectorAll('.game-area').forEach(g => g.classList.remove('active'));
+    }
+
+    // ============================================================
+    // FILL IN THE BLANKS
+    // ============================================================
+    function initFill() {
+        currentFill = 0; fillCorrect = 0;
+        document.getElementById('fill-result').style.display = 'none';
+        document.getElementById('fill-content').style.display = 'block';
+        document.getElementById('fill-check-btn').style.display = 'inline-block';
+        document.getElementById('fill-next-btn').style.display = 'none';
+        renderFill();
+    }
+
+    function renderFill() {
+        if (currentFill >= FILL_DATA.length) { showFillResult(); return; }
+        const d = FILL_DATA[currentFill];
+        fillAnswered = false;
+        document.getElementById('fill-score').textContent = `${fillCorrect}/${FILL_DATA.length}`;
+        document.getElementById('fill-check-btn').style.display = 'inline-block';
+        document.getElementById('fill-next-btn').style.display = 'none';
+        document.getElementById('fill-content').innerHTML = `
+            <p style="color:var(--primary); font-size:0.85rem; margin-bottom:8px;">Pregunta ${currentFill + 1} de ${FILL_DATA.length}</p>
+            <p style="color:#a7f3d0; font-size:0.9rem; margin-bottom:12px;"><i class="fas fa-lightbulb"></i> Pista: ${d.hint}</p>
+            <div class="fill-sentence">${d.sentence.replace('___', `<span class="fill-blank"><input type="text" id="fill-input" placeholder="..." autocomplete="off"></span>`)}</div>
+        `;
+        setTimeout(() => { const inp = document.getElementById('fill-input'); if (inp) inp.focus(); }, 100);
+    }
+
+    function checkFillBlanks() {
+        if (fillAnswered) return;
+        fillAnswered = true;
+        const input = document.getElementById('fill-input');
+        const answer = input.value.trim().toLowerCase();
+        const correct = FILL_DATA[currentFill].answer.toLowerCase();
+        if (answer === correct) { fillCorrect++; input.classList.add('correct'); }
+        else { input.classList.add('incorrect'); input.value = FILL_DATA[currentFill].answer; }
+        document.getElementById('fill-score').textContent = `${fillCorrect}/${FILL_DATA.length}`;
+        document.getElementById('fill-check-btn').style.display = 'none';
+        document.getElementById('fill-next-btn').style.display = 'inline-block';
+    }
+
+    function nextFill() { currentFill++; renderFill(); }
+
+    function showFillResult() {
+        document.getElementById('fill-content').style.display = 'none';
+        document.getElementById('fill-check-btn').style.display = 'none';
+        document.getElementById('fill-next-btn').style.display = 'none';
+        const r = document.getElementById('fill-result');
+        r.style.display = 'block';
+        document.getElementById('fill-final-score').textContent = `${fillCorrect}/${FILL_DATA.length}`;
+        document.getElementById('fill-final-text').textContent = fillCorrect === FILL_DATA.length ? '¡Perfecto! ¡Eres un genio de la biología!' : fillCorrect >= FILL_DATA.length / 2 ? '¡Buen trabajo! Sigue practicando.' : '¡No te rindas! Repasa los temas y vuelve a intentar.';
+    }
+
+    function restartFill() { initFill(); }
+
+    // ============================================================
+    // MATCH GAME
+    // ============================================================
+    function initMatch() {
+        matchSelected = null; matchSide = null; matchCorrect = 0;
+        document.getElementById('match-result').style.display = 'none';
+        document.getElementById('match-score').textContent = `0/${MATCH_DATA.length}`;
+        const leftCol = document.getElementById('match-left');
+        const rightCol = document.getElementById('match-right');
+        leftCol.innerHTML = '<h3>Concepto</h3>';
+        rightCol.innerHTML = '<h3>Definición</h3>';
+        const shuffledRight = [...MATCH_DATA].sort(() => Math.random() - 0.5);
+        MATCH_DATA.forEach((d, i) => {
+            const el = document.createElement('div');
+            el.className = 'match-item';
+            el.textContent = d.concept;
+            el.dataset.index = i;
+            el.dataset.side = 'left';
+            el.onclick = () => selectMatch(el);
+            leftCol.appendChild(el);
+        });
+        shuffledRight.forEach((d) => {
+            const origIndex = MATCH_DATA.findIndex(m => m.definition === d.definition);
+            const el = document.createElement('div');
+            el.className = 'match-item';
+            el.textContent = d.definition;
+            el.dataset.index = origIndex;
+            el.dataset.side = 'right';
+            el.onclick = () => selectMatch(el);
+            rightCol.appendChild(el);
+        });
+    }
+
+    function selectMatch(el) {
+        if (el.classList.contains('matched')) return;
+        if (!matchSelected) {
+            matchSelected = el;
+            matchSide = el.dataset.side;
+            el.classList.add('selected');
+        } else {
+            if (el.dataset.side === matchSide) {
+                matchSelected.classList.remove('selected');
+                matchSelected = el;
+                matchSide = el.dataset.side;
+                el.classList.add('selected');
+                return;
+            }
+            if (matchSelected.dataset.index === el.dataset.index) {
+                matchSelected.classList.remove('selected');
+                matchSelected.classList.add('matched');
+                el.classList.add('matched');
+                matchCorrect++;
+                document.getElementById('match-score').textContent = `${matchCorrect}/${MATCH_DATA.length}`;
+                if (matchCorrect === MATCH_DATA.length) {
+                    setTimeout(() => {
+                        document.getElementById('match-result').style.display = 'block';
+                        document.getElementById('match-final-score').textContent = `${matchCorrect}/${MATCH_DATA.length}`;
+                        document.getElementById('match-final-text').textContent = '¡Conectaste todos los conceptos! ¡Excelente!';
+                    }, 500);
+                }
+            } else {
+                el.classList.add('wrong');
+                matchSelected.classList.add('wrong');
+                const prev = matchSelected;
+                setTimeout(() => { el.classList.remove('wrong'); prev.classList.remove('wrong', 'selected'); }, 600);
+            }
+            matchSelected = null;
+            matchSide = null;
+        }
+    }
+
+    function restartMatch() { initMatch(); }
+
+    // ============================================================
+    // WORD SCRAMBLE
+    // ============================================================
+    function initScramble() {
+        currentScramble = 0; scrambleCorrect = 0;
+        document.getElementById('scramble-result').style.display = 'none';
+        document.getElementById('scramble-content').style.display = 'block';
+        renderScramble();
+    }
+
+    function renderScramble() {
+        if (currentScramble >= SCRAMBLE_DATA.length) { showScrambleResult(); return; }
+        const d = SCRAMBLE_DATA[currentScramble];
+        scrambleCurrent = [];
+        const letters = d.word.split('').sort(() => Math.random() - 0.5);
+        document.getElementById('scramble-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`;
+        document.getElementById('scramble-content').innerHTML = `
+            <p style="color:var(--primary); font-size:0.85rem; margin-bottom:8px;">Palabra ${currentScramble + 1} de ${SCRAMBLE_DATA.length}</p>
+            <p class="scramble-hint"><i class="fas fa-lightbulb"></i> ${d.hint}</p>
+            <div class="scramble-answer" id="scramble-answer-area"></div>
+            <div class="scramble-letters" id="scramble-letters-area">
+                ${letters.map((l, i) => `<div class="scramble-letter" data-letter="${l}" data-idx="${i}" onclick="selectScrambleLetter(this)">${l}</div>`).join('')}
+            </div>
+            <div style="text-align:center; display:flex; gap:12px; justify-content:center;">
+                <button class="game-nav-btn" onclick="checkScramble()">Verificar</button>
+                <button class="game-nav-btn" onclick="clearScramble()" style="background:transparent; border:1px solid var(--glass-border);">Limpiar</button>
+            </div>
+        `;
+    }
+
+    function selectScrambleLetter(el) {
+        if (el.classList.contains('used')) return;
+        el.classList.add('used');
+        scrambleCurrent.push({ letter: el.dataset.letter, idx: el.dataset.idx });
+        const area = document.getElementById('scramble-answer-area');
+        const letterEl = document.createElement('div');
+        letterEl.className = 'scramble-answer-letter';
+        letterEl.textContent = el.dataset.letter;
+        letterEl.dataset.sourceIdx = el.dataset.idx;
+        letterEl.onclick = function() {
+            scrambleCurrent = scrambleCurrent.filter(s => s.idx !== this.dataset.sourceIdx);
+            document.querySelector(`.scramble-letter[data-idx="${this.dataset.sourceIdx}"]`).classList.remove('used');
+            this.remove();
+        };
+        area.appendChild(letterEl);
+    }
+
+    function clearScramble() {
+        scrambleCurrent = [];
+        document.getElementById('scramble-answer-area').innerHTML = '';
+        document.querySelectorAll('.scramble-letter').forEach(l => l.classList.remove('used'));
+    }
+
+    function checkScramble() {
+        const answer = scrambleCurrent.map(s => s.letter).join('');
+        const correct = SCRAMBLE_DATA[currentScramble].word;
+        if (answer === correct) {
+            scrambleCorrect++;
+            document.getElementById('scramble-answer-area').style.borderColor = '#22c55e';
+        } else {
+            document.getElementById('scramble-answer-area').style.borderColor = '#ef4444';
+            const area = document.getElementById('scramble-answer-area');
+            area.innerHTML = '';
+            correct.split('').forEach(l => {
+                const el = document.createElement('div');
+                el.className = 'scramble-answer-letter';
+                el.textContent = l;
+                el.style.background = 'rgba(34,197,94,0.15)';
+                el.style.color = '#4ade80';
+                area.appendChild(el);
+            });
+        }
+        document.getElementById('scramble-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`;
+        setTimeout(() => { currentScramble++; renderScramble(); }, 1500);
+    }
+
+    function showScrambleResult() {
+        document.getElementById('scramble-content').style.display = 'none';
+        const r = document.getElementById('scramble-result');
+        r.style.display = 'block';
+        document.getElementById('scramble-final-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`;
+        document.getElementById('scramble-final-text').textContent = scrambleCorrect === SCRAMBLE_DATA.length ? '¡Perfecto! ¡Descifraste todas las palabras!' : scrambleCorrect >= SCRAMBLE_DATA.length / 2 ? '¡Bien hecho! Sigue practicando.' : '¡Inténtalo de nuevo! Repasa los temas.';
+    }
+
+    function restartScramble() { initScramble(); }
+
+    // ============================================================
+    // QUIZ GAME
+    // ============================================================
+    function initQuizGame() {
+        currentQuizQ = 0; quizCorrect = 0;
+        document.getElementById('quizgame-result').style.display = 'none';
+        document.getElementById('quizgame-content').style.display = 'block';
+        const shuffled = [...QUIZ_GAME_DATA].sort(() => Math.random() - 0.5);
+        window._quizQuestions = shuffled.slice(0, 8);
+        renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+        if (currentQuizQ >= window._quizQuestions.length) { showQuizGameResult(); return; }
+        quizAnswered = false;
+        const q = window._quizQuestions[currentQuizQ];
+        document.getElementById('quizgame-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`;
+        document.getElementById('quizgame-content').innerHTML = `
+            <p style="color:var(--primary); font-size:0.85rem; margin-bottom:8px;">Pregunta ${currentQuizQ + 1} de ${window._quizQuestions.length}</p>
+            <p class="quiz-game-question">${q.q}</p>
+            <div class="quiz-game-options">
+                ${q.options.map((opt, i) => `<button class="quiz-game-opt" onclick="answerQuiz(${i})">${opt}</button>`).join('')}
+            </div>
+        `;
+    }
+
+    function answerQuiz(idx) {
+        if (quizAnswered) return;
+        quizAnswered = true;
+        const q = window._quizQuestions[currentQuizQ];
+        const btns = document.querySelectorAll('.quiz-game-opt');
+        if (idx === q.correct) { quizCorrect++; btns[idx].classList.add('correct'); }
+        else { btns[idx].classList.add('incorrect'); btns[q.correct].classList.add('correct'); }
+        document.getElementById('quizgame-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`;
+        setTimeout(() => { currentQuizQ++; renderQuizQuestion(); }, 1200);
+    }
+
+    function showQuizGameResult() {
+        document.getElementById('quizgame-content').style.display = 'none';
+        const r = document.getElementById('quizgame-result');
+        r.style.display = 'block';
+        document.getElementById('quizgame-final-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`;
+        document.getElementById('quizgame-final-text').textContent = quizCorrect === window._quizQuestions.length ? '¡Perfecto! ¡Sabes muchísimo de biología!' : quizCorrect >= window._quizQuestions.length * 0.7 ? '¡Muy bien! Casi perfecto.' : quizCorrect >= window._quizQuestions.length / 2 ? '¡Buen intento! Repasa los temas.' : '¡Sigue estudiando! Tú puedes.';
+    }
+
+    function restartQuizGame() { initQuizGame(); }
+    </script>
+</body>
+</html>

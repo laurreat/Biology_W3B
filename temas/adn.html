@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es el ADN? | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-dna"></i> Genética</span>
+            <h1>¿Qué es el ADN?</h1>
+            <p class="topic-subtitle">Tus planos de construcción: el libro secreto que dice cómo eres.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>¿Qué es el ADN?</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué es el ADN?</h2>
+            <p>El <strong>ADN (Ácido Desoxirribonucleico)</strong> es la molécula que contiene toda la información que te hace ser como eres. Es como un manual de instrucciones que determina el color de tus ojos, tu tipo de cabello y muchas otras características.</p>
+            <div class="topic-image-block">
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=800" alt="Estructura del ADN">
+                <p class="img-caption">La doble hélice del ADN: dos cadenas enrolladas como una escalera de caracol.</p>
+            </div>
+            <h2>¿Cómo es el ADN?</h2>
+            <ul>
+                <li><strong>Doble hélice:</strong> Imagina una escalera de caracol. Eso es el ADN: dos cadenas enrolladas.</li>
+                <li><strong>Nucleótidos:</strong> Son los "peldaños". Cada uno tiene una base: <strong>A</strong>denina (A), <strong>T</strong>imina (T), <strong>C</strong>itosina (C) o <strong>G</strong>uanina (G).</li>
+                <li><strong>Regla de apareamiento:</strong> A siempre se une con T, y C siempre se une con G. ¡Así de simple!</li>
+            </ul>
+            <h2>¿Dónde está el ADN?</h2>
+            <p>Está guardado en el <strong>núcleo</strong> de cada célula, enrollado en <strong>cromosomas</strong>.</p>
+            <ul>
+                <li>Los humanos tenemos <strong>46 cromosomas</strong> (23 pares).</li>
+                <li>23 los heredaste de tu mamá y 23 de tu papá.</li>
+                <li>Un par son los <strong>cromosomas sexuales</strong>: XX en mujeres, XY en hombres.</li>
+            </ul>
+            <h2>¿Qué es un gen?</h2>
+            <p>Un <strong>gen</strong> es un pedacito de ADN con instrucciones para una característica. Por ejemplo, hay genes que determinan el color de tus ojos o si puedes enrollar la lengua en forma de tubo.</p>
+            <p>Los humanos tenemos aproximadamente <strong>20.000 genes</strong>.</p>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡Si estiraras el ADN de una sola de tus células, mediría 2 metros! Y tienes billones de células. Todo ese ADN enrollado cabe en algo tan pequeño que no puedes ver a simple vista.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-adn">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Con qué letra se representa la Timina?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> A</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> T</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> C</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> G</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>2. ¿Cuántos cromosomas tiene un ser humano?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> 23</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> 44</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> 46</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> 48</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Qué forma tiene el ADN?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Doble hélice</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Círculo</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Triángulo</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Línea recta</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-adn')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-dna"></i> Genética</h3>
+                <div class="sidebar-nav">
+                    <a href="adn.html" class="active"><span class="nav-icon">🧬</span> ¿Qué es el ADN?</a>
+                    <a href="herencia.html"><span class="nav-icon">👨‍👩‍👧</span> Herencia</a>
+                    <a href="cromosomas.html"><span class="nav-icon">🔗</span> Cromosomas</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="nervioso.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Sistema Nervioso</span></div></a>
+        <a href="herencia.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Herencia</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas. ¡Conoces bien el ADN!`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

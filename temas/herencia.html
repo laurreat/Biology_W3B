@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencia Genética | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-dna"></i> Genética</span>
+            <h1>Herencia Genética</h1>
+            <p class="topic-subtitle">¿Por qué te pareces a tus padres y abuelos? Descubre cómo se heredan los rasgos.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Herencia</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>Gregor Mendel: El padre de la genética</h2>
+            <p><strong>Gregor Mendel</strong> (1822-1884) fue un monje que descubrió cómo se pasan las características de padres a hijos cruzando plantas de guisante (arvejas). Observó cómo se heredaban cosas como el color de la flor o la forma de la semilla.</p>
+            <h2>Conceptos que debes conocer</h2>
+            <ul>
+                <li><strong>Gen:</strong> Unidad de herencia. Un "pedacito de ADN" que determina una característica.</li>
+                <li><strong>Alelo:</strong> Cada "versión" de un gen. Por ejemplo, el gen del color de ojos tiene un alelo para ojos marrones y otro para ojos azules.</li>
+                <li><strong>Genotipo:</strong> La combinación de alelos que tienes "por dentro" (ejemplo: AA, Aa, aa).</li>
+                <li><strong>Fenotipo:</strong> Lo que se ve "por fuera" (ojos marrones, pelo liso, etc.).</li>
+            </ul>
+            <h2>Dominante y Recesivo</h2>
+            <ul>
+                <li><strong>Alelo dominante (MAYÚSCULA):</strong> Es el que "gana" y se muestra. Ejemplo: ojos marrones (A) domina sobre ojos azules (a).</li>
+                <li><strong>Alelo recesivo (minúscula):</strong> Solo se muestra si no hay uno dominante. Necesitas dos alelos recesivos (aa) para tener ojos azules.</li>
+            </ul>
+            <div class="topic-key-concept">
+                <p class="concept-label">Ejemplo práctico</p>
+                <h4>Cuadro de Punnett</h4>
+                <p>Si un papá tiene <strong>AA</strong> (ojos marrones) y una mamá tiene <strong>aa</strong> (ojos azules), todos los hijos serán <strong>Aa</strong> (ojos marrones). Pero llevan el alelo de ojos azules "escondido".</p>
+            </div>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>El color de ojos no depende de un solo gen. En realidad hay varios genes involucrados, pero el modelo de Mendel es una buena forma de empezar a entender la herencia.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-herencia">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Cómo se escribe un alelo dominante?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> En minúscula (a)</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> En mayúscula (A)</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> Con un número</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> Con un símbolo</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>2. ¿Qué es el fenotipo?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> Los genes internos</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> El ADN completo</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> Lo que se observa externamente</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> Los cromosomas</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Con qué plantas experimentó Mendel?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Guisantes (arvejas)</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Rosas</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Girasoles</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Maíz</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-herencia')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-dna"></i> Genética</h3>
+                <div class="sidebar-nav">
+                    <a href="adn.html"><span class="nav-icon">🧬</span> ¿Qué es el ADN?</a>
+                    <a href="herencia.html" class="active"><span class="nav-icon">👨‍👩‍👧</span> Herencia</a>
+                    <a href="cromosomas.html"><span class="nav-icon">🔗</span> Cromosomas</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="adn.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">¿Qué es el ADN?</span></div></a>
+        <a href="cromosomas.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Cromosomas</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas. ¡Entiendes la herencia!`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

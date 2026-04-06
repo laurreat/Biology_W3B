@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 5 Reinos | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-seedling"></i> Seres Vivos</span>
+            <h1>Los 5 Reinos de la Vida</h1>
+            <p class="topic-subtitle">La gran familia del planeta: desde bacterias hasta ballenas jorobadas.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Los 5 Reinos</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Cómo clasificamos la vida?</h2>
+            <p>Los científicos agrupan a todos los seres vivos en <strong>5 reinos</strong> según cómo son, cómo se alimentan y cómo se reproducen.</p>
+            <h2>Reino Mónera (Bacterias)</h2>
+            <p>Organismos <strong>microscópicos de una sola célula</strong> sin núcleo definido. Viven en todas partes: en el suelo, en el agua, en tu piel y hasta en tu intestino.</p>
+            <ul>
+                <li><strong>Ejemplo:</strong> <em>Lactobacillus</em> (que ayuda a hacer yogur) y las cianobacterias (que producen oxígeno).</li>
+            </ul>
+            <h2>Reino Protista</h2>
+            <p>Organismos con <strong>núcleo verdadero</strong>, la mayoría viven en el agua.</p>
+            <ul>
+                <li><strong>Ejemplo:</strong> Amebas, paramecios y las algas que ves en los charcos y lagunas.</li>
+            </ul>
+            <h2>Reino Fungi (Hongos)</h2>
+            <p>No son plantas ni animales. <strong>No fabrican su propio alimento</strong>, se alimentan de materia orgánica en descomposición.</p>
+            <ul>
+                <li><strong>Ejemplo:</strong> Setas, champiñones, el moho del pan y las levaduras (que se usan para hacer pan).</li>
+                <li>Son muy importantes porque <strong>reciclan nutrientes</strong> en la naturaleza.</li>
+            </ul>
+            <div class="topic-image-block">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800" alt="Biodiversidad">
+                <p class="img-caption">Colombia es el segundo país más biodiverso del mundo.</p>
+            </div>
+            <h2>Reino Plantae (Plantas)</h2>
+            <p>Fabrican su propio alimento con la luz del sol (<strong>fotosíntesis</strong>).</p>
+            <ul>
+                <li><strong>Ejemplos colombianos:</strong> La palma de cera (árbol nacional), los frailejones del páramo, el ceibo de la Amazonía y las orquídeas.</li>
+                <li>Producen el oxígeno que respiramos.</li>
+            </ul>
+            <h2>Reino Animalia (Animales)</h2>
+            <p><strong>No fabrican su propio alimento</strong>. Se alimentan de otros seres vivos.</p>
+            <ul>
+                <li><strong>Ejemplos colombianos:</strong> El cóndor de los Andes, el jaguar, el delfín rosado del Amazonas, la rana dorada y la guacamaya.</li>
+                <li>Se dividen en <strong>vertebrados</strong> (con columna) e <strong>invertebrados</strong> (sin columna).</li>
+            </ul>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡Colombia es el segundo país más biodiverso del mundo! Tenemos más de 56.000 especies de plantas y 3.000 especies de peces de agua dulce.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-reinos">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="3">
+                    <p>1. ¿A qué reino pertenecen los hongos?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> Plantae</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> Protista</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> Fungi</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> Mónera</label>
+                </div>
+                <div class="quiz-question" data-correct="2">
+                    <p>2. ¿Qué reino fabrica su alimento con fotosíntesis?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> Animalia</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> Plantae</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> Fungi</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> Protista</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Cuál es el árbol nacional de Colombia?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Palma de cera</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Ceibo</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Roble</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Ceiba</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-reinos')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-seedling"></i> Seres Vivos</h3>
+                <div class="sidebar-nav">
+                    <a href="reinos.html" class="active"><span class="nav-icon">👑</span> Los 5 Reinos</a>
+                    <a href="invertebrados-tema.html"><span class="nav-icon">🐛</span> Invertebrados</a>
+                    <a href="funciones-vitales.html"><span class="nav-icon">💚</span> Funciones Vitales</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="cromosomas.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Cromosomas</span></div></a>
+        <a href="invertebrados-tema.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Invertebrados</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas. ¡Conoces los reinos!`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

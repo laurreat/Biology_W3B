@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invertebrados | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1504190367302-3f195aa57850?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-seedling"></i> Seres Vivos</span>
+            <h1>Animales Invertebrados</h1>
+            <p class="topic-subtitle">Sin columna vertebral, pero son los más exitosos del planeta.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Invertebrados</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué son los invertebrados?</h2>
+            <p>Son animales <strong>sin columna vertebral</strong>. Son el grupo más numeroso: ¡el 95% de todas las especies animales son invertebrados!</p>
+            <h2>Artrópodos (los más numerosos)</h2>
+            <ul>
+                <li><strong>Insectos:</strong> 6 patas, cuerpo en 3 partes. Mariposas, hormigas, escarabajos, abejas. Colombia tiene más de 3.000 especies de mariposas.</li>
+                <li><strong>Arácnidos:</strong> 8 patas. Arañas, escorpiones y garrapatas.</li>
+                <li><strong>Crustáceos:</strong> Cangrejos, camarones, langostas.</li>
+                <li><strong>Miriápodos:</strong> Ciempiés y milpiés.</li>
+            </ul>
+            <h2>Otros grupos</h2>
+            <ul>
+                <li><strong>Moluscos:</strong> Cuerpo blando, muchos con concha. Caracoles, ostras, pulpos.</li>
+                <li><strong>Anélidos:</strong> Gusanos segmentados. La lombriz de tierra es fundamental para el suelo.</li>
+                <li><strong>Equinodermos:</strong> Estrellas de mar y erizos. Viven en el mar.</li>
+                <li><strong>Cnidarios:</strong> Medusas, corales y anémonas. Los corales forman arrecifes en el Caribe colombiano.</li>
+            </ul>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡1 de cada 4 animales en la Tierra es un escarabajo! Los invertebrados son esenciales: polinizan plantas, descomponen materia y son alimento de otros animales.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-invertebrados">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Qué porcentaje de animales son invertebrados?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> 50%</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> 95%</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> 75%</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> 30%</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>2. ¿Cuántas patas tienen los arácnidos?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> 6</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> 10</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> 8</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> 4</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Qué animal ayuda a mejorar la calidad del suelo?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Lombriz de tierra</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Mariposa</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Medusa</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Araña</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-invertebrados')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-seedling"></i> Seres Vivos</h3>
+                <div class="sidebar-nav">
+                    <a href="reinos.html"><span class="nav-icon">👑</span> Los 5 Reinos</a>
+                    <a href="invertebrados-tema.html" class="active"><span class="nav-icon">🐛</span> Invertebrados</a>
+                    <a href="funciones-vitales.html"><span class="nav-icon">💚</span> Funciones Vitales</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="reinos.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Los 5 Reinos</span></div></a>
+        <a href="funciones-vitales.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Funciones Vitales</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas.`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

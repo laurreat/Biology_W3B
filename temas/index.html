@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temas de Biología | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .hub-page { min-height: 100vh; background: var(--bg); color: var(--text); }
+        .hub-hero { text-align: center; padding: 100px 24px 50px; }
+        .hub-hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; background: linear-gradient(135deg, #fff 30%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 10px; }
+        .hub-hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .hub-container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 80px; }
+        .hub-category { margin-bottom: 50px; }
+        .hub-category-header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--glass-border); }
+        .hub-category-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .hub-category-header h2 { font-size: 1.4rem; font-weight: 700; color: #fff; margin: 0; }
+        .hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .hub-card { display: flex; align-items: center; gap: 16px; padding: 20px; border-radius: 14px; background: var(--glass-bg); border: 1px solid var(--glass-border); text-decoration: none; transition: all 0.25s; cursor: pointer; }
+        .hub-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(16,185,129,0.12); }
+        .hub-card-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
+        .hub-card-text h3 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin: 0 0 4px; }
+        .hub-card-text p { font-size: 0.88rem; color: var(--text-dim); margin: 0; line-height: 1.4; }
+        .citologia-bg { background: rgba(16,185,129,0.15); }
+        .anatomia-bg { background: rgba(239,68,68,0.15); }
+        .genetica-bg { background: rgba(99,102,241,0.15); }
+        .seresvivos-bg { background: rgba(34,197,94,0.15); }
+        .ecologia-bg { background: rgba(251,191,36,0.15); }
+        .animales-bg { background: rgba(236,72,153,0.15); }
+        @media (max-width: 600px) { .hub-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body class="hub-page">
+    <nav id="global-nav"></nav>
+    <div class="hub-hero">
+        <h1>Temas de Biología</h1>
+        <p>Explora cada tema en su propia página completa. Aprende a tu ritmo con explicaciones claras, imágenes y mini quizzes.</p>
+    </div>
+    <div class="hub-container">
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon citologia-bg">🔬</div>
+                <h2>Citología - La Célula</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="celula.html" class="hub-card"><div class="hub-card-icon citologia-bg">🔬</div><div class="hub-card-text"><h3>La Célula</h3><p>Unidad básica de vida, tipos y partes.</p></div></a>
+                <a href="organulos.html" class="hub-card"><div class="hub-card-icon citologia-bg">⚙️</div><div class="hub-card-text"><h3>Orgánulos Celulares</h3><p>Mitocondrias, cloroplastos, núcleo y más.</p></div></a>
+                <a href="division-celular.html" class="hub-card"><div class="hub-card-icon citologia-bg">🧬</div><div class="hub-card-text"><h3>División Celular</h3><p>Mitosis y meiosis explicadas paso a paso.</p></div></a>
+            </div>
+        </div>
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon anatomia-bg">❤️</div>
+                <h2>Anatomía - Cuerpo Humano</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="circulatorio.html" class="hub-card"><div class="hub-card-icon anatomia-bg">❤️</div><div class="hub-card-text"><h3>Sistema Circulatorio</h3><p>Corazón, sangre y vasos sanguíneos.</p></div></a>
+                <a href="digestivo.html" class="hub-card"><div class="hub-card-icon anatomia-bg">🍽️</div><div class="hub-card-text"><h3>Sistema Digestivo</h3><p>De la boca al intestino: la digestión.</p></div></a>
+                <a href="respiratorio.html" class="hub-card"><div class="hub-card-icon anatomia-bg">🫁</div><div class="hub-card-text"><h3>Sistema Respiratorio</h3><p>Pulmones, alvéolos y el camino del aire.</p></div></a>
+                <a href="nervioso.html" class="hub-card"><div class="hub-card-icon anatomia-bg">🧠</div><div class="hub-card-text"><h3>Sistema Nervioso</h3><p>Cerebro, neuronas y los 5 sentidos.</p></div></a>
+            </div>
+        </div>
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon genetica-bg">🧬</div>
+                <h2>Genética</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="adn.html" class="hub-card"><div class="hub-card-icon genetica-bg">🧬</div><div class="hub-card-text"><h3>¿Qué es el ADN?</h3><p>Doble hélice, nucleótidos y genes.</p></div></a>
+                <a href="herencia.html" class="hub-card"><div class="hub-card-icon genetica-bg">👨‍👩‍👧</div><div class="hub-card-text"><h3>Herencia Genética</h3><p>Las leyes de Mendel, dominante y recesivo.</p></div></a>
+                <a href="cromosomas.html" class="hub-card"><div class="hub-card-icon genetica-bg">🔗</div><div class="hub-card-text"><h3>Cromosomas</h3><p>46 cromosomas, tipos y mutaciones.</p></div></a>
+            </div>
+        </div>
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon seresvivos-bg">🌱</div>
+                <h2>Seres Vivos</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="reinos.html" class="hub-card"><div class="hub-card-icon seresvivos-bg">👑</div><div class="hub-card-text"><h3>Los 5 Reinos</h3><p>Mónera, Protista, Fungi, Plantae, Animalia.</p></div></a>
+                <a href="invertebrados-tema.html" class="hub-card"><div class="hub-card-icon seresvivos-bg">🐛</div><div class="hub-card-text"><h3>Invertebrados</h3><p>Artrópodos, moluscos, anélidos y más.</p></div></a>
+                <a href="funciones-vitales.html" class="hub-card"><div class="hub-card-icon seresvivos-bg">💚</div><div class="hub-card-text"><h3>Funciones Vitales</h3><p>Nutrición, relación y reproducción.</p></div></a>
+            </div>
+        </div>
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon ecologia-bg">🌿</div>
+                <h2>Ecología</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="cadena-alimenticia.html" class="hub-card"><div class="hub-card-icon ecologia-bg">🔗</div><div class="hub-card-text"><h3>Cadena Alimenticia</h3><p>Productores, consumidores y descomponedores.</p></div></a>
+                <a href="ecosistemas.html" class="hub-card"><div class="hub-card-icon ecologia-bg">🌿</div><div class="hub-card-text"><h3>Ecosistemas de Colombia</h3><p>Páramo, selva, manglar, sabana y más.</p></div></a>
+                <a href="ciclos-materia.html" class="hub-card"><div class="hub-card-icon ecologia-bg">🔄</div><div class="hub-card-text"><h3>Ciclos de la Materia</h3><p>Agua, carbono y nitrógeno.</p></div></a>
+            </div>
+        </div>
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon animales-bg">🐾</div>
+                <h2>Animales</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="vertebrados.html" class="hub-card"><div class="hub-card-icon animales-bg">🦴</div><div class="hub-card-text"><h3>Vertebrados</h3><p>Mamíferos, aves, reptiles, anfibios y peces.</p></div></a>
+                <a href="invertebrados-animales.html" class="hub-card"><div class="hub-card-icon animales-bg">🐛</div><div class="hub-card-text"><h3>Invertebrados</h3><p>Insectos, arácnidos, moluscos y más.</p></div></a>
+            </div>
+        </div>
+    </div>
+    <script src="../components.js"></script>
+</body>
+</html>

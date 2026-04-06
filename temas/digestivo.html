@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Digestivo | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-utensils"></i> Anatomía</span>
+            <h1>Sistema Digestivo</h1>
+            <p class="topic-subtitle">Cómo tu cuerpo convierte la comida en energía para estudiar y jugar.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Sistema Digestivo</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué hace el sistema digestivo?</h2>
+            <p>Transforma los alimentos que comes en <strong>nutrientes</strong> que tu cuerpo puede usar para tener energía, crecer y repararse. Todo lo que no sirve se elimina.</p>
+            <div class="topic-image-block">
+                <img src="../assets/cuerpos_human/digestivo.png" alt="Sistema Digestivo">
+                <p class="img-caption">El recorrido de la comida: desde la boca hasta el intestino grueso.</p>
+            </div>
+            <h2>El recorrido de la comida</h2>
+            <ol>
+                <li><strong>Boca:</strong> Los dientes trituran la comida y la saliva la humedece. Aquí empieza la digestión.</li>
+                <li><strong>Esófago:</strong> Tubo que lleva la comida al estómago. Tiene movimientos como olas llamados <strong>peristálticos</strong>.</li>
+                <li><strong>Estómago:</strong> Como una licuadora. Mezcla la comida con jugos gástricos (ácidos) y la convierte en una papilla llamada <strong>quimo</strong>.</li>
+                <li><strong>Intestino delgado:</strong> Mide unos 7 metros enrollado. Aquí se absorben los nutrientes y pasan a la sangre.</li>
+                <li><strong>Intestino grueso:</strong> Absorbe el agua y las sales minerales. Lo que sobra se convierte en heces.</li>
+                <li><strong>Ano:</strong> Por aquí se eliminan los desechos.</li>
+            </ol>
+            <h2>Órganos que ayudan</h2>
+            <ul>
+                <li><strong>Hígado:</strong> Produce la <strong>bilis</strong> que ayuda a digerir las grasas. También limpia la sangre.</li>
+                <li><strong>Páncreas:</strong> Produce jugos que ayudan a digerir carbohidratos, proteínas y grasas.</li>
+                <li><strong>Vesícula biliar:</strong> Guarda la bilis que produce el hígado.</li>
+            </ul>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡El intestino delgado mide hasta 7 metros! Si lo estiraras, sería más largo que un bus de Transmilenio. Y el intestino grueso mide unos 1.5 metros.</p>
+            </div>
+            <h2>Consejos para cuidar tu digestión</h2>
+            <ul>
+                <li>Masticar bien los alimentos (la digestión empieza en la boca).</li>
+                <li>Comer frutas colombianas como mango, papaya y guayaba (tienen fibra).</li>
+                <li>Tomar bastante agua durante el día.</li>
+                <li>No acostarte inmediatamente después de comer.</li>
+            </ul>
+            <div class="topic-quiz" id="quiz-digestivo">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="3">
+                    <p>1. ¿Dónde comienza la digestión?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> En el estómago</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> En el esófago</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> En la boca</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> En el intestino</label>
+                </div>
+                <div class="quiz-question" data-correct="2">
+                    <p>2. ¿Cuánto mide aproximadamente el intestino delgado?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> 1 metro</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> 7 metros</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> 3 metros</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> 15 metros</label>
+                </div>
+                <div class="quiz-question" data-correct="4">
+                    <p>3. ¿Qué órgano produce la bilis?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Páncreas</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Estómago</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Intestino</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Hígado</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-digestivo')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-heartbeat"></i> Anatomía</h3>
+                <div class="sidebar-nav">
+                    <a href="circulatorio.html"><span class="nav-icon">❤️</span> Circulatorio</a>
+                    <a href="digestivo.html" class="active"><span class="nav-icon">🍽️</span> Digestivo</a>
+                    <a href="respiratorio.html"><span class="nav-icon">🫁</span> Respiratorio</a>
+                    <a href="nervioso.html"><span class="nav-icon">🧠</span> Nervioso</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="circulatorio.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Sistema Circulatorio</span></div></a>
+        <a href="respiratorio.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Sistema Respiratorio</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas. ¡Tu digestión funciona bien!`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Respiratorio | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-lungs"></i> Anatomía</span>
+            <h1>Sistema Respiratorio</h1>
+            <p class="topic-subtitle">Cómo tu cuerpo toma el oxígeno del aire y expulsa el dióxido de carbono.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Sistema Respiratorio</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué hace el sistema respiratorio?</h2>
+            <p>Toma <strong>oxígeno</strong> del aire y expulsa <strong>dióxido de carbono</strong>, un desecho que tu cuerpo produce. Sin oxígeno, tus células no podrían producir energía.</p>
+            <h2>El camino del aire</h2>
+            <ol>
+                <li><strong>Nariz:</strong> El aire entra, se calienta y se filtra con pelositos (cilios) y moco.</li>
+                <li><strong>Faringe y laringe:</strong> El aire pasa por la garganta. En la laringe están las cuerdas vocales que te permiten hablar.</li>
+                <li><strong>Tráquea:</strong> Tubo que lleva el aire hacia los pulmones.</li>
+                <li><strong>Bronquios:</strong> La tráquea se divide en dos, uno para cada pulmón.</li>
+                <li><strong>Bronquiolos:</strong> Tubos cada vez más pequeños dentro del pulmón.</li>
+                <li><strong>Alvéolos:</strong> Bolsitas diminutas donde el oxígeno pasa a la sangre y el CO₂ sale.</li>
+            </ol>
+            <div class="topic-image-block">
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=800" alt="Sistema Respiratorio">
+                <p class="img-caption">Los pulmones tienen unos 300 millones de alvéolos. Si los estiraras, cubrirían una cancha de tenis.</p>
+            </div>
+            <h2>Los Pulmones</h2>
+            <p>Son dos órganos esponjosos protegidos por las costillas. El pulmón derecho es más grande (3 lóbulos) y el izquierdo es más pequeño (2 lóbulos) para dejar espacio al corazón.</p>
+            <h2>¿Cómo respiramos?</h2>
+            <ul>
+                <li><strong>Inspiración:</strong> El <strong>diafragma</strong> (músculo debajo de los pulmones) baja y los pulmones se llenan de aire.</li>
+                <li><strong>Espiración:</strong> El diafragma sube y los pulmones expulsan el aire con dióxido de carbono.</li>
+            </ul>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡Respiras aproximadamente 20.000 veces al día! Y en tus pulmones hay unos 300 millones de alvéolos. Si los estiraras todos, cubrirían el área de una cancha de tenis.</p>
+            </div>
+            <h2>¿Cómo cuidar tus pulmones?</h2>
+            <ul>
+                <li>No fumar ni estar cerca de personas que fuman.</li>
+                <li>Hacer ejercicio al aire libre (como correr en el parque o jugar fútbol).</li>
+                <li>Evitar la contaminación: usar tapabocas en lugares con mucho humo o polvo.</li>
+                <li>Respirar por la nariz (filtra y calienta el aire).</li>
+            </ul>
+            <div class="topic-quiz" id="quiz-respiratorio">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Dónde ocurre el intercambio de oxígeno y CO₂?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> En la tráquea</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> En los alvéolos</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> En los bronquios</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> En la nariz</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>2. ¿Qué músculo nos ayuda a respirar?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> Bíceps</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> Corazón</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> Diafragma</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> Estómago</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Cuántas veces respiras aproximadamente al día?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> 20.000</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> 5.000</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> 100.000</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> 1.000</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-respiratorio')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-heartbeat"></i> Anatomía</h3>
+                <div class="sidebar-nav">
+                    <a href="circulatorio.html"><span class="nav-icon">❤️</span> Circulatorio</a>
+                    <a href="digestivo.html"><span class="nav-icon">🍽️</span> Digestivo</a>
+                    <a href="respiratorio.html" class="active"><span class="nav-icon">🫁</span> Respiratorio</a>
+                    <a href="nervioso.html"><span class="nav-icon">🧠</span> Nervioso</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="digestivo.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Sistema Digestivo</span></div></a>
+        <a href="nervioso.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Sistema Nervioso</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas. ¡Respiras conocimiento!`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

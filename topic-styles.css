@@ -1,0 +1,512 @@
+/* ============================================================
+   TOPIC PAGES - Shared Styles for individual topic pages
+   Biology_W3B | Designed for 6th-grade Colombian students
+   ============================================================ */
+
+.topic-page {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* --- Hero --- */
+.topic-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.topic-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35) saturate(1.2);
+    transform: scale(1.05);
+}
+
+.topic-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,11,16,0.3) 0%, rgba(10,11,16,0.85) 100%);
+}
+
+.topic-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 24px;
+}
+
+.topic-hero-content .topic-badge {
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 50px;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.topic-hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.topic-hero-content .topic-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Breadcrumb --- */
+.topic-breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.topic-breadcrumb a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.topic-breadcrumb a:hover {
+    color: #34d399;
+    text-decoration: underline;
+}
+
+/* --- Main Content Layout --- */
+.topic-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
+}
+
+@media (max-width: 860px) {
+    .topic-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Content Area --- */
+.topic-content {
+    min-width: 0;
+}
+
+.topic-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+}
+
+.topic-content h2:first-child {
+    margin-top: 0;
+}
+
+.topic-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 28px 0 10px;
+}
+
+.topic-content h4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #a7f3d0;
+    margin: 20px 0 8px;
+}
+
+.topic-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+}
+
+.topic-content ul,
+.topic-content ol {
+    margin: 10px 0 16px 24px;
+    color: var(--text-dim);
+}
+
+.topic-content li {
+    margin-bottom: 8px;
+    line-height: 1.65;
+    font-size: 1.02rem;
+}
+
+.topic-content li strong {
+    color: #e2e8f0;
+}
+
+/* --- Image Block --- */
+.topic-image-block {
+    margin: 30px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+}
+
+.topic-image-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-height: 200px;
+    object-fit: cover;
+}
+
+.topic-image-block .img-caption {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    text-align: center;
+    font-style: italic;
+}
+
+/* --- Info Stat Box --- */
+.topic-fun-fact {
+    margin: 28px 0;
+    padding: 20px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(16,185,129,0.04) 100%);
+    border-left: 4px solid var(--primary);
+}
+
+.topic-fun-fact .fact-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.topic-fun-fact p {
+    margin: 0;
+    color: #e2e8f0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* --- Key Concept Box --- */
+.topic-key-concept {
+    margin: 28px 0;
+    padding: 24px;
+    border-radius: 12px;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.topic-key-concept .concept-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #818cf8;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.topic-key-concept h4 {
+    color: #a5b4fc;
+    margin: 0 0 8px;
+}
+
+.topic-key-concept p {
+    margin: 0;
+    color: var(--text-dim);
+}
+
+/* --- Comparison Table --- */
+.topic-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+.topic-table thead {
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.topic-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.95rem;
+}
+
+.topic-table td {
+    padding: 10px 16px;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.topic-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+}
+
+/* --- Sidebar --- */
+.topic-sidebar {
+    position: sticky;
+    top: 80px;
+    align-self: start;
+}
+
+.sidebar-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(12px);
+}
+
+.sidebar-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all 0.2s;
+    margin-bottom: 4px;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--primary);
+}
+
+.sidebar-nav a .nav-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* --- Quick Quiz (at bottom of topic) --- */
+.topic-quiz {
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 16px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.topic-quiz h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 0 0 20px;
+}
+
+.quiz-question {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.quiz-question:last-of-type {
+    border-bottom: none;
+}
+
+.quiz-question p {
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 10px;
+}
+
+.quiz-option {
+    display: block;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.quiz-option:hover {
+    border-color: var(--primary);
+    background: rgba(16, 185, 129, 0.06);
+}
+
+.quiz-option input {
+    margin-right: 8px;
+}
+
+.quiz-option.correct {
+    border-color: #22c55e;
+    background: rgba(34, 197, 94, 0.12);
+    color: #86efac;
+}
+
+.quiz-option.incorrect {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.12);
+    color: #fca5a5;
+}
+
+.quiz-btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quiz-btn:hover {
+    background: #059669;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.quiz-result {
+    margin-top: 16px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: none;
+}
+
+.quiz-result.show {
+    display: block;
+}
+
+.quiz-result.good {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid #22c55e;
+    color: #86efac;
+}
+
+.quiz-result.try-again {
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid #fbbf24;
+    color: #fde68a;
+}
+
+/* --- Next/Prev Navigation --- */
+.topic-nav-footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.topic-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    text-decoration: none;
+    transition: all 0.2s;
+    max-width: 48%;
+}
+
+.topic-nav-link:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.topic-nav-link .nav-direction {
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.topic-nav-link .nav-title {
+    color: #e2e8f0;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .topic-hero {
+        height: 40vh;
+        min-height: 280px;
+    }
+
+    .topic-body {
+        padding: 16px 16px 40px;
+        gap: 24px;
+    }
+
+    .topic-content h2 {
+        font-size: 1.35rem;
+    }
+
+    .topic-nav-footer {
+        flex-direction: column;
+    }
+
+    .topic-nav-link {
+        max-width: 100%;
+    }
+}

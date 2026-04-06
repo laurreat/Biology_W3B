@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadena Alimenticia | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-recycle"></i> Ecología</span>
+            <h1>Cadenas y Redes Alimenticias</h1>
+            <p class="topic-subtitle">Nadie sobrevive solo. Descubre cómo fluye la energía en la naturaleza.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Cadena Alimenticia</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué es una cadena alimenticia?</h2>
+            <p>Muestra cómo la <strong>energía del Sol</strong> pasa de un ser vivo a otro. Todos estamos conectados.</p>
+            <div class="topic-image-block">
+                <img src="../assets/food_web_ecosystem_1775510710541.png" alt="Red Alimenticia">
+                <p class="img-caption">La energía fluye: Sol → Productores → Consumidores → Descomponedores.</p>
+            </div>
+            <h2>Niveles de la cadena</h2>
+            <h3>1. Productores (Plantas y algas)</h3>
+            <p>Fabrican su propio alimento mediante la <strong>fotosíntesis</strong>. Son la base de toda cadena.</p>
+            <p><strong>Ejemplos en Colombia:</strong> Pastos de los Llanos, árboles de la selva amazónica, frailejones del Páramo de Sumapaz.</p>
+            <h3>2. Consumidores</h3>
+            <ul>
+                <li><strong>Primarios (herbívoros):</strong> Comen plantas. Ejemplo: chigüiro, venado, orugas.</li>
+                <li><strong>Secundarios (carnívoros):</strong> Comen herbívoros. Ejemplo: jaguar, anaconda, águila harpía.</li>
+                <li><strong>Terciarios (superdepredadores):</strong> Están en la cima. Ejemplo: jaguar, cóndor.</li>
+                <li><strong>Omnívoros:</strong> Comen plantas y animales. Ejemplo: osos de anteojos, seres humanos.</li>
+            </ul>
+            <h3>3. Descomponedores</h3>
+            <p>Descomponen los restos de seres vivos muertos y devuelven los nutrientes al suelo. Sin ellos, el planeta estaría lleno de basura.</p>
+            <p><strong>Ejemplos:</strong> Hongos, bacterias y lombrices de tierra.</p>
+            <h2>¿Qué es una red alimenticia?</h2>
+            <p>En la realidad no hay una sola cadena sino muchas entrelazadas formando una <strong>red</strong>. Si una especie desaparece, afecta a muchas otras.</p>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡Solo el 10% de la energía pasa de un nivel al siguiente! Por eso hay más plantas que herbívoros, y más herbívoros que carnívoros.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-cadena">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="2">
+                    <p>1. ¿Quiénes son los productores en una cadena alimenticia?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> Animales carnívoros</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> Plantas y algas</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> Hongos</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> Bacterias</label>
+                </div>
+                <div class="quiz-question" data-correct="3">
+                    <p>2. ¿Qué porcentaje de energía pasa de un nivel al siguiente?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> 50%</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> 25%</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> 10%</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> 90%</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Qué animal colombiano es un consumidor secundario?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Jaguar</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Chigüiro</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> Pasto</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Hongo</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-cadena')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-recycle"></i> Ecología</h3>
+                <div class="sidebar-nav">
+                    <a href="cadena-alimenticia.html" class="active"><span class="nav-icon">🔗</span> Cadena Alimenticia</a>
+                    <a href="ecosistemas.html"><span class="nav-icon">🌿</span> Ecosistemas</a>
+                    <a href="ciclos-materia.html"><span class="nav-icon">🔄</span> Ciclos de la Materia</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="funciones-vitales.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Funciones Vitales</span></div></a>
+        <a href="ecosistemas.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente →</span><span class="nav-title">Ecosistemas de Colombia</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas.`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>

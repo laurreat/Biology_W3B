@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cromosomas | Biology_W3B</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../topic-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="topic-page">
+    <nav id="global-nav"></nav>
+    <div class="topic-hero">
+        <div class="topic-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1614935151651-0bea6508db6b?q=80&w=1200')"></div>
+        <div class="topic-hero-overlay"></div>
+        <div class="topic-hero-content">
+            <span class="topic-badge"><i class="fas fa-dna"></i> Genética</span>
+            <h1>Cromosomas</h1>
+            <p class="topic-subtitle">Los paquetes donde se organiza toda tu información genética.</p>
+        </div>
+    </div>
+    <div class="topic-breadcrumb">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a><span>/</span>
+        <a href="index.html">Temas</a><span>/</span><span>Cromosomas</span>
+    </div>
+    <div class="topic-body">
+        <div class="topic-content">
+            <h2>¿Qué son los cromosomas?</h2>
+            <p>Son estructuras en forma de X que contienen el ADN enrollado y compacto. Imagina que el ADN es un hilo muy largo y los cromosomas son como carretes donde se enrolla.</p>
+            <div class="topic-image-block">
+                <img src="https://images.unsplash.com/photo-1614935151651-0bea6508db6b?q=80&w=800" alt="Cromosomas">
+                <p class="img-caption">Los cromosomas humanos: 23 pares (46 en total).</p>
+            </div>
+            <h2>Los cromosomas humanos</h2>
+            <ul>
+                <li>Los humanos tenemos <strong>46 cromosomas</strong> organizados en <strong>23 pares</strong>.</li>
+                <li>23 vienen de tu mamá (óvulo) y 23 de tu papá (espermatozoide).</li>
+            </ul>
+            <h2>Tipos de cromosomas</h2>
+            <table class="topic-table">
+                <thead><tr><th>Tipo</th><th>Cantidad</th><th>Función</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Autosomas</strong></td><td>22 pares</td><td>Determinan la mayoría de tus características: ojos, cabello, estatura...</td></tr>
+                    <tr><td><strong>Sexuales</strong></td><td>1 par</td><td>Determinan el sexo: XX = mujer, XY = hombre</td></tr>
+                </tbody>
+            </table>
+            <h2>Mutaciones</h2>
+            <p>A veces ocurren cambios en los cromosomas o genes llamados <strong>mutaciones</strong>:</p>
+            <ul>
+                <li>Algunas no causan ningún problema.</li>
+                <li>Otras pueden causar enfermedades genéticas, como el síndrome de Down (un cromosoma 21 extra).</li>
+                <li>Algunas pocas pueden ser beneficiosas y ayudar a la evolución.</li>
+            </ul>
+            <div class="topic-fun-fact">
+                <p class="fact-label">¿Sabías que...?</p>
+                <p>¡El Proyecto Genoma Humano (2003) logró leer todo el ADN humano! Participaron científicos de todo el mundo durante 13 años.</p>
+            </div>
+            <div class="topic-quiz" id="quiz-cromosomas">
+                <h3><i class="fas fa-question-circle"></i> ¡Pon a prueba lo que aprendiste!</h3>
+                <div class="quiz-question" data-correct="3">
+                    <p>1. ¿Cuántos pares de cromosomas tiene un ser humano?</p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="1"> 22</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="2"> 24</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="3"> 23</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="4"> 46</label>
+                </div>
+                <div class="quiz-question" data-correct="2">
+                    <p>2. ¿Qué cromosomas tiene una mujer?</p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="1"> XY</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="2"> XX</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="3"> YY</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="4"> XZ</label>
+                </div>
+                <div class="quiz-question" data-correct="1">
+                    <p>3. ¿Cómo se llama un cambio en el ADN?</p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="1"> Mutación</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="2"> Evolución</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="3"> División</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="4"> Cromátida</label>
+                </div>
+                <button class="quiz-btn" onclick="checkQuiz('quiz-cromosomas')">Verificar Respuestas</button>
+                <div class="quiz-result"></div>
+            </div>
+        </div>
+        <aside class="topic-sidebar">
+            <div class="sidebar-card">
+                <h3><i class="fas fa-dna"></i> Genética</h3>
+                <div class="sidebar-nav">
+                    <a href="adn.html"><span class="nav-icon">🧬</span> ¿Qué es el ADN?</a>
+                    <a href="herencia.html"><span class="nav-icon">👨‍👩‍👧</span> Herencia</a>
+                    <a href="cromosomas.html" class="active"><span class="nav-icon">🔗</span> Cromosomas</a>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <h3>¿Quieres practicar?</h3>
+                <a href="../juegos/index.html" style="display:block; padding:14px; border-radius:10px; background:rgba(16,185,129,0.12); color:var(--primary); text-align:center; text-decoration:none; font-weight:600;"><i class="fas fa-gamepad"></i> Ir a Juegos</a>
+            </div>
+        </aside>
+    </div>
+    <div class="topic-nav-footer">
+        <a href="herencia.html" class="topic-nav-link"><div><span class="nav-direction">← Anterior</span><span class="nav-title">Herencia</span></div></a>
+        <a href="reinos.html" class="topic-nav-link"><div><span class="nav-direction">Siguiente tema →</span><span class="nav-title">Los 5 Reinos</span></div></a>
+    </div>
+    <script src="../components.js"></script>
+    <script>
+    function checkQuiz(quizId) {
+        const quiz = document.getElementById(quizId);
+        const questions = quiz.querySelectorAll('.quiz-question');
+        let correct = 0;
+        questions.forEach(q => {
+            const answer = parseInt(q.dataset.correct);
+            const selected = q.querySelector('input:checked');
+            q.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const val = parseInt(opt.querySelector('input').value);
+                if (val === answer) opt.classList.add('correct');
+                if (selected && parseInt(selected.value) === val && val !== answer) opt.classList.add('incorrect');
+            });
+            if (selected && parseInt(selected.value) === answer) correct++;
+        });
+        const result = quiz.querySelector('.quiz-result');
+        result.classList.add('show');
+        if (correct === questions.length) { result.className = 'quiz-result show good'; result.textContent = `¡Excelente! ${correct}/${questions.length} correctas. ¡Conoces los cromosomas!`; }
+        else { result.className = 'quiz-result show try-again'; result.textContent = `${correct}/${questions.length} correctas. ¡Revisa las respuestas en verde!`; }
+    }
+    </script>
+</body>
+</html>
