@@ -120,33 +120,31 @@ function onDocumentMouseClick(event) {
 
 // Muestra la información del objeto (región) en el panel lateral y agrega el botón "Ver más" para redirigir
 function showCountryInfo(data) {
-  // Formatear el nombre: eliminar "Región " y convertir a minúsculas (puedes mejorar el formateo para quitar acentos si es necesario)
-  const regionKey = data.nombre.replace("Región ", "").toLowerCase();
-  const countryNameEl = document.getElementById("country-name");
-  const ecosystemsEl = document.getElementById("ecosystems");
+    const panel = document.getElementById("country-info-panel");
+    const countryNameEl = document.getElementById("country-name");
+    const ecosystemsEl = document.getElementById("ecosystems");
 
-  countryNameEl.textContent = data.nombre;
-  ecosystemsEl.innerHTML = `
-        <strong>Ciudades:</strong> ${
-          data.ciudades ? data.ciudades.join(", ") : "N/A"
-        }<br>
-        <strong>Ecosistemas:</strong> ${
-          data.ecosistemas ? data.ecosistemas.join(", ") : "N/A"
-        }<br>
-        <strong>Fauna:</strong> ${
-          data.fauna ? data.fauna.join(", ") : "N/A"
-        }<br>
-        <strong>Flora:</strong> ${
-          data.flora ? data.flora.join(", ") : "N/A"
-        }<br>
-        <button id="more-info-btn" style="margin-top:10px; padding:8px 12px; background:#3498db; border:none; color:#fff; border-radius:5px; cursor:pointer;">Ver más</button>
+    panel.style.display = 'block';
+    panel.classList.add('active'); // CSS hook if needed
+    
+    countryNameEl.textContent = data.nombre;
+    ecosystemsEl.innerHTML = `
+        <div class="info-stat"><strong>Ciudades</strong> ${data.ciudades ? data.ciudades.join(", ") : "N/A"}</div>
+        <div class="info-stat"><strong>Ecosistemas</strong> ${data.ecosistemas ? data.ecosistemas.join(", ") : "N/A"}</div>
+        <div class="info-stat"><strong>Fauna</strong> ${data.fauna ? data.fauna.join(", ") : "N/A"}</div>
+        <div class="info-stat"><strong>Flora</strong> ${data.flora ? data.flora.join(", ") : "N/A"}</div>
+        
+        <button id="more-info-btn" class="btn btn-primary" style="margin-top:20px; width:100%; border-radius: 12px; font-size: 0.8rem; padding: 10px;">
+            <i class="fas fa-external-link-alt"></i> Ver más detalles
+        </button>
     `;
 
-  document.getElementById("more-info-btn").addEventListener("click", () => {
-    // Se redirige pasando el parámetro "region" con la clave formateada
-    window.location.href =
-      "infoEarth.html?region=" + encodeURIComponent(regionKey);
-  });
+    document.getElementById("more-info-btn").addEventListener("click", () => {
+        // Normalización: quitar "Región ", convertir a minúsculas y quitar acentos
+        const normalize = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const regionKey = normalize(data.nombre.replace("Región ", "")).toLowerCase();
+        window.location.href = `infoEarth.html?region=${encodeURIComponent(regionKey)}`;
+    });
 }
 
 // Función de animación

@@ -5,16 +5,13 @@
       "type": "Feature",
       "properties": {
         "nombre": "Región Andina",
-        "ciudades": ["Bogotá", "Medellín"],
-        "ecosistemas": ["Manguera", "Selva tropical"],
-        "fauna": ["Canguro", "Tiburón"],
-        "flora": ["Zanahoria", "Mango"]
+        "ciudades": ["Bogotá", "Medellín", "Manizales"],
+        "ecosistemas": ["Páramos", "Bosques de Niebla", "Valles Cafeteros"],
+        "fauna": ["Cóndor de los Andes", "Oso de Anteojos", "Danta de Montaña"],
+        "flora": ["Frailejón", "Palma de Cera", "Orquídeas"]
       },
       "geometry": {
-        "coordinates": [
-          -74.68644209305467,
-          5.769801789173215
-        ],
+        "coordinates": [-75.0, 5.0],
         "type": "Point"
       }
     },
@@ -22,16 +19,13 @@
       "type": "Feature",
       "properties": {
         "nombre": "Región Pacífica",
-        "ciudades": ["Lima", "Arequipa"],
-        "ecosistemas": ["Cordillera", "Selva tropical"],
-        "fauna": ["Caimán", "Tiburón"],
-        "flora": ["Zanahoria", "Mango"]
+        "ciudades": ["Quibdó", "Buenaventura", "Tumaco"],
+        "ecosistemas": ["Manglares", "Selva Húmeda", "Arrecifes"],
+        "fauna": ["Ballena Jorobada", "Rana de Oro", "Tortuga Golfina"],
+        "flora": ["Palma Naidí", "Árbol de Caucho", "Mangle"]
       },
       "geometry": {
-        "coordinates": [
-          -77.00330683799707,
-          5.418570361233989
-        ],
+        "coordinates": [-77.5, 4.0],
         "type": "Point"
       }
     },
@@ -39,16 +33,13 @@
       "type": "Feature",
       "properties": {
         "nombre": "Región Orinoquía",
-        "ciudades": ["San José", "Cayambe"],
-        "ecosistemas": ["Manguera", "Selva tropical"],
-        "fauna": ["Caimán", "Tiburón"],
-        "flora": ["Zanahoria", "Mango"]
+        "ciudades": ["Villavicencio", "Yopal", "Arauca"],
+        "ecosistemas": ["Sabanas", "Bosques de Galería"],
+        "fauna": ["Chigüiro", "Venado Sabanero", "Corocora"],
+        "flora": ["Palma de Moriche", "Cucharo", "Pasto de Sabana"]
       },
       "geometry": {
-        "coordinates": [
-          -69.88856166812165,
-          5.49419945939438
-        ],
+        "coordinates": [-71.0, 5.0],
         "type": "Point"
       }
     },
@@ -56,16 +47,13 @@
       "type": "Feature",
       "properties": {
         "nombre": "Región Amazónica",
-        "ciudades": ["Quito", "Guayaquil"],
-        "ecosistemas": ["Manguera", "Selva tropical"],
-        "fauna": ["Caimán", "Tiburón"],
-        "flora": ["Zanahoria", "Mango"]
+        "ciudades": ["Leticia", "Florencia", "Mitú"],
+        "ecosistemas": ["Selva Tropical", "Ríos Megadiversos"],
+        "fauna": ["Delfín Rosado", "Jaguar", "Guacamaya Roja"],
+        "flora": ["Victoria Amazónica", "Caucho", "Ceiba"]
       },
       "geometry": {
-        "coordinates": [
-          -70.40372735272793,
-          2.294692604361373
-        ],
+        "coordinates": [-72.0, -1.0],
         "type": "Point"
       }
     },
@@ -74,15 +62,26 @@
       "properties": {
         "nombre": "Región Caribe",
         "ciudades": ["Cartagena", "Barranquilla", "Santa Marta"],
-        "ecosistemas": ["Manglares", "Playas"],
-        "fauna": ["Cangrejo de río", "Iguana"],
-        "flora": ["Cocoteros", "Mangle rojo"]
+        "ecosistemas": ["Bosque Seco Tropical", "Sierra Nevada", "Playas"],
+        "fauna": ["Flamencos", "Manatí", "Iguana"],
+        "flora": ["Cactus", "Arbol de Nim", "Palmas de Coco"]
       },
       "geometry": {
-        "coordinates": [
-          -75.13235119942657,
-          9.885645456361374
-        ],
+        "coordinates": [-75.0, 10.5],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Región Insular",
+        "ciudades": ["San Andrés", "Providencia"],
+        "ecosistemas": ["Barreras de Coral", "Lagunas Costeras"],
+        "fauna": ["Langostas", "Peces de Colores", "Fragatas"],
+        "flora": ["Mangle", "Árbol del Pan", "Palmeras"]
+      },
+      "geometry": {
+        "coordinates": [-81.7, 12.5],
         "type": "Point"
       }
     }

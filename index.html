@@ -1,51 +1,56 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Software Educativo de Biología</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-  </head>
-  <body>
-    <nav class="main-nav">
-      <button class="nav-btn" onclick="window.location.href='index.html'">
-        🌍 Planeta Tierra
-      </button>
-      <button class="nav-btn" onclick="window.location.href='humano.html'">
-        👤 Cuerpo Humano
-      </button>
-      <button class="nav-btn" onclick="window.location.href='animals.html'">
-        🐾Animales
-      </button>
-      <button class="nav-btn" onclick="window.location.href='document.html'">
-        📂Documentación
-      </button>
-      <button
-        class="nav-btn"
-        onclick="window.location.href='cadenaAlimenticia.html'"
-      >
-        ♻️Cadena Alimenticia
-      </button>
-      <button
-        class="nav-btn"
-        onclick="window.location.href='Biogeoquimicos.html'"
-      >
-        ☢️Biogeoquímicos
-      </button>
-      <button class="nav-btn" onclick="window.location.href='seresvivos.html'">
-        🐾Seres Vivos
-      </button>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology_W3B | Explora la Vida</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.141.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.141.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <nav id="global-nav">
+        <!-- Injected via components.js -->
     </nav>
 
-    <!-- Sección del Planeta -->
-    <div id="earth-section" class="section">
-      <div id="earth-container"></div>
-      <div id="info-panel">
-        <h2 id="country-name">Selecciona una Región de Colombia</h2>
-        <div id="ecosystems"></div>
-      </div>
-    </div>
+    <main class="hero">
+        <div id="earth-container"></div>
+        
+        <div class="hero-content">
+            <h1 class="pulse">Biology Explorer</h1>
+            <p>Descubre los misterios de la vida, desde el ADN hasta los ecosistemas globales. Interactúa con nuestro globo terráqueo para explorar la biodiversidad.</p>
+            <div style="margin-top: 30px; pointer-events: auto;">
+                <button class="btn btn-primary" onclick="scrollToGlobe()">
+                    <i class="fas fa-play"></i> Empezar Exploración
+                </button>
+            </div>
+        </div>
 
+        <!-- Info Panel for Globe Interactivity -->
+        <div id="country-info-panel" class="floating-info">
+            <h3 id="country-name">Selecciona una Región</h3>
+            <div id="ecosystems">
+                <p style="color: var(--text-dim);">Haz clic en las fronteras verdes del globo para ver detalles de biodiversidad.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="components.js"></script>
     <script src="script.js"></script>
-  </body>
+    <script>
+        function scrollToGlobe() {
+            // Hide the hero text to focus on globe
+            document.querySelector('.hero-content').style.opacity = '0';
+            document.querySelector('.hero-content').style.pointerEvents = 'none';
+            document.querySelector('.hero-content').style.transition = 'opacity 0.8s ease';
+            
+            // Highlight interaction
+            const panel = document.getElementById('country-info-panel');
+            panel.style.display = 'block';
+            panel.style.animation = 'fadeIn 1s forwards';
+        }
+    </script>
+</body>
 </html>
