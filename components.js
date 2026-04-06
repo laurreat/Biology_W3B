@@ -11,17 +11,23 @@ function initNavigation() {
     const nav = document.getElementById('global-nav');
     if (!nav) return;
 
+    const path = window.location.pathname;
+    const isSubDir = path.includes('/temas/') || path.includes('/juegos/');
+    const p = isSubDir ? '../' : '';
+
     const navItems = [
-        { name: 'Inicio', icon: 'fa-globe-americas', link: 'index.html' },
-        { name: 'Temas', icon: 'fa-book-open', link: 'temas/index.html' },
-        { name: 'Juegos', icon: 'fa-gamepad', link: 'juegos/index.html' },
-        { name: 'Documentación', icon: 'fa-file-alt', link: 'document.html' }
+        { name: 'Inicio', icon: 'fa-globe-americas', link: p + 'index.html' },
+        { name: 'Temas', icon: 'fa-book-open', link: p + 'temas/index.html' },
+        { name: 'Juegos', icon: 'fa-gamepad', link: p + 'juegos/index.html' },
+        { name: 'Cuerpo Humano', icon: 'fa-child', link: p + 'humano.html' },
+        { name: 'Animales', icon: 'fa-paw', link: p + 'animals.html' },
+        { name: 'Documentación', icon: 'fa-file-alt', link: p + 'document.html' }
     ];
 
     const currentFile = window.location.pathname.split('/').pop() || 'index.html';
 
     nav.innerHTML = navItems.map(item => `
-        <a href="${item.link}" class="nav-link ${currentFile === item.link ? 'active' : ''}">
+        <a href="${item.link}" class="nav-link ${currentFile === item.link.split('/').pop() ? 'active' : ''}">
             <i class="fas ${item.icon}"></i>
             <span>${item.name}</span>
         </a>
