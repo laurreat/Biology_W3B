@@ -29,6 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function openModal(id, category) {
+    const item = BIOLOGY_DATA[category].find(i => i.id === id);
+    if (item) {
+        document.getElementById('modal-title').innerText = item.title;
+        // El contenido HTML completo con sus marcadores de imagen
+        document.getElementById('modal-body').innerHTML = `
+            <div style="font-size: 1.1rem; line-height: 1.8;">
+                ${item.details}
+            </div>
+        `;
+        document.getElementById('detail-modal').style.display = 'block';
+    }
+}
+
     function showDetails(item) {
         const titleEl = document.getElementById('modal-title');
         const bodyEl = document.getElementById('modal-body');

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Juegos | Biology Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            text-align: center;
+        }
+
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            justify-content: center;
+            margin: 20px auto;
+            border: 2px solid var(--primary);
+            width: 315px;
+            padding: 5px;
+            background: #000;
+        }
+
+        .puzzle-piece {
+            width: 100px;
+            height: 100px;
+            background-size: 300px 300px;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.2s;
+        }
+
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .game-controls {
+            margin-top: 20px;
+        }
+
+        .btn-game {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn-game:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="global-nav"></nav>
+
+    <header class="hero" style="height: 30vh; min-height: 200px;">
+        <div class="hero-content">
+            <h1>Laboratorio de Juegos</h1>
+            <p>¡Aprende biología divirtiéndote!</p>
+        </div>
+    </header>
+
+    <main class="game-container">
+        <h2 style="color: var(--primary);">Desafío: Arma la Célula</h2>
+        <p>Haz clic en las piezas para intercambiarlas y completar la imagen de la célula eucariota.</p>
+        
+        <div id="puzzle-board" class="puzzle-grid"></div>
+        
+        <div class="game-controls">
+            <button class="btn-game" onclick="shufflePuzzle()">Mezclar Piezas</button>
+            <p id="game-status" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="components.js"></script>
+    <script>
+        // Lógica simple de rompecabezas 3x3
+        const board = document.getElementById('puzzle-board');
+        const status = document.getElementById('game-status');
+        let pieces = [];
+        const imageUrl = 'https://images.unsplash.com/photo-1594913785162-e678ac052bc2?q=80&w=300&h=300&auto=format&fit=crop';
+
+        function initPuzzle() {
+            pieces = [];
+            for (let i = 0; i < 9; i++) {
+                pieces.push(i);
+            }
+            renderPuzzle();
+        }
+
+        function renderPuzzle() {
+            board.innerHTML = '';
+            pieces.forEach((pos, index) => {
+                const piece = document.createElement('div');
+                piece.className = 'puzzle-piece';
+                if (pos !== null) {
+                    const r = Math.floor(pos / 3);
+                    const c = pos % 3;
+                    piece.style.backgroundImage = `url(${imageUrl})`;
+                    piece.style.backgroundPosition = `-${c * 100}px -${r * 100}px`;
+                }
+                piece.onclick = () => swapPieces(index);
+                board.appendChild(piece);
+            });
+            checkWin();
+        }
+
+        let selected = null;
+        function swapPieces(index) {
+            if (selected === null) {
+                selected = index;
+                board.children[index].style.border = '2px solid yellow';
+            } else {
+                [pieces[selected], pieces[index]] = [pieces[index], pieces[selected]];
+                selected = null;
+                renderPuzzle();
+            }
+        }
+
+        function shufflePuzzle() {
+            for (let i = pieces.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [pieces[i], pieces[j]] = [pieces[j], pieces[i]];
+            }
+            renderPuzzle();
+            status.innerText = "¡Piezas mezcladas! Intenta resolverlo.";
+        }
+
+        function checkWin() {
+            const isWin = pieces.every((p, i) => p === i);
+            if (isWin && pieces[0] !== undefined) {
+                status.innerText = "¡Excelente! Has armado la célula correctamente.";
+                status.style.color = "#10b981";
+            }
+        }
+
+        window.onload = () => {
+            document.getElementById('global-nav').innerHTML = createNavbar();
+            initPuzzle();
+        };
+    </script>
+</body>
+</html>
