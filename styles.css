@@ -22,17 +22,23 @@
 
     --accent-red: #f43f5e;
     --accent-red-bg: rgba(244, 63, 94, 0.12);
+    --accent-red-text: #fb7185;
     --accent-blue: #0ea5e9;
     --accent-blue-bg: rgba(14, 165, 233, 0.12);
+    --accent-blue-text: #38bdf8;
     --accent-purple: #8b5cf6;
     --accent-purple-bg: rgba(139, 92, 246, 0.12);
+    --accent-purple-text: #a78bfa;
     --accent-amber: #f59e0b;
     --accent-amber-bg: rgba(245, 158, 11, 0.12);
+    --accent-amber-text: #fbbf24;
     --accent-pink: #ec4899;
     --accent-pink-bg: rgba(236, 72, 153, 0.12);
+    --accent-pink-text: #f472b6;
     --accent-indigo: #6366f1;
     --accent-indigo-bg: rgba(99, 102, 241, 0.08);
     --accent-indigo-border: rgba(99, 102, 241, 0.25);
+    --accent-indigo-text: #818cf8;
 
     --text-main: #f8fafc;
     --text-dim: #94a3b8;
@@ -93,7 +99,7 @@ ul, ol {
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(10, 11, 16, 0.8);
+    background: rgba(10, 11, 16, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
     display: flex;
@@ -133,126 +139,16 @@ ul, ol {
 }
 
 /* ============================================================
-   4. HERO SECTION (Index)
+   4. HERO SECTION (Index - Globe only)
    ============================================================ */
 .hero {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    padding: 0 5%;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-    max-width: 700px;
-}
-
-.hero-content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    margin-bottom: 16px;
-    background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-content p {
-    color: var(--text-dim);
-    font-size: 1.15rem;
-    line-height: 1.6;
-}
-
-/* ============================================================
-   5. INTRO OVERLAY (Index)
-   ============================================================ */
-.intro-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1000;
-    background: radial-gradient(circle at center, rgba(10, 11, 16, 0.4) 0%, rgba(10, 11, 16, 0.8) 100%);
-    backdrop-filter: blur(8px);
-    pointer-events: auto;
-    transition: opacity 1s, transform 1s, visibility 1s;
+    display: block;
+    position: relative;
+    overflow: hidden;
 }
 
-.intro-content {
-    max-width: 800px;
-    padding: 20px;
-    z-index: 1001;
-}
-
-.intro-content .badge {
-    display: inline-block;
-    background: var(--primary-bg);
-    color: var(--primary);
-    padding: 6px 16px;
-    border-radius: var(--radius-full);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.intro-content h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.1;
-    background: linear-gradient(to right, #fff, var(--primary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.intro-content p {
-    color: var(--text-dim);
-    font-size: 1.25rem;
-    margin-bottom: 40px;
-    line-height: 1.6;
-}
-
-.overlay-actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-}
-
-.btn-start {
-    background: var(--primary);
-    color: #000;
-    padding: 18px 45px;
-    border-radius: var(--radius-full);
-    font-size: 1.1rem;
-    font-weight: 800;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
-    transition: all 0.3s var(--transition);
-}
-
-.btn-start:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: var(--primary-light);
-    box-shadow: 0 15px 50px rgba(16, 185, 129, 0.5);
-}
-
-/* ============================================================
-   6. THREE.JS EARTH CONTAINER
-   ============================================================ */
 #earth-container {
     position: absolute;
     top: 0;
@@ -263,26 +159,37 @@ ul, ol {
 }
 
 /* ============================================================
-   7. FLOATING INFO PANEL (Globe)
+   5. FLOATING INFO PANEL (Globe)
    ============================================================ */
 .floating-info {
     position: fixed;
-    top: 100px;
-    right: 40px;
-    width: 320px;
-    background: var(--bg-card);
+    top: calc(var(--nav-height) + 20px);
+    right: 30px;
+    width: 300px;
+    background: rgba(10, 11, 16, 0.8);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    padding: 30px;
-    border-radius: var(--radius-xl);
+    padding: 24px;
+    border-radius: var(--radius-lg);
     z-index: 100;
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     display: none;
 }
 
 .floating-info h3 {
-    color: var(--accent-blue);
-    margin-bottom: 15px;
+    color: var(--accent-blue-text);
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.floating-info h3 i {
+    margin-right: 6px;
+}
+
+.floating-info p {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.5;
 }
 
 .info-stat {
@@ -299,7 +206,7 @@ ul, ol {
 }
 
 /* ============================================================
-   8. HUB PAGES (Category overview pages)
+   6. HUB PAGES (Category overview pages)
    ============================================================ */
 .hub-page {
     min-height: 100vh;
@@ -315,11 +222,16 @@ ul, ol {
 .hub-hero h1 {
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 800;
-    background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 10px;
+}
+
+.hub-hero h1 i {
+    -webkit-text-fill-color: unset;
+    margin-right: 8px;
 }
 
 .hub-hero p {
@@ -355,13 +267,14 @@ ul, ol {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--text-main);
 }
 
 .hub-category-header h2 {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-main);
     margin: 0;
 }
 
@@ -397,14 +310,15 @@ ul, ol {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     flex-shrink: 0;
+    color: var(--text-main);
 }
 
 .hub-card-text h3 {
     font-size: 1.05rem;
     font-weight: 600;
-    color: var(--text-light);
+    color: var(--text-main);
     margin: 0 0 4px;
 }
 
@@ -416,138 +330,15 @@ ul, ol {
 }
 
 /* Category color backgrounds */
-.cat-citologia { background: rgba(16, 185, 129, 0.15); }
-.cat-anatomia { background: rgba(239, 68, 68, 0.15); }
-.cat-genetica { background: rgba(99, 102, 241, 0.15); }
-.cat-seresvivos { background: rgba(34, 197, 94, 0.15); }
-.cat-ecologia { background: rgba(251, 191, 36, 0.15); }
-.cat-animales { background: rgba(236, 72, 153, 0.15); }
+.cat-citologia { background: var(--primary-bg); color: var(--primary); }
+.cat-anatomia { background: var(--accent-red-bg); color: var(--accent-red-text); }
+.cat-genetica { background: var(--accent-purple-bg); color: var(--accent-purple-text); }
+.cat-seresvivos { background: rgba(34, 197, 94, 0.12); color: #4ade80; }
+.cat-ecologia { background: var(--accent-amber-bg); color: var(--accent-amber-text); }
+.cat-animales { background: var(--accent-pink-bg); color: var(--accent-pink-text); }
 
 /* ============================================================
-   9. PROJECT GRID (Index cards)
-   ============================================================ */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-    padding: 0 5% 60px;
-    position: relative;
-    z-index: 10;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.card {
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-xl);
-    padding: 30px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.4s var(--transition);
-    backdrop-filter: blur(10px);
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
-
-.card i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 8px;
-}
-
-.card h3 {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: var(--text-main);
-}
-
-.card p {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* ============================================================
-   10. CONTENT GRID (Bio cards on category pages)
-   ============================================================ */
-.content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    padding: 120px 5% 60px;
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
-.bio-card {
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    transition: all 0.4s var(--transition);
-    cursor: pointer;
-    position: relative;
-    backdrop-filter: blur(10px);
-    text-decoration: none;
-    display: block;
-}
-
-.bio-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
-
-.card-img-wrapper {
-    height: 220px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s var(--transition);
-}
-
-.bio-card:hover .card-img-wrapper img {
-    transform: scale(1.1);
-}
-
-.card-body {
-    padding: 24px;
-}
-
-.card-body h3 {
-    margin-bottom: 8px;
-    font-size: 1.3rem;
-    color: var(--text-main);
-}
-
-.card-body p {
-    color: var(--text-dim);
-    font-size: 0.92rem;
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
-.card-category {
-    color: var(--primary);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-/* ============================================================
-   11. TOPIC PAGES - Hero
+   7. TOPIC PAGES - Hero
    ============================================================ */
 .topic-page {
     min-height: 100vh;
@@ -570,14 +361,14 @@ ul, ol {
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.35) saturate(1.2);
+    filter: brightness(0.3) saturate(1.2);
     transform: scale(1.05);
 }
 
 .topic-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(10,11,16,0.3) 0%, rgba(10,11,16,0.85) 100%);
+    background: linear-gradient(180deg, rgba(10,11,16,0.2) 0%, rgba(10,11,16,0.85) 100%);
 }
 
 .topic-hero-content {
@@ -611,22 +402,19 @@ ul, ol {
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #fff 30%, var(--primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-main);
 }
 
 .topic-hero-content .topic-subtitle {
     font-size: 1.15rem;
-    color: var(--text-dim);
+    color: var(--text-light);
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.6;
 }
 
 /* ============================================================
-   12. TOPIC PAGES - Breadcrumb
+   8. TOPIC PAGES - Breadcrumb
    ============================================================ */
 .topic-breadcrumb {
     max-width: 1100px;
@@ -651,7 +439,7 @@ ul, ol {
 }
 
 /* ============================================================
-   13. TOPIC PAGES - Body Layout
+   9. TOPIC PAGES - Body Layout
    ============================================================ */
 .topic-body {
     max-width: 1100px;
@@ -669,7 +457,7 @@ ul, ol {
 }
 
 /* ============================================================
-   14. TOPIC PAGES - Content Area
+   10. TOPIC PAGES - Content Area
    ============================================================ */
 .topic-content {
     min-width: 0;
@@ -678,7 +466,7 @@ ul, ol {
 .topic-content h2 {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-main);
     margin: 40px 0 16px;
     padding-bottom: 8px;
     border-bottom: 2px solid var(--primary);
@@ -706,14 +494,14 @@ ul, ol {
 .topic-content p {
     font-size: 1.05rem;
     line-height: 1.8;
-    color: var(--text-dim);
+    color: var(--text-light);
     margin-bottom: 14px;
 }
 
 .topic-content ul,
 .topic-content ol {
     margin: 10px 0 16px 24px;
-    color: var(--text-dim);
+    color: var(--text-light);
 }
 
 .topic-content li {
@@ -723,11 +511,11 @@ ul, ol {
 }
 
 .topic-content li strong {
-    color: var(--text-light);
+    color: var(--text-main);
 }
 
 /* ============================================================
-   15. TOPIC PAGES - Image Block
+   11. TOPIC PAGES - Image Block
    ============================================================ */
 .topic-image-block {
     margin: 30px 0;
@@ -754,7 +542,7 @@ ul, ol {
 }
 
 /* ============================================================
-   16. TOPIC PAGES - Fun Fact Box
+   12. TOPIC PAGES - Fun Fact Box
    ============================================================ */
 .topic-fun-fact {
     margin: 28px 0;
@@ -781,7 +569,7 @@ ul, ol {
 }
 
 /* ============================================================
-   17. TOPIC PAGES - Key Concept Box
+   13. TOPIC PAGES - Key Concept Box
    ============================================================ */
 .topic-key-concept {
     margin: 28px 0;
@@ -795,7 +583,7 @@ ul, ol {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #818cf8;
+    color: var(--accent-indigo-text);
     font-weight: 700;
     margin-bottom: 8px;
 }
@@ -807,11 +595,11 @@ ul, ol {
 
 .topic-key-concept p {
     margin: 0;
-    color: var(--text-dim);
+    color: var(--text-light);
 }
 
 /* ============================================================
-   18. TOPIC PAGES - Comparison Table
+   14. TOPIC PAGES - Comparison Table
    ============================================================ */
 .topic-table {
     width: 100%;
@@ -837,7 +625,7 @@ ul, ol {
 .topic-table td {
     padding: 10px 16px;
     border-top: 1px solid var(--glass-border);
-    color: var(--text-dim);
+    color: var(--text-light);
     font-size: 0.95rem;
 }
 
@@ -846,7 +634,7 @@ ul, ol {
 }
 
 /* ============================================================
-   19. TOPIC PAGES - Sidebar
+   15. TOPIC PAGES - Sidebar
    ============================================================ */
 .topic-sidebar {
     position: sticky;
@@ -866,7 +654,7 @@ ul, ol {
 .sidebar-card h3 {
     font-size: 1rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--text-main);
     margin: 0 0 16px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--glass-border);
@@ -904,8 +692,9 @@ ul, ol {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
     flex-shrink: 0;
+    color: var(--primary);
 }
 
 .sidebar-cta {
@@ -930,7 +719,7 @@ ul, ol {
 }
 
 /* ============================================================
-   20. TOPIC PAGES - Quiz
+   16. TOPIC PAGES - Quiz
    ============================================================ */
 .topic-quiz {
     margin-top: 40px;
@@ -942,7 +731,7 @@ ul, ol {
 
 .topic-quiz h3 {
     font-size: 1.3rem;
-    color: #fff;
+    color: var(--text-main);
     margin: 0 0 20px;
 }
 
@@ -963,7 +752,7 @@ ul, ol {
 
 .quiz-question p {
     font-weight: 600;
-    color: var(--text-light);
+    color: var(--text-main);
     margin-bottom: 10px;
 }
 
@@ -975,7 +764,7 @@ ul, ol {
     border: 1px solid var(--glass-border);
     cursor: pointer;
     transition: all 0.2s;
-    color: var(--text-dim);
+    color: var(--text-light);
     font-size: 0.95rem;
 }
 
@@ -1043,7 +832,7 @@ ul, ol {
 }
 
 /* ============================================================
-   21. TOPIC PAGES - Prev/Next Navigation
+   17. TOPIC PAGES - Prev/Next Navigation
    ============================================================ */
 .topic-nav-footer {
     max-width: 1100px;
@@ -1081,39 +870,13 @@ ul, ol {
 }
 
 .topic-nav-link .nav-title {
-    color: var(--text-light);
+    color: var(--text-main);
     font-weight: 600;
     font-size: 0.95rem;
 }
 
 /* ============================================================
-   22. BUTTONS
-   ============================================================ */
-.btn {
-    padding: 12px 28px;
-    border-radius: var(--radius-full);
-    border: none;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: #000;
-}
-
-.btn-primary:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
-}
-
-/* ============================================================
-   23. ANIMATIONS
+   18. ANIMATIONS
    ============================================================ */
 @keyframes pulse {
     0% { transform: scale(1); }
@@ -1130,7 +893,7 @@ ul, ol {
 .fade-in { animation: fadeIn 0.8s forwards; }
 
 /* ============================================================
-   24. CUSTOM SCROLLBAR
+   19. CUSTOM SCROLLBAR
    ============================================================ */
 ::-webkit-scrollbar {
     width: 8px;
@@ -1147,7 +910,7 @@ ul, ol {
 }
 
 /* ============================================================
-   25. RESPONSIVE
+   20. RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
     .topic-body {
@@ -1190,16 +953,6 @@ ul, ol {
 
     .hub-grid {
         grid-template-columns: 1fr;
-    }
-
-    .content-grid {
-        grid-template-columns: 1fr;
-        padding: 100px 16px 40px;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-        padding: 0 16px 40px;
     }
 
     #global-nav {

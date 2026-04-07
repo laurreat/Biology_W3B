@@ -10,92 +10,17 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.141.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-
     <nav id="global-nav"></nav>
-
     <main class="hero">
         <div id="earth-container"></div>
-        
-        <div id="intro-overlay" class="intro-overlay">
-            <div class="intro-content">
-                <div class="badge">BIOLOGÍA 3D</div>
-                <h1>Explora la Vida en la Tierra</h1>
-                <p>Descubre la biodiversidad, la anatomía y los ecosistemas de nuestro planeta a través de una experiencia interactiva inmersiva.</p>
-                
-                <div class="overlay-actions">
-                    <button class="btn-start pulse" onclick="startExploration()">
-                        <i class="fas fa-play"></i> Empezar Exploración
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-grid">
-            <div class="card" onclick="window.location.href='temas/index.html'">
-                <i class="fas fa-book-open"></i>
-                <h3>Temas Completos</h3>
-                <p>Páginas dedicadas para cada tema de biología con quizzes interactivos.</p>
-            </div>
-            <div class="card" onclick="window.location.href='juegos/index.html'">
-                <i class="fas fa-gamepad"></i>
-                <h3>Juegos Interactivos</h3>
-                <p>Completa espacios, conecta conceptos y descubre jugando.</p>
-            </div>
-            <div class="card" onclick="window.location.href='juego.html'">
-                <i class="fas fa-puzzle-piece"></i>
-                <h3>Lab de Juegos</h3>
-                <p>Rompecabezas de células y retos de ADN.</p>
-            </div>
-            <div class="card" onclick="window.location.href='humano.html'">
-                <i class="fas fa-child"></i>
-                <h3>Cuerpo Humano</h3>
-                <p>Explora cómo funcionan tus sistemas internos.</p>
-            </div>
-            <div class="card" onclick="window.location.href='animals.html'">
-                <i class="fas fa-paw"></i>
-                <h3>Biodiversidad</h3>
-                <p>Aprende sobre vertebrados e invertebrados.</p>
-            </div>
-            <div class="card" onclick="window.location.href='seresvivos.html'">
-                <i class="fas fa-seedling"></i>
-                <h3>Seres Vivos</h3>
-                <p>Los 5 reinos de la naturaleza y funciones vitales.</p>
-            </div>
-            <div class="card" onclick="window.location.href='cadenaAlimenticia.html'">
-                <i class="fas fa-leaf"></i>
-                <h3>Ecología</h3>
-                <p>Cadenas alimenticias y ecosistemas de Colombia.</p>
-            </div>
-            <div class="card" onclick="window.location.href='genetica.html'">
-                <i class="fas fa-dna"></i>
-                <h3>Genética</h3>
-                <p>ADN, herencia y cromosomas explicados fácil.</p>
-            </div>
-        </div>
-
         <div id="country-info-panel" class="floating-info">
-            <h3 id="country-name">Selecciona una Región</h3>
+            <h3 id="country-name"><i class="fas fa-map-marker-alt"></i> Selecciona una Región</h3>
             <div id="ecosystems">
-                <p style="color: var(--text-dim);">Haz clic en las fronteras verdes del globo para ver detalles de biodiversidad.</p>
+                <p style="color: var(--text-dim);">Haz clic en las regiones verdes del globo para explorar la biodiversidad de Colombia.</p>
             </div>
         </div>
     </main>
-
     <script src="components.js"></script>
     <script src="script.js"></script>
-    <script>
-        function startExploration() {
-            const overlay = document.getElementById('intro-overlay');
-            const panel = document.getElementById('country-info-panel');
-            
-            overlay.style.opacity = '0';
-            overlay.style.pointerEvents = 'none';
-            overlay.style.transform = 'scale(1.1)';
-            overlay.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
-            
-            panel.style.display = 'block';
-            panel.style.animation = 'fadeIn 1.2s forwards 0.5s';
-        }
-    </script>
 </body>
 </html>
