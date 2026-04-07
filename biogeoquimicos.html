@@ -3,33 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biogeoquímicos | Biology Explorer</title>
+    <title>Ciclos Biogeoquímicos | Biology_W3B</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
-
+<body class="hub-page">
     <nav id="global-nav"></nav>
 
-    <header class="hero" style="height: 40vh; min-height: 300px;">
-        <div class="hero-content">
-            <h1>Ciclos Químicos</h1>
-            <p>Aprende cómo el agua, el carbono y el nitrógeno viajan por nuestro planeta.</p>
-        </div>
-    </header>
+    <div class="hub-hero">
+        <h1><i class="fas fa-recycle" style="color: var(--accent-blue); -webkit-text-fill-color: unset;"></i> Ciclos Biogeoquímicos</h1>
+        <p>El agua, el carbono y el nitrógeno nunca se pierden: viajan constantemente entre los seres vivos y el ambiente.</p>
+    </div>
 
-    <main class="content-grid" id="bio-container"></main>
-
-    <div id="detail-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('detail-modal')">&times;</span>
-            <h2 id="modal-title" style="color: var(--primary); margin-bottom: 20px;"></h2>
-            <div id="modal-body"></div>
+    <div class="hub-container">
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon cat-ecologia">🔄</div>
+                <h2>Ciclos de la Materia</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="temas/ciclos-materia.html" class="hub-card">
+                    <div class="hub-card-icon cat-ecologia">💧</div>
+                    <div class="hub-card-text">
+                        <h3>Ciclo del Agua</h3>
+                        <p>Evaporación, condensación, precipitación e infiltración.</p>
+                    </div>
+                </a>
+                <a href="temas/ciclos-materia.html" class="hub-card">
+                    <div class="hub-card-icon cat-ecologia">🌋</div>
+                    <div class="hub-card-text">
+                        <h3>Ciclo del Carbono</h3>
+                        <p>Fotosíntesis, respiración y descomposición.</p>
+                    </div>
+                </a>
+                <a href="temas/ciclos-materia.html" class="hub-card">
+                    <div class="hub-card-icon cat-ecologia">⚡</div>
+                    <div class="hub-card-text">
+                        <h3>Ciclo del Nitrógeno</h3>
+                        <p>Fijación, absorción y devolución al suelo.</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
-    <script src="data.js"></script>
     <script src="components.js"></script>
-    <script src="master.js"></script>
 </body>
 </html>

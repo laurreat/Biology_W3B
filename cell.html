@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Célula | Biology Explorer</title>
+    <title>La Célula | Biology_W3B</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="hub-page">
     <nav id="global-nav"></nav>
-    <header class="hero" style="height: 40vh; min-height: 300px;">
-        <div class="hero-content">
-            <h1>La Célula</h1>
-            <p>La unidad básica de toda la vida en el universo conocido.</p>
-        </div>
-    </header>
-    <main class="content-grid" id="bio-container"></main>
-    <div id="detail-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('detail-modal')">&times;</span>
-            <h2 id="modal-title" style="color: var(--primary); margin-bottom: 20px;"></h2>
-            <div id="modal-body"></div>
+
+    <div class="hub-hero">
+        <h1><i class="fas fa-microscope" style="color: var(--primary); -webkit-text-fill-color: unset;"></i> Citología</h1>
+        <p>La célula es la unidad más pequeña de vida. Explora su estructura, sus partes y cómo se multiplica.</p>
+    </div>
+
+    <div class="hub-container">
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon cat-citologia">🔬</div>
+                <h2>Temas de Citología</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="temas/celula.html" class="hub-card">
+                    <div class="hub-card-icon cat-citologia">🔬</div>
+                    <div class="hub-card-text">
+                        <h3>La Célula</h3>
+                        <p>Unidad básica de vida, tipos procariota y eucariota, partes principales.</p>
+                    </div>
+                </a>
+                <a href="temas/organulos.html" class="hub-card">
+                    <div class="hub-card-icon cat-citologia">⚙️</div>
+                    <div class="hub-card-text">
+                        <h3>Orgánulos Celulares</h3>
+                        <p>Mitocondrias, cloroplastos, núcleo, retículo, aparato de Golgi y más.</p>
+                    </div>
+                </a>
+                <a href="temas/division-celular.html" class="hub-card">
+                    <div class="hub-card-icon cat-citologia">🧬</div>
+                    <div class="hub-card-text">
+                        <h3>División Celular</h3>
+                        <p>Mitosis y meiosis: cómo las células se multiplican.</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-    <script src="data.js"></script>
+
     <script src="components.js"></script>
-    <script src="master.js"></script>
-    <script>
-        // Forzamos la visualización solo de citología en esta página
-        window.addEventListener('load', () => {
-            const container = document.getElementById('bio-container');
-            container.innerHTML = '';
-            // Filtramos solo categorías de Citología
-            const cellItems = BIOLOGY_DATA.humano.filter(item => item.category === 'Citología');
-            cellItems.forEach(item => {
-                const card = createBioCard({ ...item, onClick: () => showDetails(item) });
-                container.appendChild(card);
-            });
-        });
-    </script>
 </body>
 </html>

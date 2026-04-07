@@ -3,43 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodiversidad | Biology Explorer</title>
+    <title>Mundo Animal | Biology_W3B</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="hub-page">
+    <nav id="global-nav"></nav>
 
-    <nav id="global-nav">
-        <!-- Injected via components.js -->
-    </nav>
+    <div class="hub-hero">
+        <h1><i class="fas fa-paw" style="color: var(--accent-pink); -webkit-text-fill-color: unset;"></i> Mundo Animal</h1>
+        <p>Descubre la increíble diversidad del reino animal. Desde el jaguar hasta la mariposa más pequeña de Colombia.</p>
+    </div>
 
-    <header class="hero" style="height: 40vh; min-height: 300px;">
-        <div class="hero-content">
-            <h1>Mundo Animal</h1>
-            <p>Desde las profundidades del océano hasta las cimas de las montañas.</p>
-            <div style="margin-top: 20px; pointer-events: auto;">
-                <input type="text" id="search-input" placeholder="Buscar animal o grupo..." 
-                       style="padding: 12px 25px; border-radius: 50px; border: 1px solid var(--glass-border); 
-                              background: rgba(255,255,255,0.05); color: #fff; width: 300px; outline: none; transition: 0.3s;">
+    <div class="hub-container">
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon cat-animales">🦴</div>
+                <h2>Vertebrados</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="temas/vertebrados.html" class="hub-card">
+                    <div class="hub-card-icon cat-animales">🦴</div>
+                    <div class="hub-card-text">
+                        <h3>Animales Vertebrados</h3>
+                        <p>Mamíferos, aves, reptiles, anfibios y peces con ejemplos colombianos.</p>
+                    </div>
+                </a>
             </div>
         </div>
-    </header>
 
-    <main class="content-grid" id="bio-container">
-        <!-- Bio cards injected via master.js -->
-    </main>
-
-    <!-- Detail Modal -->
-    <div id="detail-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('detail-modal')">&times;</span>
-            <h2 id="modal-title" style="color: var(--primary); margin-bottom: 20px;"></h2>
-            <div id="modal-body"></div>
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon cat-seresvivos">🐛</div>
+                <h2>Invertebrados</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="temas/invertebrados-animales.html" class="hub-card">
+                    <div class="hub-card-icon cat-seresvivos">🐛</div>
+                    <div class="hub-card-text">
+                        <h3>Animales Invertebrados</h3>
+                        <p>Insectos, arácnidos, moluscos, anélidos, equinodermos y cnidarios.</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 
-    <script src="data.js"></script>
     <script src="components.js"></script>
-    <script src="master.js"></script>
 </body>
 </html>

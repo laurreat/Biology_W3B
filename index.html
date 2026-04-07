@@ -11,14 +11,11 @@
 </head>
 <body>
 
-    <nav id="global-nav">
-        <!-- Injected via components.js -->
-    </nav>
+    <nav id="global-nav"></nav>
 
     <main class="hero">
         <div id="earth-container"></div>
         
-        <!-- Intro Overlay: Blocks interaction with the globe until exploration starts -->
         <div id="intro-overlay" class="intro-overlay">
             <div class="intro-content">
                 <div class="badge">BIOLOGÍA 3D</div>
@@ -34,39 +31,48 @@
         </div>
 
         <div class="project-grid">
-            <div class="card" onclick="window.location.href='juego.html'" style="border: 2px solid var(--primary); background: rgba(16, 185, 129, 0.1);">
-                <i class="fas fa-puzzle-piece" style="font-size: 2.5rem; color: var(--primary);"></i>
-                <h3 style="margin-top:15px">Lab de Juegos</h3>
-                <p>Rompecabezas de células y retos de ADN.</p>
-            </div>
             <div class="card" onclick="window.location.href='temas/index.html'">
                 <i class="fas fa-book-open"></i>
                 <h3>Temas Completos</h3>
-                <p>Páginas dedicadas para cada tema de biología.</p>
+                <p>Páginas dedicadas para cada tema de biología con quizzes interactivos.</p>
             </div>
             <div class="card" onclick="window.location.href='juegos/index.html'">
                 <i class="fas fa-gamepad"></i>
                 <h3>Juegos Interactivos</h3>
-                <p>Completa, conecta y descubre jugando.</p>
+                <p>Completa espacios, conecta conceptos y descubre jugando.</p>
+            </div>
+            <div class="card" onclick="window.location.href='juego.html'">
+                <i class="fas fa-puzzle-piece"></i>
+                <h3>Lab de Juegos</h3>
+                <p>Rompecabezas de células y retos de ADN.</p>
             </div>
             <div class="card" onclick="window.location.href='humano.html'">
-                <i class="fas fa-user-md"></i>
+                <i class="fas fa-child"></i>
                 <h3>Cuerpo Humano</h3>
                 <p>Explora cómo funcionan tus sistemas internos.</p>
             </div>
             <div class="card" onclick="window.location.href='animals.html'">
-                <i class="fas fa-dog"></i>
+                <i class="fas fa-paw"></i>
                 <h3>Biodiversidad</h3>
                 <p>Aprende sobre vertebrados e invertebrados.</p>
             </div>
-            <div class="card" onclick="window.location.href='infoEarth.html'">
+            <div class="card" onclick="window.location.href='seresvivos.html'">
+                <i class="fas fa-seedling"></i>
+                <h3>Seres Vivos</h3>
+                <p>Los 5 reinos de la naturaleza y funciones vitales.</p>
+            </div>
+            <div class="card" onclick="window.location.href='cadenaAlimenticia.html'">
                 <i class="fas fa-leaf"></i>
-                <h3>Naturaleza Real</h3>
-                <p>Datos reales de Colombia y sus regiones.</p>
+                <h3>Ecología</h3>
+                <p>Cadenas alimenticias y ecosistemas de Colombia.</p>
+            </div>
+            <div class="card" onclick="window.location.href='genetica.html'">
+                <i class="fas fa-dna"></i>
+                <h3>Genética</h3>
+                <p>ADN, herencia y cromosomas explicados fácil.</p>
             </div>
         </div>
 
-        <!-- Info Panel for Globe Interactivity -->
         <div id="country-info-panel" class="floating-info">
             <h3 id="country-name">Selecciona una Región</h3>
             <div id="ecosystems">
@@ -82,18 +88,13 @@
             const overlay = document.getElementById('intro-overlay');
             const panel = document.getElementById('country-info-panel');
             
-            // Fade out overlay
             overlay.style.opacity = '0';
-            overlay.style.pointerEvents = 'none'; // Re-enable interaction with globe below
+            overlay.style.pointerEvents = 'none';
             overlay.style.transform = 'scale(1.1)';
             overlay.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
             
-            // Show help/info panel
             panel.style.display = 'block';
-            panel.style.animation = 'fadeIn 1.2s forwards 0.5s'; // Delays a bit
-            
-            // Optional: You could call a function in script.js to zoom in the globe
-            // if (typeof zoomToColombia === 'function') zoomToColombia();
+            panel.style.animation = 'fadeIn 1.2s forwards 0.5s';
         }
     </script>
 </body>

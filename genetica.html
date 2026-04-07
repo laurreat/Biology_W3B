@@ -3,38 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genética | Biology Explorer</title>
+    <title>Genética | Biology_W3B</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="hub-page">
     <nav id="global-nav"></nav>
-    <header class="hero" style="height: 40vh; min-height: 300px;">
-        <div class="hero-content">
-            <h1>Genética y Herencia</h1>
-            <p>Descubre el código secreto grabado en tus células.</p>
-        </div>
-    </header>
-    <main class="content-grid" id="bio-container"></main>
-    <div id="detail-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal('detail-modal')">&times;</span>
-            <h2 id="modal-title" style="color: var(--primary); margin-bottom: 20px;"></h2>
-            <div id="modal-body"></div>
+
+    <div class="hub-hero">
+        <h1><i class="fas fa-dna" style="color: var(--accent-purple); -webkit-text-fill-color: unset;"></i> Genética y Herencia</h1>
+        <p>Descubre el código secreto grabado en cada una de tus células. ¿Por qué te pareces a tus padres?</p>
+    </div>
+
+    <div class="hub-container">
+        <div class="hub-category">
+            <div class="hub-category-header">
+                <div class="hub-category-icon cat-genetica">🧬</div>
+                <h2>Genética</h2>
+            </div>
+            <div class="hub-grid">
+                <a href="temas/adn.html" class="hub-card">
+                    <div class="hub-card-icon cat-genetica">🧬</div>
+                    <div class="hub-card-text">
+                        <h3>¿Qué es el ADN?</h3>
+                        <p>Doble hélice, nucleótidos, genes y cromosomas.</p>
+                    </div>
+                </a>
+                <a href="temas/herencia.html" class="hub-card">
+                    <div class="hub-card-icon cat-genetica">👨‍👩‍👧</div>
+                    <div class="hub-card-text">
+                        <h3>Herencia Genética</h3>
+                        <p>Las leyes de Mendel, alelos dominantes y recesivos.</p>
+                    </div>
+                </a>
+                <a href="temas/cromosomas.html" class="hub-card">
+                    <div class="hub-card-icon cat-genetica">🔗</div>
+                    <div class="hub-card-text">
+                        <h3>Cromosomas</h3>
+                        <p>46 cromosomas, autosomas, sexuales y mutaciones.</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
-    <script src="data.js"></script>
+
     <script src="components.js"></script>
-    <script src="master.js"></script>
-    <script>
-        window.addEventListener('load', () => {
-            const container = document.getElementById('bio-container');
-            container.innerHTML = '';
-            BIOLOGY_DATA.genetica.forEach(item => {
-                const card = createBioCard({ ...item, onClick: () => showDetails(item) });
-                container.appendChild(card);
-            });
-        });
-    </script>
 </body>
 </html>
