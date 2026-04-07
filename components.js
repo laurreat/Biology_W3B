@@ -18,12 +18,7 @@ function initNavigation() {
     const navItems = [
         { name: 'Inicio', icon: 'fa-globe-americas', link: p + 'index.html' },
         { name: 'Temas', icon: 'fa-book-open', link: p + 'temas/index.html' },
-        { name: 'Juegos', icon: 'fa-gamepad', link: p + 'juegos/index.html' },
-        { name: 'Cuerpo Humano', icon: 'fa-child', link: p + 'humano.html' },
-        { name: 'Animales', icon: 'fa-paw', link: p + 'animals.html' },
-        { name: 'Seres Vivos', icon: 'fa-seedling', link: p + 'seresvivos.html' },
-        { name: 'Ecología', icon: 'fa-leaf', link: p + 'cadenaAlimenticia.html' },
-        { name: 'Genética', icon: 'fa-dna', link: p + 'genetica.html' }
+        { name: 'Juegos', icon: 'fa-gamepad', link: p + 'juegos/index.html' }
     ];
 
     const currentFile = window.location.pathname.split('/').pop() || 'index.html';
