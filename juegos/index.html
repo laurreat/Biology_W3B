@@ -13,17 +13,18 @@
         .games-hero h1 i { -webkit-text-fill-color: unset; color: var(--primary); margin-right: 8px; }
         .games-hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
         .games-container { max-width: 1100px; margin: 0 auto; padding: 20px 24px 80px; }
-        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-bottom: 50px; }
-        .game-card { padding: 30px 24px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: all 0.25s; }
+        .games-cat-title { color: var(--text-main); font-size: 1.2rem; font-weight: 700; margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--glass-border); display: flex; align-items: center; gap: 10px; }
+        .games-cat-title i { color: var(--primary); }
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .game-card { padding: 28px 22px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: all 0.25s; }
         .game-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(16,185,129,0.15); }
-        .game-card .game-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 16px; }
-        .game-card h3 { font-size: 1.2rem; color: var(--text-main); margin: 0 0 8px; }
-        .game-card p { font-size: 0.9rem; color: var(--text-dim); margin: 0; line-height: 1.5; }
-        .game-card .game-badge { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-top: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .game-card .game-icon { font-size: 2.2rem; color: var(--primary); margin-bottom: 14px; }
+        .game-card h3 { font-size: 1.1rem; color: var(--text-main); margin: 0 0 6px; }
+        .game-card p { font-size: 0.85rem; color: var(--text-dim); margin: 0; line-height: 1.5; }
+        .game-card .game-badge { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 0.72rem; font-weight: 600; margin-top: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         .badge-easy { background: rgba(34,197,94,0.15); color: #4ade80; }
         .badge-medium { background: rgba(251,191,36,0.15); color: #fbbf24; }
         .badge-hard { background: rgba(239,68,68,0.15); color: #f87171; }
-        /* Game Area */
         .game-area { display: none; padding: 30px; border-radius: 16px; background: var(--glass-bg); border: 1px solid var(--glass-border); margin-bottom: 30px; }
         .game-area.active { display: block; }
         .game-area-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
@@ -31,16 +32,19 @@
         .game-close-btn { padding: 8px 20px; border-radius: 50px; border: 1px solid var(--glass-border); background: transparent; color: var(--text-dim); cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
         .game-close-btn:hover { border-color: #ef4444; color: #ef4444; }
         .game-score { font-size: 1.1rem; color: var(--primary); font-weight: 700; }
+        .game-nav-btn { padding: 12px 30px; border-radius: 50px; border: none; background: var(--primary); color: #fff; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 20px; transition: all 0.2s; }
+        .game-nav-btn:hover { background: #059669; }
+        .game-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .game-result { text-align: center; padding: 30px; }
+        .game-result .result-score { font-size: 3rem; font-weight: 800; color: var(--primary); }
+        .game-result .result-text { font-size: 1.2rem; color: var(--text-dim); margin-top: 8px; }
+
         /* Fill Blanks */
         .fill-sentence { font-size: 1.1rem; line-height: 2; color: var(--text-light); margin-bottom: 20px; padding: 16px; border-radius: 10px; background: rgba(255,255,255,0.02); }
-        .fill-blank { display: inline-block; min-width: 120px; border-bottom: 2px dashed var(--primary); padding: 2px 8px; margin: 0 4px; text-align: center; color: var(--text-main); font-weight: 600; }
         .fill-blank input { background: transparent; border: none; border-bottom: 2px solid var(--primary); color: var(--text-main); font-size: 1rem; text-align: center; width: 120px; outline: none; padding: 4px 8px; }
         .fill-blank input.correct { border-color: #22c55e; color: #4ade80; }
         .fill-blank input.incorrect { border-color: #ef4444; color: #f87171; }
-        .fill-options { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-        .fill-option { padding: 8px 18px; border-radius: 8px; border: 1px solid var(--glass-border); background: transparent; color: var(--text-dim); cursor: pointer; font-size: 0.95rem; transition: all 0.2s; }
-        .fill-option:hover { border-color: var(--primary); color: var(--primary); }
-        .fill-option.used { opacity: 0.3; pointer-events: none; }
+
         /* Match Game */
         .match-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         @media (max-width: 600px) { .match-container { grid-template-columns: 1fr; } }
@@ -51,7 +55,8 @@
         .match-item.matched { border-color: #22c55e; background: rgba(34,197,94,0.1); color: #86efac; pointer-events: none; }
         .match-item.wrong { border-color: #ef4444; background: rgba(239,68,68,0.1); color: #fca5a5; animation: shake 0.4s; }
         @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-        /* Word Scramble */
+
+        /* Scramble */
         .scramble-hint { font-size: 1rem; color: var(--text-dim); margin-bottom: 16px; font-style: italic; }
         .scramble-letters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
         .scramble-letter { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; color: var(--text-main); background: rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s; user-select: none; }
@@ -59,6 +64,7 @@
         .scramble-letter.used { opacity: 0.2; pointer-events: none; }
         .scramble-answer { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 50px; padding: 12px; border-radius: 10px; border: 2px dashed var(--glass-border); margin-bottom: 16px; }
         .scramble-answer-letter { width: 40px; height: 40px; border-radius: 6px; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 700; color: var(--primary); cursor: pointer; }
+
         /* Quiz Game */
         .quiz-game-question { font-size: 1.15rem; color: var(--text-light); font-weight: 600; margin-bottom: 16px; }
         .quiz-game-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -67,29 +73,138 @@
         .quiz-game-opt:hover { border-color: var(--primary); color: var(--text-main); }
         .quiz-game-opt.correct { border-color: #22c55e; background: rgba(34,197,94,0.12); color: #86efac; }
         .quiz-game-opt.incorrect { border-color: #ef4444; background: rgba(239,68,68,0.12); color: #fca5a5; }
-        .game-nav-btn { padding: 12px 30px; border-radius: 50px; border: none; background: var(--primary); color: #fff; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 20px; transition: all 0.2s; }
-        .game-nav-btn:hover { background: #059669; }
-        .game-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        .game-result { text-align: center; padding: 30px; }
-        .game-result .result-score { font-size: 3rem; font-weight: 800; color: var(--primary); }
-        .game-result .result-text { font-size: 1.2rem; color: var(--text-dim); margin-top: 8px; }
+
+        /* Memory Game */
+        .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 500px; margin: 0 auto; }
+        @media (max-width: 500px) { .memory-grid { grid-template-columns: repeat(3, 1fr); } }
+        .memory-card { aspect-ratio: 1; border-radius: 12px; cursor: pointer; perspective: 600px; }
+        .memory-card-inner { width: 100%; height: 100%; position: relative; transition: transform 0.5s; transform-style: preserve-3d; }
+        .memory-card.flipped .memory-card-inner { transform: rotateY(180deg); }
+        .memory-card-front, .memory-card-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600; text-align: center; padding: 8px; }
+        .memory-card-front { background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.05)); border: 1px solid var(--glass-border); color: var(--primary); font-size: 1.5rem; }
+        .memory-card-back { background: var(--glass-bg); border: 2px solid var(--primary); color: var(--text-main); transform: rotateY(180deg); }
+        .memory-card.matched .memory-card-back { border-color: #22c55e; background: rgba(34,197,94,0.1); }
+
+        /* True/False */
+        .tf-statement { font-size: 1.2rem; color: var(--text-main); text-align: center; padding: 30px; margin-bottom: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; line-height: 1.6; }
+        .tf-buttons { display: flex; gap: 16px; justify-content: center; }
+        .tf-btn { padding: 14px 40px; border-radius: 12px; border: 2px solid var(--glass-border); background: transparent; color: var(--text-main); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+        .tf-btn:hover { transform: scale(1.05); }
+        .tf-btn.true-btn:hover, .tf-btn.true-btn.selected { border-color: #22c55e; background: rgba(34,197,94,0.15); color: #4ade80; }
+        .tf-btn.false-btn:hover, .tf-btn.false-btn.selected { border-color: #ef4444; background: rgba(239,68,68,0.15); color: #f87171; }
+        .tf-btn.correct-reveal { border-color: #22c55e; background: rgba(34,197,94,0.2); color: #4ade80; }
+        .tf-btn.incorrect-reveal { border-color: #ef4444; background: rgba(239,68,68,0.2); color: #f87171; }
+        .tf-explanation { text-align: center; color: var(--text-dim); margin-top: 16px; font-size: 0.95rem; padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.02); }
+
+        /* Hangman */
+        .hangman-word { display: flex; gap: 8px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+        .hangman-letter { width: 40px; height: 50px; border-bottom: 3px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+        .hangman-hint { text-align: center; color: var(--text-dim); font-style: italic; margin-bottom: 20px; }
+        .hangman-keyboard { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; max-width: 500px; margin: 0 auto; }
+        .hangman-key { width: 36px; height: 40px; border-radius: 6px; border: 1px solid var(--glass-border); background: transparent; color: var(--text-main); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .hangman-key:hover:not(:disabled) { border-color: var(--primary); background: var(--primary-bg); }
+        .hangman-key:disabled { opacity: 0.2; pointer-events: none; }
+        .hangman-key.correct { background: rgba(34,197,94,0.2); border-color: #22c55e; color: #4ade80; }
+        .hangman-key.wrong { background: rgba(239,68,68,0.2); border-color: #ef4444; color: #f87171; }
+        .hangman-lives { text-align: center; font-size: 1.3rem; margin-bottom: 16px; letter-spacing: 4px; }
+
+        /* Word Search */
+        .wordsearch-grid { display: inline-grid; gap: 2px; margin: 0 auto 20px; }
+        .ws-cell { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; color: var(--text-main); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 4px; cursor: pointer; user-select: none; transition: all 0.15s; }
+        .ws-cell:hover { background: rgba(16,185,129,0.1); }
+        .ws-cell.selected { background: rgba(16,185,129,0.25); border-color: var(--primary); color: var(--primary); }
+        .ws-cell.found { background: rgba(34,197,94,0.2); border-color: #22c55e; color: #4ade80; }
+        .ws-words-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 16px; }
+        .ws-word { padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; color: var(--text-dim); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); }
+        .ws-word.found { color: #4ade80; background: rgba(34,197,94,0.12); border-color: #22c55e; text-decoration: line-through; }
+
+        /* Order Process */
+        .order-steps { max-width: 600px; margin: 0 auto; }
+        .order-step { padding: 14px 18px; border-radius: 10px; border: 2px solid var(--glass-border); margin-bottom: 8px; cursor: grab; background: rgba(255,255,255,0.02); color: var(--text-light); font-size: 0.95rem; transition: all 0.2s; user-select: none; display: flex; align-items: center; gap: 12px; }
+        .order-step:active { cursor: grabbing; }
+        .order-step:hover { border-color: var(--primary); }
+        .order-step .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--primary-bg); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+        .order-step.correct-pos { border-color: #22c55e; background: rgba(34,197,94,0.08); }
+        .order-step.wrong-pos { border-color: #ef4444; background: rgba(239,68,68,0.08); }
+        .order-step.dragging { opacity: 0.5; border-color: var(--primary); }
+
+        /* Puzzle */
+        .puzzle-grid { display: grid; grid-template-columns: repeat(3, 100px); grid-template-rows: repeat(3, 100px); gap: 4px; justify-content: center; margin: 20px auto; background: #000; padding: 4px; border-radius: 8px; border: 2px solid var(--primary); }
+        .puzzle-piece { width: 100px; height: 100px; background-size: 300px 300px; cursor: pointer; border-radius: 4px; transition: transform 0.15s; }
+        .puzzle-piece:hover { transform: scale(1.03); }
+        .puzzle-piece.selected-piece { outline: 3px solid var(--accent-amber); outline-offset: -3px; }
     </style>
 </head>
 <body class="games-page">
     <nav id="global-nav"></nav>
     <div class="games-hero">
         <h1><i class="fas fa-gamepad"></i> Juegos de Biología</h1>
-        <p>Aprende jugando. Completa espacios, conecta conceptos, descubre palabras ocultas y responde quizzes.</p>
+        <p>Aprende jugando. Rompecabezas, sopas de letras, memoria, ahorcado y más.</p>
     </div>
     <div class="games-container">
-        <!-- Game Selection -->
         <div id="game-selection">
-            <h2 style="color:var(--text-main); margin-bottom:20px; font-size:1.3rem;">Elige un juego:</h2>
+            <h2 class="games-cat-title"><i class="fas fa-puzzle-piece"></i> Rompecabezas y Destreza</h2>
             <div class="game-grid">
+                <div class="game-card" onclick="startGame('puzzle')">
+                    <div class="game-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>Rompecabezas Celular</h3>
+                    <p>Arma la imagen de una célula ordenando las piezas.</p>
+                    <span class="game-badge badge-medium">Medio</span>
+                </div>
+                <div class="game-card" onclick="startGame('order')">
+                    <div class="game-icon"><i class="fas fa-sort-amount-down"></i></div>
+                    <h3>Ordena el Proceso</h3>
+                    <p>Coloca los pasos de la mitosis o fotosíntesis en orden.</p>
+                    <span class="game-badge badge-hard">Desafiante</span>
+                </div>
+            </div>
+
+            <h2 class="games-cat-title"><i class="fas fa-brain"></i> Memoria y Palabras</h2>
+            <div class="game-grid">
+                <div class="game-card" onclick="startGame('memory')">
+                    <div class="game-icon"><i class="fas fa-clone"></i></div>
+                    <h3>Memoria Biológica</h3>
+                    <p>Voltea cartas y encuentra los pares de conceptos.</p>
+                    <span class="game-badge badge-easy">Fácil</span>
+                </div>
+                <div class="game-card" onclick="startGame('wordsearch')">
+                    <div class="game-icon"><i class="fas fa-th"></i></div>
+                    <h3>Sopa de Letras</h3>
+                    <p>Encuentra palabras ocultas de biología en la cuadrícula.</p>
+                    <span class="game-badge badge-medium">Medio</span>
+                </div>
+                <div class="game-card" onclick="startGame('hangman')">
+                    <div class="game-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Ahorcado Biológico</h3>
+                    <p>Adivina la palabra de biología letra por letra.</p>
+                    <span class="game-badge badge-medium">Medio</span>
+                </div>
+                <div class="game-card" onclick="startGame('scramble')">
+                    <div class="game-icon"><i class="fas fa-font"></i></div>
+                    <h3>Descubre la Palabra</h3>
+                    <p>Ordena las letras desordenadas para formar términos.</p>
+                    <span class="game-badge badge-easy">Fácil</span>
+                </div>
+            </div>
+
+            <h2 class="games-cat-title"><i class="fas fa-question-circle"></i> Conocimiento</h2>
+            <div class="game-grid">
+                <div class="game-card" onclick="startGame('truefalse')">
+                    <div class="game-icon"><i class="fas fa-check-double"></i></div>
+                    <h3>Verdadero o Falso</h3>
+                    <p>¿Mito o realidad? Decide rápido sobre datos de biología.</p>
+                    <span class="game-badge badge-easy">Fácil</span>
+                </div>
+                <div class="game-card" onclick="startGame('quizgame')">
+                    <div class="game-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Quiz Rápido</h3>
+                    <p>Responde preguntas de todos los temas lo más rápido posible.</p>
+                    <span class="game-badge badge-hard">Desafiante</span>
+                </div>
                 <div class="game-card" onclick="startGame('fillblanks')">
                     <div class="game-icon"><i class="fas fa-pencil-alt"></i></div>
                     <h3>Completa el Espacio</h3>
-                    <p>Llena los espacios en blanco con la palabra correcta sobre biología.</p>
+                    <p>Llena los espacios en blanco con la palabra correcta.</p>
                     <span class="game-badge badge-easy">Fácil</span>
                 </div>
                 <div class="game-card" onclick="startGame('match')">
@@ -98,18 +213,115 @@
                     <p>Une cada concepto con su definición correcta.</p>
                     <span class="game-badge badge-medium">Medio</span>
                 </div>
-                <div class="game-card" onclick="startGame('scramble')">
-                    <div class="game-icon"><i class="fas fa-font"></i></div>
-                    <h3>Descubre la Palabra</h3>
-                    <p>Ordena las letras para formar palabras de biología.</p>
-                    <span class="game-badge badge-medium">Medio</span>
+            </div>
+        </div>
+
+        <!-- Puzzle Game -->
+        <div class="game-area" id="game-puzzle">
+            <div class="game-area-header">
+                <h2><i class="fas fa-puzzle-piece" style="color:var(--primary);margin-right:8px;"></i>Rompecabezas Celular</h2>
+                <div style="display:flex;gap:12px;align-items:center;">
+                    <span class="game-score" id="puzzle-moves">Movimientos: 0</span>
+                    <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
                 </div>
-                <div class="game-card" onclick="startGame('quizgame')">
-                    <div class="game-icon"><i class="fas fa-question-circle"></i></div>
-                    <h3>Quiz Rápido</h3>
-                    <p>Responde preguntas de todos los temas lo más rápido posible.</p>
-                    <span class="game-badge badge-hard">Desafiante</span>
+            </div>
+            <p style="text-align:center;color:var(--text-dim);margin-bottom:16px;">Haz clic en dos piezas para intercambiarlas y armar la imagen.</p>
+            <div id="puzzle-board" class="puzzle-grid"></div>
+            <div style="text-align:center;">
+                <button class="game-nav-btn" onclick="shufflePuzzle()"><i class="fas fa-random"></i> Mezclar</button>
+                <p id="puzzle-status" style="margin-top:12px;font-weight:600;"></p>
+            </div>
+        </div>
+
+        <!-- Memory Game -->
+        <div class="game-area" id="game-memory">
+            <div class="game-area-header">
+                <h2><i class="fas fa-clone" style="color:var(--primary);margin-right:8px;"></i>Memoria Biológica</h2>
+                <div style="display:flex;gap:12px;align-items:center;">
+                    <span class="game-score" id="memory-moves">Movimientos: 0</span>
+                    <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
                 </div>
+            </div>
+            <div class="memory-grid" id="memory-board"></div>
+            <div class="game-result" id="memory-result" style="display:none;">
+                <div class="result-score" id="memory-final-score"></div>
+                <p class="result-text" id="memory-final-text"></p>
+                <button class="game-nav-btn" onclick="initMemory()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- Word Search -->
+        <div class="game-area" id="game-wordsearch">
+            <div class="game-area-header">
+                <h2><i class="fas fa-th" style="color:var(--primary);margin-right:8px;"></i>Sopa de Letras</h2>
+                <div style="display:flex;gap:12px;align-items:center;">
+                    <span class="game-score" id="ws-found">0/0</span>
+                    <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
+                </div>
+            </div>
+            <p style="text-align:center;color:var(--text-dim);margin-bottom:12px;">Haz clic en la primera y última letra de cada palabra.</p>
+            <div style="text-align:center;"><div id="ws-grid" class="wordsearch-grid"></div></div>
+            <div class="ws-words-list" id="ws-words"></div>
+            <div class="game-result" id="ws-result" style="display:none;">
+                <div class="result-score"><i class="fas fa-check-circle"></i></div>
+                <p class="result-text" id="ws-final-text"></p>
+                <button class="game-nav-btn" onclick="initWordSearch()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- Hangman -->
+        <div class="game-area" id="game-hangman">
+            <div class="game-area-header">
+                <h2><i class="fas fa-user-secret" style="color:var(--primary);margin-right:8px;"></i>Ahorcado Biológico</h2>
+                <div style="display:flex;gap:12px;align-items:center;">
+                    <span class="game-score" id="hangman-score">0/0</span>
+                    <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
+                </div>
+            </div>
+            <div id="hangman-content"></div>
+            <div class="game-result" id="hangman-result" style="display:none;">
+                <div class="result-score" id="hangman-final-score"></div>
+                <p class="result-text" id="hangman-final-text"></p>
+                <button class="game-nav-btn" onclick="initHangman()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- True/False -->
+        <div class="game-area" id="game-truefalse">
+            <div class="game-area-header">
+                <h2><i class="fas fa-check-double" style="color:var(--primary);margin-right:8px;"></i>Verdadero o Falso</h2>
+                <div style="display:flex;gap:12px;align-items:center;">
+                    <span class="game-score" id="tf-score">0/0</span>
+                    <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
+                </div>
+            </div>
+            <div id="tf-content"></div>
+            <div class="game-result" id="tf-result" style="display:none;">
+                <div class="result-score" id="tf-final-score"></div>
+                <p class="result-text" id="tf-final-text"></p>
+                <button class="game-nav-btn" onclick="initTrueFalse()">Jugar de Nuevo</button>
+            </div>
+        </div>
+
+        <!-- Order Process -->
+        <div class="game-area" id="game-order">
+            <div class="game-area-header">
+                <h2><i class="fas fa-sort-amount-down" style="color:var(--primary);margin-right:8px;"></i>Ordena el Proceso</h2>
+                <div style="display:flex;gap:12px;align-items:center;">
+                    <span class="game-score" id="order-score">0%</span>
+                    <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
+                </div>
+            </div>
+            <p style="text-align:center;color:var(--text-dim);margin-bottom:16px;" id="order-instruction"></p>
+            <div class="order-steps" id="order-steps"></div>
+            <div style="text-align:center;">
+                <button class="game-nav-btn" id="order-check-btn" onclick="checkOrder()">Verificar Orden</button>
+                <button class="game-nav-btn" id="order-next-btn" onclick="nextOrder()" style="display:none;">Siguiente →</button>
+            </div>
+            <div class="game-result" id="order-result" style="display:none;">
+                <div class="result-score" id="order-final-score"></div>
+                <p class="result-text" id="order-final-text"></p>
+                <button class="game-nav-btn" onclick="initOrder()">Jugar de Nuevo</button>
             </div>
         </div>
 
@@ -117,7 +329,7 @@
         <div class="game-area" id="game-fillblanks">
             <div class="game-area-header">
                 <h2><i class="fas fa-pencil-alt" style="color:var(--primary);margin-right:8px;"></i>Completa el Espacio</h2>
-                <div style="display:flex; gap:12px; align-items:center;">
+                <div style="display:flex;gap:12px;align-items:center;">
                     <span class="game-score" id="fill-score">0/0</span>
                     <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
                 </div>
@@ -130,7 +342,7 @@
             <div class="game-result" id="fill-result" style="display:none;">
                 <div class="result-score" id="fill-final-score"></div>
                 <p class="result-text" id="fill-final-text"></p>
-                <button class="game-nav-btn" onclick="restartFill()">Jugar de Nuevo</button>
+                <button class="game-nav-btn" onclick="initFill()">Jugar de Nuevo</button>
             </div>
         </div>
 
@@ -138,7 +350,7 @@
         <div class="game-area" id="game-match">
             <div class="game-area-header">
                 <h2><i class="fas fa-link" style="color:var(--primary);margin-right:8px;"></i>Conecta Conceptos</h2>
-                <div style="display:flex; gap:12px; align-items:center;">
+                <div style="display:flex;gap:12px;align-items:center;">
                     <span class="game-score" id="match-score">0/0</span>
                     <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
                 </div>
@@ -150,7 +362,7 @@
             <div class="game-result" id="match-result" style="display:none;">
                 <div class="result-score" id="match-final-score"></div>
                 <p class="result-text" id="match-final-text"></p>
-                <button class="game-nav-btn" onclick="restartMatch()">Jugar de Nuevo</button>
+                <button class="game-nav-btn" onclick="initMatch()">Jugar de Nuevo</button>
             </div>
         </div>
 
@@ -158,7 +370,7 @@
         <div class="game-area" id="game-scramble">
             <div class="game-area-header">
                 <h2><i class="fas fa-font" style="color:var(--primary);margin-right:8px;"></i>Descubre la Palabra</h2>
-                <div style="display:flex; gap:12px; align-items:center;">
+                <div style="display:flex;gap:12px;align-items:center;">
                     <span class="game-score" id="scramble-score">0/0</span>
                     <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
                 </div>
@@ -167,15 +379,15 @@
             <div class="game-result" id="scramble-result" style="display:none;">
                 <div class="result-score" id="scramble-final-score"></div>
                 <p class="result-text" id="scramble-final-text"></p>
-                <button class="game-nav-btn" onclick="restartScramble()">Jugar de Nuevo</button>
+                <button class="game-nav-btn" onclick="initScramble()">Jugar de Nuevo</button>
             </div>
         </div>
 
         <!-- Quiz Game -->
         <div class="game-area" id="game-quizgame">
             <div class="game-area-header">
-                <h2><i class="fas fa-question-circle" style="color:var(--primary);margin-right:8px;"></i>Quiz Rápido</h2>
-                <div style="display:flex; gap:12px; align-items:center;">
+                <h2><i class="fas fa-bolt" style="color:var(--primary);margin-right:8px;"></i>Quiz Rápido</h2>
+                <div style="display:flex;gap:12px;align-items:center;">
                     <span class="game-score" id="quizgame-score">0/0</span>
                     <button class="game-close-btn" onclick="closeGame()"><i class="fas fa-times"></i> Salir</button>
                 </div>
@@ -184,7 +396,7 @@
             <div class="game-result" id="quizgame-result" style="display:none;">
                 <div class="result-score" id="quizgame-final-score"></div>
                 <p class="result-text" id="quizgame-final-text"></p>
-                <button class="game-nav-btn" onclick="restartQuizGame()">Jugar de Nuevo</button>
+                <button class="game-nav-btn" onclick="initQuizGame()">Jugar de Nuevo</button>
             </div>
         </div>
     </div>
@@ -200,7 +412,7 @@
         { sentence: "El ___ es el órgano que bombea sangre por todo el cuerpo.", answer: "corazón", hint: "Late unas 100.000 veces al día." },
         { sentence: "El ADN tiene forma de doble ___.", answer: "hélice", hint: "Como una escalera de caracol." },
         { sentence: "Los ___ son animales sin columna vertebral.", answer: "invertebrados", hint: "Son el 95% de las especies animales." },
-        { sentence: "La ___ es el proceso por el cual las plantas fabrican su alimento usando la luz del sol.", answer: "fotosíntesis", hint: "Las plantas son verdes gracias a la clorofila que participa en este proceso." },
+        { sentence: "La ___ es el proceso por el cual las plantas fabrican su alimento usando la luz del sol.", answer: "fotosíntesis", hint: "Las plantas son verdes gracias a la clorofila." },
         { sentence: "Los ___ son estructuras en forma de X que contienen el ADN enrollado.", answer: "cromosomas", hint: "Los humanos tenemos 46." },
         { sentence: "El ___ es el ecosistema de alta montaña donde viven los frailejones.", answer: "páramo", hint: "Es la fábrica de agua de Colombia." }
     ];
@@ -232,13 +444,81 @@
         { q: "¿Qué tipo de célula NO tiene núcleo?", options: ["Eucariota", "Animal", "Procariota", "Vegetal"], correct: 2 },
         { q: "¿Cuántos pares de cromosomas tenemos?", options: ["22", "24", "21", "23"], correct: 3 },
         { q: "¿Qué sistema transporta oxígeno por el cuerpo?", options: ["Digestivo", "Nervioso", "Circulatorio", "Respiratorio"], correct: 2 },
-        { q: "¿Qué animal colombiano es el más biodiverso en aves?", options: ["Brasil", "Colombia", "Perú", "México"], correct: 1 },
+        { q: "¿Qué país es el más biodiverso en aves?", options: ["Brasil", "Colombia", "Perú", "México"], correct: 1 },
         { q: "¿Cómo se llama la papilla que se forma en el estómago?", options: ["Bolo", "Quimo", "Bilis", "Plasma"], correct: 1 },
         { q: "¿Qué parte de la neurona recibe mensajes?", options: ["Axón", "Cuerpo celular", "Dendritas", "Núcleo"], correct: 2 },
         { q: "¿Qué gas liberan las plantas en la fotosíntesis?", options: ["CO₂", "Nitrógeno", "Oxígeno", "Hidrógeno"], correct: 2 },
         { q: "¿Quién es el padre de la genética?", options: ["Darwin", "Mendel", "Pasteur", "Linneo"], correct: 1 },
         { q: "¿Qué ecosistema tiene frailejones?", options: ["Selva", "Sabana", "Páramo", "Manglar"], correct: 2 }
     ];
+
+    const TRUE_FALSE_DATA = [
+        { statement: "El ADN tiene forma de doble hélice.", answer: true, explanation: "Correcto. Watson y Crick descubrieron en 1953 que el ADN tiene forma de escalera de caracol (doble hélice)." },
+        { statement: "Las plantas respiran solo de noche.", answer: false, explanation: "Falso. Las plantas respiran todo el día y toda la noche. Lo que hacen solo de día es la fotosíntesis." },
+        { statement: "Los humanos tenemos 46 cromosomas.", answer: true, explanation: "Correcto. 23 pares: 23 de mamá y 23 de papá." },
+        { statement: "El jaguar es el felino más grande de América.", answer: true, explanation: "Correcto. El jaguar puede pesar hasta 120 kg y es el tercer felino más grande del mundo después del tigre y el león." },
+        { statement: "Las bacterias tienen núcleo definido.", answer: false, explanation: "Falso. Las bacterias son procariotas, lo que significa que NO tienen un núcleo definido. Su ADN flota libremente en la célula." },
+        { statement: "Colombia es el país con más especies de ranas del mundo.", answer: true, explanation: "Correcto. Colombia tiene más de 800 especies de ranas, más que cualquier otro país." },
+        { statement: "La mitosis produce 4 células hijas.", answer: false, explanation: "Falso. La mitosis produce 2 células hijas idénticas. La meiosis es la que produce 4 células." },
+        { statement: "Los frailejones crecen 1 metro por año.", answer: false, explanation: "Falso. Los frailejones crecen aproximadamente 1 centímetro por año. ¡Pueden vivir más de 100 años!" },
+        { statement: "El chigüiro es el roedor más grande del mundo.", answer: true, explanation: "Correcto. El chigüiro (capibara) puede pesar hasta 65 kg y vive en los llanos y ríos de Colombia." },
+        { statement: "Las ballenas jorobadas viajan desde la Antártida hasta Colombia.", answer: true, explanation: "Correcto. Cada año viajan unos 8.000 km hasta las costas del Pacífico colombiano para reproducirse." },
+        { statement: "El intestino delgado mide 1 metro.", answer: false, explanation: "Falso. El intestino delgado mide aproximadamente 7 metros enrollado. ¡Más largo que un bus!" },
+        { statement: "Los hongos pertenecen al reino Plantae.", answer: false, explanation: "Falso. Los hongos tienen su propio reino: Fungi. No son plantas porque no hacen fotosíntesis." },
+        { statement: "El agua que bebes es la misma que bebían los dinosaurios.", answer: true, explanation: "Correcto. El agua de la Tierra se recicla constantemente a través del ciclo del agua. ¡No se crea nueva!" },
+        { statement: "La sangre roja es roja por la hemoglobina.", answer: true, explanation: "Correcto. La hemoglobina contiene hierro y le da el color rojo a la sangre." },
+        { statement: "El cóndor de los Andes puede volar a 6.000 metros de altura.", answer: true, explanation: "Correcto. El cóndor es el ave voladora más grande del mundo y puede alcanzar grandes alturas aprovechando las corrientes de aire." }
+    ];
+
+    const HANGMAN_DATA = [
+        { word: "MITOCONDRIA", hint: "Central de energía de la célula" },
+        { word: "FOTOSINTESIS", hint: "Proceso por el que las plantas hacen alimento" },
+        { word: "CROMOSOMA", hint: "Paquete de ADN enrollado en forma de X" },
+        { word: "RIBOSOMA", hint: "Orgánulo que fabrica proteínas" },
+        { word: "CLOROPLASTO", hint: "Orgánulo verde de las plantas" },
+        { word: "HEMOGLOBINA", hint: "Proteína que da color rojo a la sangre" },
+        { word: "NEURONA", hint: "Célula del sistema nervioso" },
+        { word: "ECOSISTEMA", hint: "Conjunto de seres vivos y su ambiente" },
+        { word: "BACTERIA", hint: "Organismo microscópico sin núcleo" },
+        { word: "MARIPOSA", hint: "Insecto que antes fue oruga" },
+        { word: "FRAILEJON", hint: "Planta emblemática del páramo" },
+        { word: "CORAZON", hint: "Órgano que bombea sangre" }
+    ];
+
+    const ORDER_DATA = [
+        {
+            title: "Fases de la Mitosis",
+            instruction: "Ordena las 4 fases de la mitosis del 1 al 4.",
+            steps: ["Telofase", "Profase", "Anafase", "Metafase"],
+            correct: ["Profase", "Metafase", "Anafase", "Telofase"]
+        },
+        {
+            title: "El Recorrido de la Comida",
+            instruction: "Ordena el camino de la comida en el sistema digestivo.",
+            steps: ["Intestino grueso", "Boca", "Estómago", "Esófago", "Intestino delgado"],
+            correct: ["Boca", "Esófago", "Estómago", "Intestino delgado", "Intestino grueso"]
+        },
+        {
+            title: "El Camino del Aire",
+            instruction: "Ordena el camino del aire en el sistema respiratorio.",
+            steps: ["Alvéolos", "Nariz", "Tráquea", "Bronquios", "Bronquiolos"],
+            correct: ["Nariz", "Tráquea", "Bronquios", "Bronquiolos", "Alvéolos"]
+        },
+        {
+            title: "Ciclo del Agua",
+            instruction: "Ordena las etapas del ciclo del agua.",
+            steps: ["Precipitación", "Evaporación", "Infiltración", "Condensación"],
+            correct: ["Evaporación", "Condensación", "Precipitación", "Infiltración"]
+        },
+        {
+            title: "Cadena Alimenticia",
+            instruction: "Ordena los niveles de la cadena alimenticia.",
+            steps: ["Descomponedores", "Consumidor secundario", "Productores", "Consumidor primario"],
+            correct: ["Productores", "Consumidor primario", "Consumidor secundario", "Descomponedores"]
+        }
+    ];
+
+    const WORDSEARCH_WORDS = ["CELULA", "ADN", "GEN", "MITOCONDRIA", "NUCLEO", "RIBOSOMA", "MEMBRANA", "CROMOSOMA"];
 
     // ============================================================
     // GAME STATE
@@ -247,6 +527,12 @@
     let matchSelected = null, matchSide = null, matchCorrect = 0;
     let currentScramble = 0, scrambleCorrect = 0, scrambleCurrent = [];
     let currentQuizQ = 0, quizCorrect = 0, quizAnswered = false;
+    let currentTF = 0, tfCorrectCount = 0, tfAnswered = false;
+    let currentHangman = 0, hangmanCorrect = 0, hangmanLetters = [], hangmanLives = 6;
+    let currentOrder = 0, orderSteps = [];
+    let memoryFlipped = [], memoryMatched = 0, memoryMoves = 0, memoryLocked = false;
+    let wsSelected = [], wsFoundWords = [];
+    let puzzlePieces = [], puzzleSelected = null, puzzleMoves = 0;
 
     // ============================================================
     // NAVIGATION
@@ -255,10 +541,8 @@
         document.getElementById('game-selection').style.display = 'none';
         document.querySelectorAll('.game-area').forEach(g => g.classList.remove('active'));
         document.getElementById('game-' + type).classList.add('active');
-        if (type === 'fillblanks') initFill();
-        if (type === 'match') initMatch();
-        if (type === 'scramble') initScramble();
-        if (type === 'quizgame') initQuizGame();
+        const inits = { fillblanks: initFill, match: initMatch, scramble: initScramble, quizgame: initQuizGame, memory: initMemory, wordsearch: initWordSearch, hangman: initHangman, truefalse: initTrueFalse, order: initOrder, puzzle: initPuzzle };
+        if (inits[type]) inits[type]();
     }
 
     function closeGame() {
@@ -277,7 +561,6 @@
         document.getElementById('fill-next-btn').style.display = 'none';
         renderFill();
     }
-
     function renderFill() {
         if (currentFill >= FILL_DATA.length) { showFillResult(); return; }
         const d = FILL_DATA[currentFill];
@@ -292,7 +575,6 @@
         `;
         setTimeout(() => { const inp = document.getElementById('fill-input'); if (inp) inp.focus(); }, 100);
     }
-
     function checkFillBlanks() {
         if (fillAnswered) return;
         fillAnswered = true;
@@ -305,20 +587,15 @@
         document.getElementById('fill-check-btn').style.display = 'none';
         document.getElementById('fill-next-btn').style.display = 'inline-block';
     }
-
     function nextFill() { currentFill++; renderFill(); }
-
     function showFillResult() {
         document.getElementById('fill-content').style.display = 'none';
         document.getElementById('fill-check-btn').style.display = 'none';
         document.getElementById('fill-next-btn').style.display = 'none';
-        const r = document.getElementById('fill-result');
-        r.style.display = 'block';
+        const r = document.getElementById('fill-result'); r.style.display = 'block';
         document.getElementById('fill-final-score').textContent = `${fillCorrect}/${FILL_DATA.length}`;
-        document.getElementById('fill-final-text').textContent = fillCorrect === FILL_DATA.length ? '¡Perfecto! ¡Eres un genio de la biología!' : fillCorrect >= FILL_DATA.length / 2 ? '¡Buen trabajo! Sigue practicando.' : '¡No te rindas! Repasa los temas y vuelve a intentar.';
+        document.getElementById('fill-final-text').textContent = fillCorrect === FILL_DATA.length ? '¡Perfecto!' : fillCorrect >= FILL_DATA.length / 2 ? '¡Buen trabajo!' : '¡Sigue practicando!';
     }
-
-    function restartFill() { initFill(); }
 
     // ============================================================
     // MATCH GAME
@@ -334,197 +611,369 @@
         const shuffledRight = [...MATCH_DATA].sort(() => Math.random() - 0.5);
         MATCH_DATA.forEach((d, i) => {
             const el = document.createElement('div');
-            el.className = 'match-item';
-            el.textContent = d.concept;
-            el.dataset.index = i;
-            el.dataset.side = 'left';
-            el.onclick = () => selectMatch(el);
-            leftCol.appendChild(el);
+            el.className = 'match-item'; el.textContent = d.concept; el.dataset.index = i; el.dataset.side = 'left';
+            el.onclick = () => selectMatch(el); leftCol.appendChild(el);
         });
         shuffledRight.forEach((d) => {
             const origIndex = MATCH_DATA.findIndex(m => m.definition === d.definition);
             const el = document.createElement('div');
-            el.className = 'match-item';
-            el.textContent = d.definition;
-            el.dataset.index = origIndex;
-            el.dataset.side = 'right';
-            el.onclick = () => selectMatch(el);
-            rightCol.appendChild(el);
+            el.className = 'match-item'; el.textContent = d.definition; el.dataset.index = origIndex; el.dataset.side = 'right';
+            el.onclick = () => selectMatch(el); rightCol.appendChild(el);
         });
     }
-
     function selectMatch(el) {
         if (el.classList.contains('matched')) return;
-        if (!matchSelected) {
-            matchSelected = el;
-            matchSide = el.dataset.side;
-            el.classList.add('selected');
-        } else {
-            if (el.dataset.side === matchSide) {
-                matchSelected.classList.remove('selected');
-                matchSelected = el;
-                matchSide = el.dataset.side;
-                el.classList.add('selected');
-                return;
-            }
+        if (!matchSelected) { matchSelected = el; matchSide = el.dataset.side; el.classList.add('selected'); }
+        else {
+            if (el.dataset.side === matchSide) { matchSelected.classList.remove('selected'); matchSelected = el; matchSide = el.dataset.side; el.classList.add('selected'); return; }
             if (matchSelected.dataset.index === el.dataset.index) {
-                matchSelected.classList.remove('selected');
-                matchSelected.classList.add('matched');
-                el.classList.add('matched');
-                matchCorrect++;
-                document.getElementById('match-score').textContent = `${matchCorrect}/${MATCH_DATA.length}`;
-                if (matchCorrect === MATCH_DATA.length) {
-                    setTimeout(() => {
-                        document.getElementById('match-result').style.display = 'block';
-                        document.getElementById('match-final-score').textContent = `${matchCorrect}/${MATCH_DATA.length}`;
-                        document.getElementById('match-final-text').textContent = '¡Conectaste todos los conceptos! ¡Excelente!';
-                    }, 500);
-                }
-            } else {
-                el.classList.add('wrong');
-                matchSelected.classList.add('wrong');
-                const prev = matchSelected;
-                setTimeout(() => { el.classList.remove('wrong'); prev.classList.remove('wrong', 'selected'); }, 600);
-            }
-            matchSelected = null;
-            matchSide = null;
+                matchSelected.classList.remove('selected'); matchSelected.classList.add('matched'); el.classList.add('matched');
+                matchCorrect++; document.getElementById('match-score').textContent = `${matchCorrect}/${MATCH_DATA.length}`;
+                if (matchCorrect === MATCH_DATA.length) { setTimeout(() => { document.getElementById('match-result').style.display = 'block'; document.getElementById('match-final-score').textContent = `${matchCorrect}/${MATCH_DATA.length}`; document.getElementById('match-final-text').textContent = '¡Conectaste todos!'; }, 500); }
+            } else { el.classList.add('wrong'); matchSelected.classList.add('wrong'); const prev = matchSelected; setTimeout(() => { el.classList.remove('wrong'); prev.classList.remove('wrong', 'selected'); }, 600); }
+            matchSelected = null; matchSide = null;
         }
     }
-
-    function restartMatch() { initMatch(); }
 
     // ============================================================
     // WORD SCRAMBLE
     // ============================================================
-    function initScramble() {
-        currentScramble = 0; scrambleCorrect = 0;
-        document.getElementById('scramble-result').style.display = 'none';
-        document.getElementById('scramble-content').style.display = 'block';
-        renderScramble();
-    }
-
+    function initScramble() { currentScramble = 0; scrambleCorrect = 0; document.getElementById('scramble-result').style.display = 'none'; document.getElementById('scramble-content').style.display = 'block'; renderScramble(); }
     function renderScramble() {
         if (currentScramble >= SCRAMBLE_DATA.length) { showScrambleResult(); return; }
-        const d = SCRAMBLE_DATA[currentScramble];
-        scrambleCurrent = [];
+        const d = SCRAMBLE_DATA[currentScramble]; scrambleCurrent = [];
         const letters = d.word.split('').sort(() => Math.random() - 0.5);
         document.getElementById('scramble-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`;
         document.getElementById('scramble-content').innerHTML = `
             <p style="color:var(--primary); font-size:0.85rem; margin-bottom:8px;">Palabra ${currentScramble + 1} de ${SCRAMBLE_DATA.length}</p>
             <p class="scramble-hint"><i class="fas fa-lightbulb"></i> ${d.hint}</p>
             <div class="scramble-answer" id="scramble-answer-area"></div>
-            <div class="scramble-letters" id="scramble-letters-area">
-                ${letters.map((l, i) => `<div class="scramble-letter" data-letter="${l}" data-idx="${i}" onclick="selectScrambleLetter(this)">${l}</div>`).join('')}
-            </div>
+            <div class="scramble-letters" id="scramble-letters-area">${letters.map((l, i) => `<div class="scramble-letter" data-letter="${l}" data-idx="${i}" onclick="selectScrambleLetter(this)">${l}</div>`).join('')}</div>
             <div style="text-align:center; display:flex; gap:12px; justify-content:center;">
                 <button class="game-nav-btn" onclick="checkScramble()">Verificar</button>
                 <button class="game-nav-btn" onclick="clearScramble()" style="background:transparent; border:1px solid var(--glass-border);">Limpiar</button>
-            </div>
-        `;
+            </div>`;
     }
-
-    function selectScrambleLetter(el) {
-        if (el.classList.contains('used')) return;
-        el.classList.add('used');
-        scrambleCurrent.push({ letter: el.dataset.letter, idx: el.dataset.idx });
-        const area = document.getElementById('scramble-answer-area');
-        const letterEl = document.createElement('div');
-        letterEl.className = 'scramble-answer-letter';
-        letterEl.textContent = el.dataset.letter;
-        letterEl.dataset.sourceIdx = el.dataset.idx;
-        letterEl.onclick = function() {
-            scrambleCurrent = scrambleCurrent.filter(s => s.idx !== this.dataset.sourceIdx);
-            document.querySelector(`.scramble-letter[data-idx="${this.dataset.sourceIdx}"]`).classList.remove('used');
-            this.remove();
-        };
-        area.appendChild(letterEl);
-    }
-
-    function clearScramble() {
-        scrambleCurrent = [];
-        document.getElementById('scramble-answer-area').innerHTML = '';
-        document.querySelectorAll('.scramble-letter').forEach(l => l.classList.remove('used'));
-    }
-
-    function checkScramble() {
-        const answer = scrambleCurrent.map(s => s.letter).join('');
-        const correct = SCRAMBLE_DATA[currentScramble].word;
-        if (answer === correct) {
-            scrambleCorrect++;
-            document.getElementById('scramble-answer-area').style.borderColor = '#22c55e';
-        } else {
-            document.getElementById('scramble-answer-area').style.borderColor = '#ef4444';
-            const area = document.getElementById('scramble-answer-area');
-            area.innerHTML = '';
-            correct.split('').forEach(l => {
-                const el = document.createElement('div');
-                el.className = 'scramble-answer-letter';
-                el.textContent = l;
-                el.style.background = 'rgba(34,197,94,0.15)';
-                el.style.color = '#4ade80';
-                area.appendChild(el);
-            });
-        }
-        document.getElementById('scramble-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`;
-        setTimeout(() => { currentScramble++; renderScramble(); }, 1500);
-    }
-
-    function showScrambleResult() {
-        document.getElementById('scramble-content').style.display = 'none';
-        const r = document.getElementById('scramble-result');
-        r.style.display = 'block';
-        document.getElementById('scramble-final-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`;
-        document.getElementById('scramble-final-text').textContent = scrambleCorrect === SCRAMBLE_DATA.length ? '¡Perfecto! ¡Descifraste todas las palabras!' : scrambleCorrect >= SCRAMBLE_DATA.length / 2 ? '¡Bien hecho! Sigue practicando.' : '¡Inténtalo de nuevo! Repasa los temas.';
-    }
-
-    function restartScramble() { initScramble(); }
+    function selectScrambleLetter(el) { if (el.classList.contains('used')) return; el.classList.add('used'); scrambleCurrent.push({ letter: el.dataset.letter, idx: el.dataset.idx }); const area = document.getElementById('scramble-answer-area'); const letterEl = document.createElement('div'); letterEl.className = 'scramble-answer-letter'; letterEl.textContent = el.dataset.letter; letterEl.dataset.sourceIdx = el.dataset.idx; letterEl.onclick = function() { scrambleCurrent = scrambleCurrent.filter(s => s.idx !== this.dataset.sourceIdx); document.querySelector(`.scramble-letter[data-idx="${this.dataset.sourceIdx}"]`).classList.remove('used'); this.remove(); }; area.appendChild(letterEl); }
+    function clearScramble() { scrambleCurrent = []; document.getElementById('scramble-answer-area').innerHTML = ''; document.querySelectorAll('.scramble-letter').forEach(l => l.classList.remove('used')); }
+    function checkScramble() { const answer = scrambleCurrent.map(s => s.letter).join(''); const correct = SCRAMBLE_DATA[currentScramble].word; if (answer === correct) { scrambleCorrect++; document.getElementById('scramble-answer-area').style.borderColor = '#22c55e'; } else { document.getElementById('scramble-answer-area').style.borderColor = '#ef4444'; const area = document.getElementById('scramble-answer-area'); area.innerHTML = ''; correct.split('').forEach(l => { const el = document.createElement('div'); el.className = 'scramble-answer-letter'; el.textContent = l; el.style.background = 'rgba(34,197,94,0.15)'; el.style.color = '#4ade80'; area.appendChild(el); }); } document.getElementById('scramble-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`; setTimeout(() => { currentScramble++; renderScramble(); }, 1500); }
+    function showScrambleResult() { document.getElementById('scramble-content').style.display = 'none'; const r = document.getElementById('scramble-result'); r.style.display = 'block'; document.getElementById('scramble-final-score').textContent = `${scrambleCorrect}/${SCRAMBLE_DATA.length}`; document.getElementById('scramble-final-text').textContent = scrambleCorrect === SCRAMBLE_DATA.length ? '¡Perfecto!' : '¡Sigue practicando!'; }
 
     // ============================================================
     // QUIZ GAME
     // ============================================================
-    function initQuizGame() {
-        currentQuizQ = 0; quizCorrect = 0;
-        document.getElementById('quizgame-result').style.display = 'none';
-        document.getElementById('quizgame-content').style.display = 'block';
-        const shuffled = [...QUIZ_GAME_DATA].sort(() => Math.random() - 0.5);
-        window._quizQuestions = shuffled.slice(0, 8);
-        renderQuizQuestion();
-    }
+    function initQuizGame() { currentQuizQ = 0; quizCorrect = 0; document.getElementById('quizgame-result').style.display = 'none'; document.getElementById('quizgame-content').style.display = 'block'; const shuffled = [...QUIZ_GAME_DATA].sort(() => Math.random() - 0.5); window._quizQuestions = shuffled.slice(0, 8); renderQuizQuestion(); }
+    function renderQuizQuestion() { if (currentQuizQ >= window._quizQuestions.length) { showQuizGameResult(); return; } quizAnswered = false; const q = window._quizQuestions[currentQuizQ]; document.getElementById('quizgame-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`; document.getElementById('quizgame-content').innerHTML = `<p style="color:var(--primary); font-size:0.85rem; margin-bottom:8px;">Pregunta ${currentQuizQ + 1} de ${window._quizQuestions.length}</p><p class="quiz-game-question">${q.q}</p><div class="quiz-game-options">${q.options.map((opt, i) => `<button class="quiz-game-opt" onclick="answerQuiz(${i})">${opt}</button>`).join('')}</div>`; }
+    function answerQuiz(idx) { if (quizAnswered) return; quizAnswered = true; const q = window._quizQuestions[currentQuizQ]; const btns = document.querySelectorAll('.quiz-game-opt'); if (idx === q.correct) { quizCorrect++; btns[idx].classList.add('correct'); } else { btns[idx].classList.add('incorrect'); btns[q.correct].classList.add('correct'); } document.getElementById('quizgame-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`; setTimeout(() => { currentQuizQ++; renderQuizQuestion(); }, 1200); }
+    function showQuizGameResult() { document.getElementById('quizgame-content').style.display = 'none'; const r = document.getElementById('quizgame-result'); r.style.display = 'block'; document.getElementById('quizgame-final-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`; document.getElementById('quizgame-final-text').textContent = quizCorrect === window._quizQuestions.length ? '¡Perfecto!' : quizCorrect >= window._quizQuestions.length * 0.7 ? '¡Muy bien!' : '¡Sigue estudiando!'; }
 
-    function renderQuizQuestion() {
-        if (currentQuizQ >= window._quizQuestions.length) { showQuizGameResult(); return; }
-        quizAnswered = false;
-        const q = window._quizQuestions[currentQuizQ];
-        document.getElementById('quizgame-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`;
-        document.getElementById('quizgame-content').innerHTML = `
-            <p style="color:var(--primary); font-size:0.85rem; margin-bottom:8px;">Pregunta ${currentQuizQ + 1} de ${window._quizQuestions.length}</p>
-            <p class="quiz-game-question">${q.q}</p>
-            <div class="quiz-game-options">
-                ${q.options.map((opt, i) => `<button class="quiz-game-opt" onclick="answerQuiz(${i})">${opt}</button>`).join('')}
+    // ============================================================
+    // TRUE / FALSE
+    // ============================================================
+    function initTrueFalse() { currentTF = 0; tfCorrectCount = 0; document.getElementById('tf-result').style.display = 'none'; document.getElementById('tf-content').style.display = 'block'; renderTF(); }
+    function renderTF() {
+        if (currentTF >= TRUE_FALSE_DATA.length) { showTFResult(); return; }
+        tfAnswered = false; const d = TRUE_FALSE_DATA[currentTF];
+        document.getElementById('tf-score').textContent = `${tfCorrectCount}/${TRUE_FALSE_DATA.length}`;
+        document.getElementById('tf-content').innerHTML = `
+            <p style="text-align:center;color:var(--primary);font-size:0.85rem;margin-bottom:12px;">Afirmación ${currentTF + 1} de ${TRUE_FALSE_DATA.length}</p>
+            <div class="tf-statement">${d.statement}</div>
+            <div class="tf-buttons">
+                <button class="tf-btn true-btn" onclick="answerTF(true)"><i class="fas fa-check"></i> Verdadero</button>
+                <button class="tf-btn false-btn" onclick="answerTF(false)"><i class="fas fa-times"></i> Falso</button>
             </div>
-        `;
+            <div id="tf-explanation" style="display:none;"></div>
+            <div style="text-align:center;"><button class="game-nav-btn" id="tf-next-btn" onclick="nextTF()" style="display:none;">Siguiente →</button></div>`;
+    }
+    function answerTF(answer) {
+        if (tfAnswered) return; tfAnswered = true;
+        const d = TRUE_FALSE_DATA[currentTF];
+        const isCorrect = answer === d.answer;
+        if (isCorrect) tfCorrectCount++;
+        document.querySelectorAll('.tf-btn').forEach(b => {
+            b.style.pointerEvents = 'none';
+            if (b.classList.contains('true-btn') && d.answer) b.classList.add('correct-reveal');
+            if (b.classList.contains('false-btn') && !d.answer) b.classList.add('correct-reveal');
+            if (!isCorrect && ((b.classList.contains('true-btn') && answer) || (b.classList.contains('false-btn') && !answer))) b.classList.add('incorrect-reveal');
+        });
+        const exp = document.getElementById('tf-explanation');
+        exp.style.display = 'block';
+        exp.className = 'tf-explanation';
+        exp.innerHTML = `<i class="fas fa-${isCorrect ? 'check-circle' : 'times-circle'}" style="color:${isCorrect ? '#22c55e' : '#ef4444'}"></i> ${d.explanation}`;
+        document.getElementById('tf-next-btn').style.display = 'inline-block';
+        document.getElementById('tf-score').textContent = `${tfCorrectCount}/${TRUE_FALSE_DATA.length}`;
+    }
+    function nextTF() { currentTF++; renderTF(); }
+    function showTFResult() { document.getElementById('tf-content').style.display = 'none'; const r = document.getElementById('tf-result'); r.style.display = 'block'; document.getElementById('tf-final-score').textContent = `${tfCorrectCount}/${TRUE_FALSE_DATA.length}`; document.getElementById('tf-final-text').textContent = tfCorrectCount === TRUE_FALSE_DATA.length ? '¡Perfecto!' : tfCorrectCount >= TRUE_FALSE_DATA.length * 0.7 ? '¡Muy bien!' : '¡Sigue estudiando!'; }
+
+    // ============================================================
+    // HANGMAN
+    // ============================================================
+    function initHangman() { currentHangman = 0; hangmanCorrect = 0; document.getElementById('hangman-result').style.display = 'none'; document.getElementById('hangman-content').style.display = 'block'; renderHangman(); }
+    function renderHangman() {
+        if (currentHangman >= HANGMAN_DATA.length) { showHangmanResult(); return; }
+        const d = HANGMAN_DATA[currentHangman];
+        hangmanLetters = []; hangmanLives = 6;
+        document.getElementById('hangman-score').textContent = `${hangmanCorrect}/${HANGMAN_DATA.length}`;
+        renderHangmanWord(d.word);
+        document.getElementById('hangman-content').innerHTML = `
+            <p style="text-align:center;color:var(--primary);font-size:0.85rem;margin-bottom:8px;">Palabra ${currentHangman + 1} de ${HANGMAN_DATA.length}</p>
+            <div class="hangman-lives" id="hangman-lives">${'❤️'.repeat(hangmanLives)}</div>
+            <div class="hangman-word" id="hangman-word-display">${d.word.split('').map(() => '<div class="hangman-letter"></div>').join('')}</div>
+            <p class="hangman-hint"><i class="fas fa-lightbulb"></i> ${d.hint}</p>
+            <div class="hangman-keyboard" id="hangman-keyboard">${'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('').map(l => `<button class="hangman-key" onclick="hangmanGuess('${l}', this)">${l}</button>`).join('')}</div>
+            <p id="hangman-msg" style="text-align:center;margin-top:16px;font-weight:600;"></p>`;
+    }
+    function renderHangmanWord(word) {
+        const display = document.getElementById('hangman-word-display');
+        if (!display) return;
+        display.innerHTML = word.split('').map(l => `<div class="hangman-letter">${hangmanLetters.includes(l) ? l : ''}</div>`).join('');
+    }
+    function hangmanGuess(letter, btn) {
+        btn.disabled = true;
+        const d = HANGMAN_DATA[currentHangman];
+        if (d.word.includes(letter)) {
+            hangmanLetters.push(letter); btn.classList.add('correct');
+            renderHangmanWord(d.word);
+            if (d.word.split('').every(l => hangmanLetters.includes(l))) {
+                hangmanCorrect++;
+                document.getElementById('hangman-msg').innerHTML = '<span style="color:#4ade80;"><i class="fas fa-check-circle"></i> ¡Correcto!</span>';
+                document.getElementById('hangman-score').textContent = `${hangmanCorrect}/${HANGMAN_DATA.length}`;
+                document.querySelectorAll('.hangman-key').forEach(b => b.disabled = true);
+                setTimeout(() => { currentHangman++; renderHangman(); }, 1500);
+            }
+        } else {
+            hangmanLives--; btn.classList.add('wrong');
+            document.getElementById('hangman-lives').textContent = '❤️'.repeat(hangmanLives) + '🖤'.repeat(6 - hangmanLives);
+            if (hangmanLives <= 0) {
+                document.getElementById('hangman-msg').innerHTML = `<span style="color:#f87171;"><i class="fas fa-times-circle"></i> La palabra era: <strong>${d.word}</strong></span>`;
+                document.querySelectorAll('.hangman-key').forEach(b => b.disabled = true);
+                setTimeout(() => { currentHangman++; renderHangman(); }, 2000);
+            }
+        }
+    }
+    function showHangmanResult() { document.getElementById('hangman-content').style.display = 'none'; const r = document.getElementById('hangman-result'); r.style.display = 'block'; document.getElementById('hangman-final-score').textContent = `${hangmanCorrect}/${HANGMAN_DATA.length}`; document.getElementById('hangman-final-text').textContent = hangmanCorrect === HANGMAN_DATA.length ? '¡Perfecto!' : '¡Sigue practicando!'; }
+
+    // ============================================================
+    // ORDER PROCESS
+    // ============================================================
+    function initOrder() { currentOrder = 0; document.getElementById('order-result').style.display = 'none'; document.getElementById('order-steps').style.display = 'block'; document.getElementById('order-check-btn').style.display = 'inline-block'; document.getElementById('order-next-btn').style.display = 'none'; renderOrder(); }
+    function renderOrder() {
+        if (currentOrder >= ORDER_DATA.length) { showOrderResult(); return; }
+        const d = ORDER_DATA[currentOrder];
+        orderSteps = [...d.steps].sort(() => Math.random() - 0.5);
+        document.getElementById('order-instruction').textContent = d.title + ' — ' + d.instruction;
+        document.getElementById('order-score').textContent = '0%';
+        document.getElementById('order-check-btn').style.display = 'inline-block';
+        document.getElementById('order-next-btn').style.display = 'none';
+        const container = document.getElementById('order-steps');
+        container.innerHTML = '';
+        orderSteps.forEach((step, i) => {
+            const el = document.createElement('div');
+            el.className = 'order-step';
+            el.draggable = true;
+            el.dataset.index = i;
+            el.innerHTML = `<span class="step-num">${i + 1}</span><span>${step}</span>`;
+            el.addEventListener('dragstart', e => { e.dataTransfer.setData('text/plain', i); el.classList.add('dragging'); });
+            el.addEventListener('dragend', () => el.classList.remove('dragging'));
+            el.addEventListener('dragover', e => { e.preventDefault(); el.style.borderTop = '3px solid var(--primary)'; });
+            el.addEventListener('dragleave', () => { el.style.borderTop = ''; });
+            el.addEventListener('drop', e => {
+                e.preventDefault(); el.style.borderTop = '';
+                const fromIdx = parseInt(e.dataTransfer.getData('text/plain'));
+                const toIdx = parseInt(el.dataset.index);
+                if (fromIdx !== toIdx) { [orderSteps[fromIdx], orderSteps[toIdx]] = [orderSteps[toIdx], orderSteps[fromIdx]]; renderOrder(); }
+            });
+            container.appendChild(el);
+        });
+    }
+    function checkOrder() {
+        const d = ORDER_DATA[currentOrder];
+        let correctCount = 0;
+        document.querySelectorAll('.order-step').forEach((el, i) => {
+            if (orderSteps[i] === d.correct[i]) { el.classList.add('correct-pos'); correctCount++; }
+            else { el.classList.add('wrong-pos'); }
+            el.draggable = false;
+        });
+        const pct = Math.round((correctCount / d.correct.length) * 100);
+        document.getElementById('order-score').textContent = `${pct}%`;
+        document.getElementById('order-check-btn').style.display = 'none';
+        document.getElementById('order-next-btn').style.display = 'inline-block';
+    }
+    function nextOrder() { currentOrder++; renderOrder(); }
+    function showOrderResult() { document.getElementById('order-steps').style.display = 'none'; document.getElementById('order-check-btn').style.display = 'none'; document.getElementById('order-next-btn').style.display = 'none'; const r = document.getElementById('order-result'); r.style.display = 'block'; document.getElementById('order-final-score').textContent = `${ORDER_DATA.length}/${ORDER_DATA.length}`; document.getElementById('order-final-text').textContent = '¡Completaste todos los procesos!'; }
+
+    // ============================================================
+    // MEMORY GAME
+    // ============================================================
+    function initMemory() {
+        memoryFlipped = []; memoryMatched = 0; memoryMoves = 0; memoryLocked = false;
+        document.getElementById('memory-result').style.display = 'none';
+        document.getElementById('memory-moves').textContent = 'Movimientos: 0';
+        const pairs = [
+            { a: 'Mitocondria', b: 'Energía' }, { a: 'Cloroplasto', b: 'Fotosíntesis' },
+            { a: 'Núcleo', b: 'ADN' }, { a: 'Ribosoma', b: 'Proteínas' },
+            { a: 'Lisosoma', b: 'Digestión' }, { a: 'Neurona', b: 'Impulsos' },
+            { a: 'Corazón', b: 'Sangre' }, { a: 'Pulmón', b: 'Oxígeno' }
+        ];
+        let cards = [];
+        pairs.forEach((p, i) => {
+            cards.push({ text: p.a, pairId: i });
+            cards.push({ text: p.b, pairId: i });
+        });
+        cards.sort(() => Math.random() - 0.5);
+        const board = document.getElementById('memory-board');
+        board.innerHTML = '';
+        cards.forEach((card, i) => {
+            const el = document.createElement('div');
+            el.className = 'memory-card';
+            el.dataset.pairId = card.pairId;
+            el.dataset.index = i;
+            el.innerHTML = `<div class="memory-card-inner"><div class="memory-card-front"><i class="fas fa-dna"></i></div><div class="memory-card-back">${card.text}</div></div>`;
+            el.onclick = () => flipMemoryCard(el);
+            board.appendChild(el);
+        });
+    }
+    function flipMemoryCard(el) {
+        if (memoryLocked || el.classList.contains('flipped') || el.classList.contains('matched')) return;
+        el.classList.add('flipped');
+        memoryFlipped.push(el);
+        if (memoryFlipped.length === 2) {
+            memoryMoves++;
+            document.getElementById('memory-moves').textContent = `Movimientos: ${memoryMoves}`;
+            memoryLocked = true;
+            const [a, b] = memoryFlipped;
+            if (a.dataset.pairId === b.dataset.pairId) {
+                a.classList.add('matched'); b.classList.add('matched');
+                memoryMatched++;
+                memoryFlipped = []; memoryLocked = false;
+                const total = document.querySelectorAll('.memory-card').length / 2;
+                if (memoryMatched === total) {
+                    setTimeout(() => { document.getElementById('memory-result').style.display = 'block'; document.getElementById('memory-final-score').textContent = `${memoryMoves} movimientos`; document.getElementById('memory-final-text').textContent = memoryMoves <= 12 ? '¡Increíble memoria!' : '¡Bien hecho!'; }, 500);
+                }
+            } else {
+                setTimeout(() => { a.classList.remove('flipped'); b.classList.remove('flipped'); memoryFlipped = []; memoryLocked = false; }, 800);
+            }
+        }
     }
 
-    function answerQuiz(idx) {
-        if (quizAnswered) return;
-        quizAnswered = true;
-        const q = window._quizQuestions[currentQuizQ];
-        const btns = document.querySelectorAll('.quiz-game-opt');
-        if (idx === q.correct) { quizCorrect++; btns[idx].classList.add('correct'); }
-        else { btns[idx].classList.add('incorrect'); btns[q.correct].classList.add('correct'); }
-        document.getElementById('quizgame-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`;
-        setTimeout(() => { currentQuizQ++; renderQuizQuestion(); }, 1200);
+    // ============================================================
+    // WORD SEARCH
+    // ============================================================
+    const WS_SIZE = 12;
+    let wsGrid = [], wsStartCell = null;
+    function initWordSearch() {
+        wsFoundWords = []; wsSelected = []; wsStartCell = null;
+        document.getElementById('ws-result').style.display = 'none';
+        document.getElementById('ws-grid').style.display = 'inline-grid';
+        document.getElementById('ws-words').style.display = 'flex';
+        generateWordSearch();
+    }
+    function generateWordSearch() {
+        wsGrid = Array.from({ length: WS_SIZE }, () => Array(WS_SIZE).fill(''));
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        WORDSEARCH_WORDS.forEach(word => {
+            let placed = false;
+            let attempts = 0;
+            while (!placed && attempts < 200) {
+                const dir = Math.floor(Math.random() * 3); // 0=horizontal, 1=vertical, 2=diagonal
+                const dr = dir === 0 ? 0 : dir === 1 ? 1 : 1;
+                const dc = dir === 0 ? 1 : dir === 1 ? 0 : 1;
+                const maxR = WS_SIZE - word.length * dr;
+                const maxC = WS_SIZE - word.length * dc;
+                if (maxR < 0 || maxC < 0) { attempts++; continue; }
+                const r = Math.floor(Math.random() * (maxR + 1));
+                const c = Math.floor(Math.random() * (maxC + 1));
+                let canPlace = true;
+                for (let i = 0; i < word.length; i++) {
+                    if (wsGrid[r + i * dr][c + i * dc] !== '' && wsGrid[r + i * dr][c + i * dc] !== word[i]) { canPlace = false; break; }
+                }
+                if (canPlace) {
+                    for (let i = 0; i < word.length; i++) wsGrid[r + i * dr][c + i * dc] = word[i];
+                    placed = true;
+                }
+                attempts++;
+            }
+        });
+        for (let r = 0; r < WS_SIZE; r++) for (let c = 0; c < WS_SIZE; c++) if (wsGrid[r][c] === '') wsGrid[r][c] = letters[Math.floor(Math.random() * letters.length)];
+        renderWordSearch();
+    }
+    function renderWordSearch() {
+        const gridEl = document.getElementById('ws-grid');
+        gridEl.style.gridTemplateColumns = `repeat(${WS_SIZE}, 36px)`;
+        gridEl.innerHTML = '';
+        for (let r = 0; r < WS_SIZE; r++) for (let c = 0; c < WS_SIZE; c++) {
+            const cell = document.createElement('div');
+            cell.className = 'ws-cell';
+            cell.textContent = wsGrid[r][c];
+            cell.dataset.row = r; cell.dataset.col = c;
+            cell.onclick = () => wsCellClick(cell, r, c);
+            gridEl.appendChild(cell);
+        }
+        const wordsEl = document.getElementById('ws-words');
+        wordsEl.innerHTML = WORDSEARCH_WORDS.map(w => `<span class="ws-word ${wsFoundWords.includes(w) ? 'found' : ''}" data-word="${w}">${w}</span>`).join('');
+        document.getElementById('ws-found').textContent = `${wsFoundWords.length}/${WORDSEARCH_WORDS.length}`;
+    }
+    function wsCellClick(cell, r, c) {
+        if (!wsStartCell) {
+            wsStartCell = { r, c, el: cell };
+            cell.classList.add('selected');
+        } else {
+            const sr = wsStartCell.r, sc = wsStartCell.col;
+            const dr = Math.sign(r - sr), dc = Math.sign(c - sc);
+            const distR = Math.abs(r - sr), distC = Math.abs(c - sc);
+            if ((dr === 0 || dc === 0 || distR === distC) && (distR + distC > 0)) {
+                let word = '';
+                const cells = [];
+                for (let i = 0; i <= Math.max(distR, distC); i++) {
+                    word += wsGrid[sr + i * dr][sc + i * dc];
+                    const cellEl = document.querySelector(`.ws-cell[data-row="${sr + i * dr}"][data-col="${sc + i * dc}"]`);
+                    cells.push(cellEl);
+                }
+                const reversed = word.split('').reverse().join('');
+                const found = WORDSEARCH_WORDS.find(w => (w === word || w === reversed) && !wsFoundWords.includes(w));
+                if (found) {
+                    wsFoundWords.push(found);
+                    cells.forEach(c => c.classList.add('found'));
+                    if (wsFoundWords.length === WORDSEARCH_WORDS.length) {
+                        setTimeout(() => { document.getElementById('ws-grid').style.display = 'none'; document.getElementById('ws-words').style.display = 'none'; const r = document.getElementById('ws-result'); r.style.display = 'block'; document.getElementById('ws-final-text').textContent = '¡Encontraste todas las palabras!'; }, 500);
+                    }
+                }
+            }
+            wsStartCell.el.classList.remove('selected');
+            wsStartCell = null;
+        }
     }
 
-    function showQuizGameResult() {
-        document.getElementById('quizgame-content').style.display = 'none';
-        const r = document.getElementById('quizgame-result');
-        r.style.display = 'block';
-        document.getElementById('quizgame-final-score').textContent = `${quizCorrect}/${window._quizQuestions.length}`;
-        document.getElementById('quizgame-final-text').textContent = quizCorrect === window._quizQuestions.length ? '¡Perfecto! ¡Sabes muchísimo de biología!' : quizCorrect >= window._quizQuestions.length * 0.7 ? '¡Muy bien! Casi perfecto.' : quizCorrect >= window._quizQuestions.length / 2 ? '¡Buen intento! Repasa los temas.' : '¡Sigue estudiando! Tú puedes.';
+    // ============================================================
+    // PUZZLE
+    // ============================================================
+    function initPuzzle() { puzzlePieces = [0,1,2,3,4,5,6,7,8]; puzzleSelected = null; puzzleMoves = 0; document.getElementById('puzzle-status').textContent = ''; document.getElementById('puzzle-moves').textContent = 'Movimientos: 0'; shufflePuzzle(); }
+    function shufflePuzzle() { for (let i = puzzlePieces.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [puzzlePieces[i], puzzlePieces[j]] = [puzzlePieces[j], puzzlePieces[i]]; } puzzleMoves = 0; puzzleSelected = null; document.getElementById('puzzle-moves').textContent = 'Movimientos: 0'; document.getElementById('puzzle-status').textContent = '¡Piezas mezcladas! Intenta resolverlo.'; document.getElementById('puzzle-status').style.color = 'var(--text-dim)'; renderPuzzle(); }
+    function renderPuzzle() {
+        const board = document.getElementById('puzzle-board');
+        const imgUrl = 'https://images.unsplash.com/photo-1594913785162-e678ac052bc2?q=80&w=300&h=300&auto=format&fit=crop';
+        board.innerHTML = '';
+        puzzlePieces.forEach((pos, index) => {
+            const piece = document.createElement('div');
+            piece.className = 'puzzle-piece';
+            if (pos !== null) {
+                const r = Math.floor(pos / 3), c = pos % 3;
+                piece.style.backgroundImage = `url(${imgUrl})`;
+                piece.style.backgroundPosition = `-${c * 100}px -${r * 100}px`;
+            }
+            piece.onclick = () => selectPuzzlePiece(index);
+            if (puzzleSelected === index) piece.classList.add('selected-piece');
+            board.appendChild(piece);
+        });
+        checkPuzzleWin();
     }
-
-    function restartQuizGame() { initQuizGame(); }
+    function selectPuzzlePiece(index) {
+        if (puzzleSelected === null) { puzzleSelected = index; }
+        else { [puzzlePieces[puzzleSelected], puzzlePieces[index]] = [puzzlePieces[index], puzzlePieces[puzzleSelected]]; puzzleSelected = null; puzzleMoves++; document.getElementById('puzzle-moves').textContent = `Movimientos: ${puzzleMoves}`; }
+        renderPuzzle();
+    }
+    function checkPuzzleWin() { if (puzzlePieces.every((p, i) => p === i)) { document.getElementById('puzzle-status').textContent = '¡Rompecabezas completado!'; document.getElementById('puzzle-status').style.color = '#4ade80'; } }
     </script>
 </body>
 </html>
