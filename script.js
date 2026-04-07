@@ -1,18 +1,18 @@
 // Variables globales para Three.js
 let scene, camera, renderer, controls;
-const R = 5; // Radio de la Tierra
+const R = 8; // Radio de la Tierra
 
 // Inicialización de la escena, cámara y renderizador
 function initEarth() {
   scene = new THREE.Scene();
 
   camera = new THREE.PerspectiveCamera(
-    75,
+    60,
     window.innerWidth / window.innerHeight,
     0.1,
     1000
   );
-  camera.position.set(0, 0, 15);
+  camera.position.set(0, 0, 20);
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(window.devicePixelRatio);

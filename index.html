@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.141.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
+    <nav id="global-nav" style="opacity: 0; pointer-events: none; transition: opacity 0.8s ease;"></nav>
     <main class="hero">
         <div id="earth-container"></div>
         <div id="intro-overlay" class="intro-overlay">
@@ -35,11 +36,15 @@
     <script>
         function startExploration() {
             const overlay = document.getElementById('intro-overlay');
+            const nav = document.getElementById('global-nav');
             const panel = document.getElementById('country-info-panel');
             overlay.style.opacity = '0';
             overlay.style.pointerEvents = 'none';
             overlay.style.transform = 'scale(1.1)';
             overlay.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
+            setTimeout(() => { overlay.style.display = 'none'; }, 1000);
+            nav.style.opacity = '1';
+            nav.style.pointerEvents = 'auto';
             panel.style.display = 'block';
             panel.style.animation = 'fadeIn 1.2s forwards 0.5s';
         }
